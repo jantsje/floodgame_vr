@@ -1,0 +1,167 @@
+{% extends "floodgame_norms/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+
+{% block title %}
+    {% trans "Questionnaire" %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+            function cleanAndersText(){
+                if (document.getElementById('other_edu').checked){
+                document.getElementById('other_text').value = ''
+                console.log('cleaning out other text')}
+                        }
+
+            function enableAll(){
+				var items=document.getElementsByName('insurances');
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox')
+						items[i].disabled=false;
+
+				}
+			}
+
+			function UnSelectAll(){
+				var items=document.getElementsByName('insurances');
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox')
+						items[i].checked=false;
+						items[i].disabled=true;
+
+				}
+			}
+			function handleCheckbox(checkboxElem) {
+          if (checkboxElem.checked) {
+            UnSelectAll();
+          } else {
+            enableAll();
+          }
+        }
+
+                function countCheckboxes(){
+      var inputElems = document.getElementsByName("insurances");
+      var inputNone = document.getElementById("none");
+      var count = 0;
+      for (var i=0; i<inputElems.length; i++) {
+        if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
+          count++;
+        }
+      }
+      if(count < 1 && inputNone.checked === false){
+        $(".help-block").text("Please select at least one option").show();
+        event.preventDefault();
+     }
+      else{
+         $(".help-block").hide();
+      }
+
+      console.log(count);
+
+        }
+		</script>
+{% endblock %}
+
+{% block content %}
+
+{% include 'snippets/Voortgangsbalk.html' %}
+
+
+
+
+
+<div class="card"><div class="card-body">
+    {% if player.round_number == 3 %}
+
+            {% trans "Please indicate the extent to which you agree or disagree with the following statements." %}
+        <br> <br>
+
+               {% for field in form %}
+        <table class="table table-sm" width=100%>
+            <tr>
+                {% if  forloop.counter  == 1  %}<th> </th>
+                    <th>{% trans "Strongly disagree" %}</th>
+                    <th>{% trans "Disagree" %}</th>
+                    <th>{% trans "Neither agree nor disagree" %}</th>
+                    <th>{% trans "Agree" %}</th>
+                    <th>{% trans "Strongly agree" %}</th>
+                {% endif %}
+            </tr>
+            <tr>
+                <td width="50%">
+                    {{ field.label }}
+                    {{ field.errors }}
+                </td>
+                <td width="9%"><input type="radio" name="{{ field.html_name}}" value="1"></td>
+                <td width="8%"><input type="radio" name="{{ field.html_name}}" value="2"></td>
+                <td width="9%"><input required type="radio" name="{{ field.html_name}}" value="3"></td>
+                <td width="8%"><input type="radio" name="{{ field.html_name}}" value="4"></td>
+                <td width="9%"><input type="radio" name="{{ field.html_name}}" value="5"></td>
+
+            </tr>
+
+        </table>
+               {% endfor %}
+
+{% else %}
+
+{% for field in form %}
+
+    {% if field.name == "exact_flood_risk_perception" %}
+
+                <div class="well col-md-12"  >
+                    {% blocktrans trimmed %}
+                        The scale below shows different flood probabilities.
+                    {% endblocktrans %}
+
+
+                </div><div class="col-md-10"><img width="90%" src="{% static 'floodgame_norms/schaal_'|add:language_code|add:'.png' %}"/><br><br><br></div>
+
+                <label>{{field.label}}</label><br>
+            <div class="input-group" >
+                  <div class="input-group-prepend"><div class="input-group-text">
+                  {% blocktrans trimmed %}
+                        On average, one flood every
+                  {% endblocktrans %}
+                  </div></div>
+                <input class="form-control" required type="number" min="1"
+                                                       name="exact_flood_risk_perception" id="exact" autocomplete="off"
+                onchange="document.getElementById('checkbox').disabled = this.value.length > 0;">
+
+                <div class="input-group-append"><div class="input-group-text">{{field.help_text}}</div></div></div>
+ <br>
+           <div class="input-group" >
+                <p>
+                <small>{% blocktrans trimmed %}
+                or if you think that a flood will never happen:
+                {% endblocktrans %}</small></p>&nbsp;&nbsp;&nbsp;
+
+                    <div class="input-group-text">
+                    <input type="checkbox" value="999999" name="exact_flood_risk_perception" id="checkbox"
+                           aria-label="..." onchange="document.getElementById('exact').disabled = this.checked;"></div>
+                </div></div>
+
+    {% else %}
+        {% formfield field %}
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+</div>
+    {{form.errors}}
+
+{#{% endif %}#}
+
+
+        </div><br>{{form.errors}}
+
+{% if player.round_number == 5 %}
+    <button name="next_button"  class="btn btn-primary btn-right btn-lg" onclick='countCheckboxes()' >
+        {% trans "Next" %}
+    </button>
+{% else %}
+    <button name="next_button"  class="btn btn-primary btn-right btn-lg">{% trans "Next" %}</button>
+{% endif %}
+{% endblock %}

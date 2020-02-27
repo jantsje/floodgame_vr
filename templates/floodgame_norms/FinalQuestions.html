@@ -1,0 +1,560 @@
+{% extends "floodgame_norms/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Final Questionnaire" %}
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+              var count = 0;
+              var button = document.getElementById("more_info");
+              var clicked_button = document.getElementById("id_clicked_button");
+
+              button.onclick = function(){
+                count++;
+                clicked_button.value = count;
+                console.log(clicked_button)
+
+              }
+
+
+
+            function enableAll(){
+				var items=document.getElementsByName('measures');
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox')
+						items[i].disabled=false;
+
+				}
+			}
+
+			function UnSelectAll(){
+				var items=document.getElementsByName('measures');
+				for(var i=0; i<items.length; i++){
+					if(items[i].type=='checkbox')
+						items[i].checked=false;
+						items[i].disabled=true;
+
+				}
+			}
+			function handleCheckbox(checkboxElem) {
+          if (checkboxElem.checked) {
+            UnSelectAll();
+          } else {
+            enableAll();
+          }
+        }
+
+                function countCheckboxes(){
+      var inputElems = document.getElementsByName("measures");
+      var inputNone = document.getElementById("none");
+      var count = 0;
+      for (var i=0; i<inputElems.length; i++) {
+        if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
+          count++;
+        }
+      }
+      if(count < 1 && inputNone.checked === false){
+        inputNone.required=true;
+     }
+      else{
+            for(var i=0; i<inputElems.length; i++){
+                inputElems[i].required=false;
+                inputNone.required=false;
+                }
+
+      }
+
+      console.log(inputNone.required);
+
+        }
+
+        function countCheckboxes2(){
+      var inputElems = document.getElementsByName("neighbors_relation");
+      var count = 0;
+      for (var i=0; i<inputElems.length; i++) {
+        if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
+          count++;
+        }
+      }
+      if(count < 1){
+          inputElems[1].required = true;
+     }
+      else{
+                for(var i=0; i<inputElems.length; i++){
+                inputElems[i].required=false;
+                }
+      }
+
+
+        }
+		</script>{% endblock %}
+
+{% block content %}
+
+{% include 'snippets/Voortgangsbalk.html' %}
+
+
+    {% if player.round_number == 18 %}
+    <div class="alert alert-success" role="alert">
+    {% blocktrans trimmed %}
+         <p> Thank you for your participation in this research. </p><p>
+           </p><p> In case you are selected for the large reward, we will get in touch with you.
+           </p><p> In case you have questions about the research, feel free to send an email to:
+           <a href="mailto:info.ivm@vu.nl?subject=Question about IVM survey">info.ivm@vu.nl</a>
+         </p>
+    {% endblocktrans %}
+    </div>
+    {% endif %}
+
+
+
+<div class="card"><div class="card-body"><p>
+
+    {% if player.round_number == 6 %}
+
+            <div class="card bg-light"><div class="card-body"><p>
+            <p> {% trans "This was the end of the scenario. We will now ask some questions about the scenario." %} </p>
+        </div></div>
+
+        {% for field in form %}
+        {% formfield field %}
+        {% endfor %}
+
+
+            <div class="card bg-light"><div class="card-body"><p>
+                <p> <b>{% trans "Caution!" %}</b> {% trans "The questions on the next pages concern your current home (not the home in the scenario)." %} </p>
+            </div></div><br>
+
+
+    {% elif measures_taken and player.round_number == 8 %}
+        {% blocktrans trimmed %}
+        You indicated that you have taken the following structural measures. <br>
+        For each measure taken to protect your home against flood damage, please indicate the individual or organization that initiated the protective measure.
+        {% endblocktrans%}
+        <p>
+
+        {%  for field in form %}
+                <table class="table table-sm" width=100%>
+                    <tr>
+                    {%if  forloop.counter  == 1  %}<th> </th>
+                        <th>{% trans "Myself or a family member" %}</th>
+                        <th>{% trans "Previous owner" %}</th>
+                        <th>{% trans "Homeowners association" %}</th>
+                        <th>{% trans "Other" %} </th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    <td width="51%">
+                        {{ field.label }}
+                        {% if field.label == "Other:" %}
+                        <i>"{{ other_text }}"</i>
+                        {% endif %}
+                    {{ field.errors }}
+                    </td>
+                    <td width="10%"><input type="radio" name="{{ field.html_name}}" value="0"></td>
+                    <td style="width:15%;"><input type="radio" name="{{ field.html_name}}" value="1"></td>
+                    <td style="width:15%;"><input required type="radio" name="{{ field.html_name}}" value="2"></td>
+                    <td width="10%"><input required type="radio" name="{{ field.html_name}}" value="3"></td>
+                    </tr>
+                </table>
+                <div class="help-block with-errors" id="checkboxError"></div>
+        {% endfor %}
+
+
+
+   {% elif player.round_number == 13 %}
+        {% trans "Please indicate the extent to which you agree or disagree with the following statements." %}    <br>
+            <table class="table table-sm" width=100%>
+        {% for field in form %}
+                    {%if  forloop.counter  == 1  %}
+                        <tr><td width="45%"> </td>
+                        <th style="width:4%;" colspan="2">{% trans "Strongly disagree" %}</th>
+                        <td style="width:4%;"></td>
+                        <td style="width:4%;"></td>
+                        <td style="width:4%;"></td>
+                        <th style="width:4%;text-align:center;border-right: 1px solid;" colspan="2">{% trans "Strongly agree" %}</th>
+                        <th style="width:4%;text-align:center">{% trans "Not applicable" %}</th>
+                    </tr>
+                    {% endif %}
+
+                    <tr>
+                    <td width="45%">
+                        {{ field.label }}
+                        {{ field.errors }}
+                    </td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=1></td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=2></td>
+                    <td style="width:4%;"><input required type="radio" name="{{ field.html_name}}" value=3></td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=4></td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=5></td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=6></td>
+                    <td style="width:4%;border-right: 1px solid;"><input type="radio" name="{{ field.html_name}}" value=7></td>
+                    <td style="width:4%;text-align:center"><input type="radio" name="{{ field.html_name}}" value=99></td>
+                    </tr>
+        {% endfor %}
+                </table>
+   {% elif player.round_number == 12 %}
+
+        {% for field in form %}
+            <table class="table" width=100%>
+                <thead>
+                <tr> {{field.label}}</tr>
+                </thead>
+                <tbody> <tr>
+                    <td style="width:12%;">
+                        <br>{% trans "completely unwilling" %}</td>
+                    <td style="width:4%;"><br><input required type="radio" name="{{ field.html_name}}" value="0"> <br>0</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="1"><br> 1</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="2"><br> 2</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="3"><br> 3</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="4"><br> 4</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="5"><br> 5</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="6"><br> 6</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="7"><br> 7</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="8"><br> 8</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="9"><br> 9</td>
+                    <td style="width:6%;"><br><input type="radio" name="{{ field.html_name}}" value="10"><br> 10</td>
+                    <td style="width:20%;">
+                        <br>{% trans "completely willing" %}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+
+   {% elif player.round_number == 14 %}
+
+        {% for field in form %}
+            <table class="table" width=100%>
+                <thead>
+                <tr> {{field.label}}</tr>
+                </thead>
+                <tbody> <tr>
+                    <td style="width:12%;">
+                        {% if field.name == "sns3" %} {% trans "never" %}
+                        {% else %}{% trans "not good at all" %}
+                        {% endif %}
+</td>
+                    <td style="width:4%;"><input required type="radio" name="{{ field.html_name}}" value="1"> <br>1</td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="2"><br> 2</td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="3"><br> 3</td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="4"><br> 4</td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="5"><br> 5</td>
+                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="6"><br> 6</td>
+                    <td style="width:20%;">
+                        {% if field.name == "sns3" %} {% trans "very often" %}
+                        {% else %}{% trans "extremely good" %}
+                        {% endif %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+
+   {% elif player.round_number == 11 %}
+
+        {% trans "Please indicate the likelihood of you engaging in each of the following activities." %}  <br>
+            <table class="table table-sm" style="width:100%;">
+        {% for field in form %}
+            <tr>
+                {%if  forloop.counter  == 1  %}<th> </th><th>{% trans "Very unlikely" %}</th><th>{% trans "Somewhat unlikely" %}</th><th>{% trans "Neither likely nor unlikely" %}
+                </th><th>{% trans "Somewhat likely" %}</th><th>{% trans "Very likely" %}</th>
+                {% endif %}
+            </tr>
+            <tr>
+                <td style="width:65%;">
+                    {{ field.label }}
+                    {{ field.errors }}
+                </td>
+                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=1></td>
+                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=2></td>
+                <td style="width:7%;"><input required type="radio" name="{{ field.html_name}}" value=3></td>
+                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=4></td>
+                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=5></td>
+            </tr>
+        {% endfor %}
+            </table>
+
+    {% else %}
+
+        {% for field in form %}
+        {% if field.name == "measures" %}
+
+            {{field.label}} <p>
+                   <div class="form-group has-error">
+                <input type="checkbox" name="measures" value="cellar" id="cellar">
+                <label for="cellar">
+                    {% trans "No valuables in basement" %}</label><br>
+                <input type="checkbox" name="measures" value="furniture" id="furniture">
+                <label for="furniture">
+                    {% trans "Water-resistant furniture on ground floor" %}</label><br>
+                <input type="checkbox" name="measures" value="floor_elevated" id="elevated">
+                <label for="elevated">
+                    {% trans "Elevated ground floor" %}</label><br>
+                <input type="checkbox" name="measures" value="foundation" id="foundation">
+                <label for="foundation">
+                   {% trans "Strengthened foundation" %}</label><br>
+                <input type="checkbox" name="measures" value="walls" id="walls">
+                <label for="walls">
+                    {% trans "Walls made of water-resistant materials" %}</label><br>
+                <input type="checkbox" name="measures" value="floor_water_resistant" id="floor_water_resistant" >
+                <label for="floor_water_resistant">
+                    {% trans "Floor of ground floor made of water-resistant materials (e.g. tile floor)" %}</label><br>
+                <input type="checkbox" name="measures" value="sockets_raised" id="sockets_raised">
+                <label for="sockets_raised">
+                    {% trans "Raised power sockets on ground floor" %}</label><br>
+                <input type="checkbox" name="measures" value="valves" id="valves">
+                <label for="valves">
+                     {% trans "Anti-backflow valves" %}</label><br>
+                <input type="checkbox" name="measures" value="sandbags" id="sandbags">
+                <label for="sandbags">
+                     {% trans "(Empty) sand bags or flood barriers at home" %}</label><br>
+                <input type="checkbox" name="measures" value="appliances_elevated" id="appliances_elevated">
+                <label for="appliances_elevated">
+                     {% trans "Elevated electrical appliances" %}</label><br>
+                <input type="checkbox" name="measures" value="boiler" id="boiler">
+                <label for="boiler">
+                     {% trans "Elevated boiler" %}</label><br>
+                <input type="checkbox" name="measures" value="meter_elevated" id="meter_elevated">
+                <label for="meter_elevated">
+                    {% trans "Elevated electricity meter" %}</label><br>
+                <input type="checkbox" name="measures" value="insured" id="insured">
+                <label for="insured">
+                    {% trans "Bought separate flood insurance" %}</label><br>
+                <input type="checkbox" name="measures" value="other" id="other"
+                onclick="document.getElementById('other_text').value=''"
+                onchange="document.getElementById('other_text').required = this.checked">
+                <label for="other">
+                    {% trans "Other:" %}</label>
+                <input type="text" name="other_text" size="40" id="other_text" autocomplete="off"
+                   onchange="document.getElementById('other').checked = this.value.length > 0;"><br>
+                <input type="checkbox" id="none" required
+                       onchange="handleCheckbox(this);
+                       document.getElementById('other_text').value='';
+                       document.getElementById('other_text_edu').required = false;"
+                       onclick="document.getElementById('other_text').disabled = this.checked"/>
+                        <label for="none">{% trans "None" %}</label><br></p>
+                        <div class="help-block with-errors" id="checkboxError"></div>
+                    </div>
+
+        {% elif field.name == "edu" %}
+            {{field.label}} <p>
+            <div class="form-group has-error">
+            <input type="radio" required name="edu" value="0" id="edu_0"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_0">
+                        {% trans "No diploma" %}</label><br>
+            <input type="radio" name="edu" value="1" id="edu_1"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+            <label for="edu_1">
+                {% trans "Primary school" %}</label><br>
+            <input type="radio" name="edu" value="2" id="edu_2"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_2">
+                        {% trans "Lower vocational education  (VBO, LBO)" %}</label><br>
+            <input type="radio" name="edu" value="3" id="edu_3"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_3">
+                        {% trans "Lower general secondary education (ULO, MULO, VMBO, MAVO)" %}</label><br>
+            <input type="radio" name="edu" value="4" id="edu_4"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_4">
+                        {% trans "Lower vocational secondary education (MBO)" %}</label><br>
+            <input type="radio" name="edu" value="5" id="edu_5"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_5">
+                        {% trans "Higher general secondary education or pre-university education (HAVO, VWO, HBS)" %}</label><br>
+            <input type="radio" name="edu" value="6" id="edu_6"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_6">
+                        {% trans "Higher vocational and university education (HBO, WO Bachelor)"%} </label><br>
+            <input type="radio" name="edu" value="7" id="edu_7"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_7">
+                        {% trans "Master’s degree (WO Master)" %}</label><br>
+            <input type="radio" name="edu" value="8" id="edu_8"
+                                onclick="document.getElementById('other_text_edu').value=''"
+            onchange="document.getElementById('other_text_edu').required = false ">
+                    <label for="edu_8">
+                        {% trans "Doctorate, PhD" %}</label><br>
+            <input type="radio" name="edu" value="77" id="other_edu"
+                   onchange="document.getElementById('other_text_edu').required = this.checked">
+            <label for="other_edu">
+                {% trans "Other:" %}</label>
+            <input type="text" name="other_text" size="40" id="other_text_edu" autocomplete="off"
+               onchange="document.getElementById('other_edu').checked = this.value.length > 0;"><br>
+                    </div>
+
+        {% elif field.name == "age" %}
+            {{field.label}}
+            <div class="input-group col-xs-1">
+            <div class="input-group-input">
+            <input class="form-control" type="number" aria-describedby="help-age" name='age' id='age'
+                   min=18 max=120 autocomplete="off"></div>
+            <span class="input-group-text" id = "help-age" class="text-muted"> {{field.help_text}}   </span>
+            </div><br>
+
+        {% elif field.name == "income" %}
+            <div class="card bg-light"><div class="card-body"><p>
+          {% blocktrans trimmed %}
+              The last questions concern financial matters. </p><p>
+              Remember that your answers are strictly confidential and will not be used for commercial purposes.</p>
+          {% endblocktrans %}
+            </div></div>
+
+            {% formfield field %}
+
+        {% elif field.name == "house_type" %}
+            {{field.label}} <br><br>
+                <div class="form-group has-error">
+                <input type="radio" required name="house_type" value="1" id="home"
+                       onclick="document.getElementById('other_text_floor').value=''"
+                       onchange="document.getElementById('other_text_floor').required = false ">
+                <label for="home">{% trans "House" %}</label><br>
+                <input type="radio" name="house_type" value="0" id="ground_floor"
+                       onclick="document.getElementById('other_text_floor').value=''"
+                       onchange="document.getElementById('other_text_floor').required = false ">
+                <label for="ground_floor">{% trans "Ground floor apartment" %}</label><br>
+                <input type="radio" name="house_type" value="2" id="higher_floor"
+                       onclick="document.getElementById('other_text_floor').value=''"
+                       onchange="document.getElementById('other_text_floor').required = false ">
+                <label for="higher_floor">{% trans "Apartment on first floor or higher" %}</label><br>
+                <input type="radio" name="house_type" value="77" id="other_neighbors"
+                onclick="document.getElementById('other_text_floor').value=''"
+                onchange="document.getElementById('other_text_floor').required = this.checked">
+                <label for="other_text_floor">{% trans "Other:" %}</label>
+                <input type="text" name="other_text" size="40" id="other_text_floor" autocomplete="off"
+                   onchange="document.getElementById('other_neighbors').checked = this.value.length > 0;">
+                </div>
+
+        {% elif field.name == "other_text" %}
+
+        {% elif field.name == "floor_size" %}
+            <label>{{field.label}}</label><br>
+                        <div class="row">
+                <div class="col-md-2">
+<div class="input-group">
+<input class="form-control" required type="number" min="0"
+name="floor_size" id="floor_size" autocomplete="off"
+onchange="document.getElementById('checkbox').disabled = this.value.length > 0;">
+<div class="input-group-append"><div class="input-group-text">{{field.help_text}}</div></div></div>
+                </div><div class="col-md-10">
+
+<div class="input-group-prepend"><div class="input-group-text">
+{% blocktrans trimmed %}
+don't know
+{% endblocktrans %}</div>
+<div class="input-group-text">
+<input type="checkbox" value="999999" name="floor_size" id="checkbox"
+aria-label="..." onchange="document.getElementById('floor_size').disabled = this.checked;"></div>
+</div></div></div>
+
+
+        {% elif field.name == "neighbors_relation" %}
+
+                {{field.label}} <p>
+                {{field.help_text}}
+                <input type="checkbox" name="neighbors_relation" value="0" id="partner" required>
+                <label for="partner">{% trans "Partner" %}</label><br>
+                <input type="checkbox" name="neighbors_relation" value="1" id="friend">
+                <label for="friend">{% trans "Close friend" %}</label><br>
+                <input type="checkbox" name="neighbors_relation" value="2" id="family">
+                <label for="family">{% trans "Family member" %}</label><br>
+                <input type="checkbox" name="neighbors_relation" value="3" id="neighbors">
+                <label for="neighbors">{% trans "Neighbor" %}</label><br>
+                <input type="checkbox" name="neighbors_relation" value="4" id="acquaintance">
+                <label for="acquaintance">{% trans "Acquaintance" %}</label><br>
+                <input type="checkbox" name="neighbors_relation" value="77" id="other_neighbors"
+                onclick="document.getElementById('other_text_neighbors').value=''"
+                onchange="document.getElementById('other_text_neighbors').required = this.checked">
+                <label for="other_neighbors"> {% trans "Other:" %}</label>
+                <input type="text" name="other_text" size="40" id="other_text_neighbors" autocomplete="off"
+                       onchange="document.getElementById('other_neighbors').checked = this.value.length > 0;">
+                                   <div class="help-block with-errors" id="checkboxError"></div>
+
+                </p>
+
+            {% elif field.name == "explain_strategy" %}
+                <label>{{field.label}}</label><br>
+                <textarea class="form-control" name="explain_strategy" required autocomplete="off"></textarea>
+                <br>
+            {% elif field.name == "crt3" %}
+                {%  formfield field %}
+
+            {%  elif field.name == "crt1" or field.name == "crt2" or field.name == "crt4" %}
+                <label>{{field.label}}</label><br>
+                <div class="input-group col-md-1" >
+                <div class="input-group-btn">{{field}}</div>
+                <div class="input-group-append"><div class="input-group-text">{{field.help_text}}</div></div>
+                </div><br>
+
+        {% elif field.name == "difficult_text" %}
+            <label>{{field.label}}</label><br>
+            <textarea class="form-control" name="difficult_text" required autocomplete="off"></textarea>
+            <br><br><br>
+
+        {% elif field.name == "feedback" %}
+            <label>{{field.label}}</label><br>
+            <textarea class="form-control" name="feedback" autocomplete="off"></textarea>
+
+        {% elif field.name == "clicked_button" %}
+            <input type="hidden" name="clicked_button" value="0" id="id_clicked_button"/>
+            {{form.clicked_button.errors}}
+
+            {% if treatment == 'baseline_1' or treatment == 'norm_focusing_1' %}
+
+                                    <blockquote class="blockquote">
+                        <p class="mb-0">
+                          {% blocktrans trimmed %}
+                              Recent research shows that <b>68% of homeowners</b> have installed at least one measure
+                              to protect their home from flood damage.
+                          {% endblocktrans %}
+                        </p>
+                    </blockquote>
+
+            {% else %}
+
+            {% endif %}
+
+<p>
+{% blocktrans trimmed %}
+            For more information about what you can do to protect your home against flood damage, click the button below.
+            <br>It will open in a new window.
+{% endblocktrans %}
+</p>
+            <a id="more_info" class="btn btn-success"
+               href="https://www.miteco.gob.es/es/agua/formacion/guia-reduccion-vulnerabilidad-edificios_tcm30-379148.pdf" target="_blank">
+    {% trans "More information" %}</a>   <br><br>
+
+
+
+    {% else %}
+        {% formfield field %}
+
+    {% endif %}
+    {% endfor %}
+{% endif %}
+
+{#    {{form.errors}}#}
+
+</div></div></div>
+
+{% if player.round_number == 7 %}
+<button name="next_button"  class="btn btn-primary btn-right btn-lg" onclick='countCheckboxes()' > {% trans "Next" %} </button>
+ {% elif player.round_number == 9 %}
+<button name="next_button"  class="btn btn-primary btn-right btn-lg" onclick='countCheckboxes2()' > {% trans "Next" %} </button>
+{% else %}
+<button name="next_button"  class="btn btn-primary btn-right btn-lg"  > {% trans "Next" %} </button>
+{% endif %}
+
+{% endblock %}

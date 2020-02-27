@@ -1,0 +1,89 @@
+{% extends "floodgame_norms/ExtendedPage.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+{% block app_styles %}
+<link href="{% static 'otreeutils/understanding.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block app_scripts %}
+<script src="{% static 'otreeutils/understanding.js' %}"></script>
+{% endblock %}
+
+
+{% block title %}
+{% include 'snippets/Titelblok.html' %}
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<ul class="nav justify-content-between">
+
+<li> <h2> {{ page_title }}</h2> </li>
+<li class="navbar-brand">
+    <button type="button" name="opened" class="btn btn-outline-primary" id="instructionsButton" data-toggle="modal" data-target="#myModal">abra las instrucciones </button>
+    <button type="button" disabled class="btn btn-outline-primary" > escenario de prueba </button>
+</li>
+</ul>
+
+    {% include 'snippets/Voortgangsbalk.html' %}
+{% include 'snippets/InstructionsCounter.html' %}
+
+
+<br>
+    <div class="alert alert-dark"><p>
+
+
+Para estar seguro de que entiende las reglas del juego correctamente, ahora le haremos un par de preguntas.
+        Después de responder estas preguntas correctamente será dirigido al escenario final.
+    </p>
+        <p><b>
+Las instrucciones estarán siempre disponibles durante el escenario
+            (en la parte superior derecha de la pantalla, en el botón "abrir las instrucciones").
+        </b></p>
+
+    </div>
+<div class="card"><div class="card-body">
+<ul class="questions">
+    {{ questions_form.as_ul }}
+</ul>
+
+<div style="display: none">
+    {% next_button %}
+</div>
+
+<div class="fake-next">
+    <input class="btn btn-primary btn-lg" type="button" value="Siguiente"
+           onclick="checkUnderstandingQuestionsForm()">
+</div>
+</div></div></div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg" style="width:1000px;">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title">{% trans "Instructions" %} </h5>
+              <button type="button" class="close" id=instructionsButton data-dismiss="modal">&times;</button>
+</div>
+      <div class="modal-body">
+          <div class="card-deck">
+
+{% include 'snippets/Instr.html' %}
+
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$(function() {
+    setupUnderstandingQuestionsForm({{ n_questions }}, "{{ hint_empty }}", "{{ form_field_n_wrong_attempts }}", {{ set_correct_answers }});
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "floodgame_norms/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Thank you" %}
+{% endblock %}
+
+
+{% block content %}
+
+<img width="100%" src="{% static 'floodgame_norms/banner_nl.jpg' %}"/>
+
+
+   <div><h4>
+<br><br>
+              {% blocktrans trimmed %}
+       Thank you for your interest in this research. <br><br>
+       Unfortunately, we already received enough responses.<br><br>
+       See you next time.
+       {% endblocktrans %}
+
+   </h4></div>
+
+
+<br> <br>
+<button class="btn btn-primary btn-left btn-lg" onclick="self.close()">{% trans "Close this window" %}</button>
+
+{% endblock %}

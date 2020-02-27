@@ -1,0 +1,107 @@
+{% extends "floodgame_norms/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+{% block content %}
+
+{% include 'snippets/Titel.html' %}
+{% include 'snippets/Voortgangsbalk.html' %}
+
+    <div class="alert alert-warning alert-dismissible" role="alert">
+    <div class="jumbotron alert-warning">
+
+        <h1 class="display-4">
+        <p class="lead">
+            {% blocktrans trimmed %}
+            Prior to taking your decision about investing in damage reducing measures,
+                we would like to know what you think other respondents will decide in the same scenario.</p>
+        <hr class="my-4">
+        <p class="lead">Please give us your best estimate. When your estimate turns out to be correct, you
+            are eligible for an extra bonus (&euro;20).</p>
+        {% endblocktrans %} <br>
+         <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button" data-dismiss="alert" aria-label="Close">{% trans "Close this window to start the prediction" %}</a>
+  </p>
+            <br><br> <br><br>
+
+<br><br><br><br><br><br><br><br>
+<br><br><br><br>
+
+<br><br><br><br>
+        <br><br><br><br>
+
+     </div></div>
+
+
+{% include 'snippets/Verdienstenbar.html' %}
+
+ <div class="row">
+
+  {% include 'snippets/Risicoblok.html'  %}
+  {% include 'snippets/Tijdblok.html' %}
+  {% include 'snippets/Schadeblok.html' %}
+  {% include 'snippets/Verzekeringsblok.html' %}
+
+ </div>
+
+ {% include 'snippets/Beliefs.html' %}
+
+
+{% endblock %}
+
+{% block app_styles%}
+<style>
+
+.tooltip-inner {
+  max-width: 180px !important;
+  font-size: 12px;
+  padding: 5px 20px 5px 20px;
+  background-color: #28a745;
+  border: 0px solid #737373;
+  text-align: center;}
+
+.bs-tooltip-bottom .arrow::before {
+border-bottom-color: #28a745}
+
+</style>
+{% endblock %}
+
+
+{% block app_scripts %}
+
+<script type ="text/css" data-require="bootstrap@*" data-semver="3.3.2" src="{% static 'floodgame_norms/bootstrap/bootstrap/js/bootstrap.min.js'%}"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+   rel="stylesheet">
+
+
+<script>
+
+function updateOneMinusBelief(){
+    var belief = document.getElementById("id_belief").value;
+    var result = 100 - belief;
+    // update result
+    document.getElementById("result").innerHTML = result;
+}
+
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+$('.popover-visible-trigger')
+	.popover('show')
+  .off('click');
+
+  $('.tooltip-visible-trigger')
+	.tooltip({trigger: 'manual'}).tooltip('show') ;
+
+</script>
+
+
+
+
+{% endblock %}

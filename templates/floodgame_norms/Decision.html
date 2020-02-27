@@ -1,0 +1,142 @@
+{% extends "floodgame_norms/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+
+{% block content %}
+
+{% include 'snippets/Titel.html' %}
+{% include 'snippets/Voortgangsbalk.html' %}
+
+    {% if treatment == 'norm_focusing' or treatment == 'norm_focusing_1' %}
+        {% if scenario_nr == 1 %}
+
+
+        <div class="alert alert-warning alert-dismissible" role="alert">
+        <div class="jumbotron alert-warning">
+
+        <h1 class="display-4"><strong>{% trans "Caution!" %}
+</strong> </h1>
+            <p class="lead"> 
+                {% blocktrans trimmed %}
+                You finished your prediction. <br> You can make <u><strong>your own</strong></u> investment decision 
+                in the next decision screen. 
+                {% endblocktrans %}
+            </p>
+        <hr class="my-4">
+
+        <a class="btn btn-primary btn-lg" href="#" role="button" data-dismiss="alert" aria-label="Close">{% trans "Close this window to start your decision"%}</a>
+        </p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div></div>
+
+
+    {% endif %}
+    {% endif %}
+
+
+{% include 'snippets/Verdienstenbar.html' %}
+
+ <div class="row">
+
+  {% include 'snippets/Risicoblok.html'  %}
+  {% include 'snippets/Tijdblok.html' %}
+  {% include 'snippets/Schadeblok.html' %}
+  {% include 'snippets/Verzekeringsblok.html' %}
+
+ </div>
+
+<div class="alert alert-secondary" role="alert">
+<h4 class="alert-heading">
+     {% trans "How much do you want to invest to reduce flood damage?" %}
+</h4>
+</div>
+
+
+<div class="col-12">
+    <div class="row">
+    <div class="card-group" id="dd">
+        <div class="card-group" style="text-align:center;width: 12rem;">
+            <div class="card w-100">
+                 <button name="mitigate" value=0 class="btn btn-primary btn-lg btn-block">
+                     <i class="material-icons white">build</i>&nbsp;{{mitigation_cost0}} </button>
+                <p class="card-text" style="margin:0px"> {% trans 'do not invest: <br> accept'%} {{Constants.damage}} </p> {%  trans "damage" %}
+                {% if treatment == 'norm_all' and scenario_nr == 1 %}
+                        <div class="card-footer bg-secondary text-white"><p style="line-height: 1; margin:0px"><small>{% trans "30% of homeowners chose this option previously." %}</small></p></div>
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="card-group" style="text-align:center;width: 48rem;">
+            <div class="card-group  w-100">
+                <div class="card" style="text-align:center;">
+                        <button name="mitigate" value=1 class="btn btn-primary btn-lg btn-block">
+                            <i class="material-icons white">build</i>
+                            &nbsp;{{mitigation_cost1}} </button>
+                <p class="card-text" style="margin:0px"> {% trans "reduce damage to"%}<br>  {{reduced_damage1}} <br></p>
+                {% if treatment == 'norm_all' and scenario_nr == 1 %}
+                        <div class="card-footer bg-secondary text-white"><p style="line-height: 1; margin:0px"><small>{% trans "18% of homeowners chose this option previously." %}</small></p> </div>
+                {% else %}
+                {% endif %}
+                    </div>
+                        <div class="card" style="text-align:center;">
+                        <button name="mitigate" value=2 class="btn btn-primary btn-lg btn-block">
+                            <i class="material-icons white">build</i>
+                            &nbsp;{{mitigation_cost2}} </button>
+                <p class="card-text" style="margin:0px"> {% trans "reduce damage to"%}<br>  {{reduced_damage2}} <br></p>
+                    {% if treatment == 'norm_all' and scenario_nr == 1 %}
+                        <div class="card-footer bg-secondary text-white"><p style="line-height: 1; margin:0px"><small>{% trans "20% of homeowners chose this option previously." %}</small></p> </div>
+                {% else %}
+                {% endif %}
+                </div>
+                        <div class="card" style="text-align:center;">
+                        <button name="mitigate" value=3 class="btn btn-primary btn-lg btn-block">
+                            <i class="material-icons white">build</i>
+                            &nbsp;{{mitigation_cost3}} </button>
+                <p class="card-text" style="margin:0px"> {% trans "reduce damage to"%}<br>  {{reduced_damage3}} <br></p>
+                {% if treatment == 'norm_all' and scenario_nr == 1 %}
+                    <div class="card-footer bg-secondary text-white"><p style="line-height: 1; margin:0px"><small>{% trans "20% of homeowners chose this option previously." %}</small></p> </div>
+                {% else %}
+                {% endif %}                    </div>
+                        <div class="card" style="text-align:center;">
+                        <button name="mitigate" value=4 class="btn btn-primary btn-lg btn-block">
+                            <i class="material-icons white">build</i>
+                            &nbsp;{{mitigation_cost4}} </button>
+                <p class="card-text" style="margin:0px"> {% trans "reduce damage to"%}<br>  {{reduced_damage4}} <br></p>
+                {% if treatment == 'norm_all' and scenario_nr == 1 %}
+                    <div class="card-footer bg-secondary text-white"><p style="line-height: 1; margin:0px"><small>{% trans "12% of homeowners chose this option previously." %}</small></p> </div>
+                {% else %}
+                {% endif %}
+
+                    </div>
+                </div>
+            {% if treatment == 'norm_high' and scenario_nr == 1 %}
+                <div class="card-footer bg-secondary text-white w-100">{% trans "Previously, 70% of homeowners opted for damage reducing measures." %}</div>
+            {% else %}
+            {% endif %}        </div>
+    </div>
+    </div>
+</div>
+
+
+
+</div></div>
+
+
+
+
+{% include 'snippets/InstructionsCounter.html' %}
+
+{% endblock %}
+
+
+{% block app_scripts %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+   rel="stylesheet">
+
+
+<script type ="text/css" data-require="bootstrap@*" data-semver="3.3.2" src="{% static 'floodgame_norms/bootstrap/bootstrap/js/bootstrap.min.js'%}"></script>
+
+
+{% endblock %}
