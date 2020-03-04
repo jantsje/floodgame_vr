@@ -1,7 +1,7 @@
 # floodgame_norms
 This application allows to use the Floodgame as an oTree application in three languages with several treatments. The experiment was conducted in October 2019 among 605 Spanish homeowners and in August 2019 with 1200 Dutch homeowners. By uncommenting several lines in the code, you can run the game in different languages and/or run different treatments.  
 
-To install the app to your local oTree directory, copy the folder 'floodgame_norms' to your oTree Django project and extent the session configurations in your settings.py at the root of the oTree directory:
+To install the app to your local oTree directory, copy the folder 'floodgame_norms' to your oTree Django project and extend the session configurations in your ```settings.py``` at the root of the oTree directory:
 
 ```
 SESSION_CONFIGS = [
@@ -42,4 +42,7 @@ SESSION_CONFIGS = [
 * Dutch (through Django localization file)
 * Spanish (through Django localization file)
 
-Note that the understanding questions rely on otree-utils and that the localization does not work for them. 
+Note that the understanding questions rely on [otree-utils](https://github.com/WZBSocialScienceCenter/otreeutils). 
+
+## Issues
+Localization was not stable for the *UnderstandingQuestionsPage*, which is why the questions have been translated manually. This issue should be solved if one wants to conduct an experiment simultaneously in two countries. 
