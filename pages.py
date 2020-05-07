@@ -293,7 +293,7 @@ class StartScenario(Spelpagina):
 
 
 class Check(UnderstandingQuestionsPage):
-    page_title = 'Revisión'
+    page_title = 'Begripsvragen'
     set_correct_answers = False  # APPS_DEBUG
     form_model = 'player'
     form_fields = ['opened']

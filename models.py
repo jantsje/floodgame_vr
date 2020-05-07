@@ -704,24 +704,23 @@ class Player(BasePlayer):
     def get_questions_method(self):
         questions = [
             {
-                'question': '¿Cuál fue la probabilidad de una inundación durante el escenario de prueba?',
-                'options': ["1% por año",
-                            "2% por año",
-                            "5% por año",
-                            "10% por año",
-                            "21% por año",
-                            "22% por año"],
-                'correct': "1% por año",
-                'hint': "Respuesta incorrecta. Por favor inténtelo de nuevo."
-            },              {
-                    'question': "¿Qué sucederá si su casa se inunda y usted no ha "
-                                "invertido en medidas para reducir el daño?",
-                    'options': ['Tendré que pagar el daño total: ' + str(Constants.damage),
-                                'Tengo que pagar un precio pequeño',
-                                'El gobierno me compensará'
-                                ],
-                    'correct': 'Tendré que pagar el daño total: ' + str(Constants.damage),
-                    'hint': "Respuesta incorrecta. Por favor inténtelo de nuevo."
+                'question': 'Wat was de overstromingskans in het oefenscenario?',
+                'options': [str(Constants.risk) + " procent per jaar",
+                            "2 procent per jaar",
+                            "3 procent per jaar",
+                            "4 procent per jaar",
+                            "5 procent per jaar",
+                            "10 procent per jaar"],
+                'correct': str(self.risk) + " procent per jaar",
+                'hint': "Het is het aantal huizen dat ieder jaar overstroomde, zie instructies"
+            },                              {
+                    'question': 'Wat gebeurt er als uw huis overstroomt en '
+                                'u heeft niet geïnvesteerd in schadebeperkende maatregelen?',
+                    'options': ['Ik zal de volledige schade moeten betalen: ' + str(Constants.damage),
+                                'Ik moet een kleine boete betalen',
+                                'De overheid zal mij tegemoetkomen in de schade'],
+                    'correct': 'Ik zal de volledige schade moeten betalen: ' + str(Constants.damage),
+                    'hint': "Lees de instructies nog eens nauwkeurig door."
 
                 }
 
