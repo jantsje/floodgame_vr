@@ -52,7 +52,7 @@ class Check(ExtendedPage):
     questions = []  # define the understanding questions here.
     # add dicts with the following keys: "question", "options", "correct"
     set_correct_answers = APPS_DEBUG   # useful for skipping pages during development
-    template_name = 'floodgame_norms/Check.html'
+    template_name = 'floodgame_vr/Check.html'
     # reset to None to use your own template the extends this one
     form_field_n_wrong_attempts = None
     # optionally record number of wrong attempts in this field (set form_model then, too!)

@@ -15,7 +15,7 @@ Investeringsspel voor huiseigenaren (online versie in het Nederlands)
 
 
 class Constants(BaseConstants):
-    name_in_url = 'research'
+    name_in_url = 'onderzoek'
     players_per_group = None
     scenarios = ["LH"]
     scenarios_no_insurance = ["risk1"]

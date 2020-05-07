@@ -1,15 +1,15 @@
-# floodgame_norms
+# floodgame_vr
 This application allows to use the Floodgame as an oTree application in three languages with several treatments. The experiment was conducted in October 2019 among 605 Spanish homeowners and in August 2019 with 1200 Dutch homeowners. By uncommenting several lines in the code, you can run the game in different languages and/or run different treatments.  
 
-To install the app to your local oTree directory, copy the folder 'floodgame_norms' to your oTree Django project and extend the session configurations in your ```settings.py``` at the root of the oTree directory:
+To install the app to your local oTree directory, copy the folder 'floodgame_vr' to your oTree Django project and extend the session configurations in your ```settings.py``` at the root of the oTree directory:
 
 ```
 SESSION_CONFIGS = [
     dict(
-        name='floodgame_norms_en',
+        name='floodgame_vr_en',
         display_name="Floodgame norms",
         num_demo_participants=1,
-        app_sequence=['floodgame_norms'],
+        app_sequence=['floodgame_vr'],
         quota_baseline=1,
         quota_baseline_1=1,
         quota_norm_all=1,

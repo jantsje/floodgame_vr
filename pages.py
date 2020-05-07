@@ -1,7 +1,7 @@
 from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
-from floodgame_norms.extra_pages import Check as UnderstandingQuestionsPage
+from floodgame_vr.extra_pages import Check as UnderstandingQuestionsPage
 import locale
 from django.http.response import HttpResponseRedirect
 from django.utils.translation import ugettext as _
