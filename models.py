@@ -10,7 +10,7 @@ from django import forms
 author = 'Jantsje Mol'
 
 doc = """
-Investeringsspel voor huiseigenaren (online versie in het Nederlands)
+Investeringsspel voor huiseigenaren (voor na VR experience in het lab)
 """
 
 
@@ -55,42 +55,19 @@ class Subsession(BaseSubsession):
                in Constants.translated_languages, TRNSL_ERR_MSG
 
         if self.round_number == 1:
-
             self.session.vars["mitigation_cost"] = [0, 1000, 5000, 10000, 15000]
-            #                               name treatment        niet doelgroep, doelgroep, completed
-            self.session.vars["telling"] = {"baseline":             ([], [], []),
-                                            # "norm_all":             ([], [], []),
-                                            # "norm_high":            ([], [], []),
-                                            "norm_focusing":        ([], [], []),
-                                            "norm_focusing_1":      ([], [], []),
-                                            "baseline_1":           ([], [], []),
-                                            "not yet":              ([], [], [])
-                                            }
 
-            self.session.vars["combinations"] = []
-            if not self.session.config['demo']:
-                self.session.vars["combinations"].extend(['baseline'] * self.session.config['quota_baseline'])
-                # self.session.vars["combinations"].extend(['norm_all'] * self.session.config['quota_norm_all'])
-                # self.session.vars["combinations"].extend(['norm_high'] * self.session.config['quota_norm_high'])
-                self.session.vars["combinations"].extend(['norm_focusing'] * self.session.config['quota_norm_focusing'])
-                self.session.vars["combinations"].extend(['baseline_1'] * self.session.config['quota_baseline_1'])
-                self.session.vars["combinations"].extend(['norm_focusing_1'] *
-                                                         self.session.config['quota_norm_focusing_1'])
 
         for p in self.get_players():
-
             sconfig = self.session.config
 
-            p.participant.vars["treatment"] = 'not yet'  # you need something here to be able to append
+            p.participant.vars["treatment"] = 'baseline'  # there is only one treatment
 
             if self.round_number == 1:
                 p.participant.vars["completed"] = False
                 p.participant.vars["flooded"] = False
                 p.participant.vars["mitigated"] = False
-                self.session.vars["quota_full"] = False
-                p.participant.vars["target_group"] = 'not answered yet'
                 p.participant.vars["conversion"] = sconfig.get('real_world_currency_per_point')
-                p.participant.vars["max_payoff"] = 0
                 p.participant.vars["demo"] = False
                 p.participant.vars["timespent"] = ''
                 p.participant.vars["belief"] = 999
@@ -124,6 +101,9 @@ class Subsession(BaseSubsession):
                 p.participant.vars["reduced_damage_this_scenario"] = Constants.damage
                 p.participant.vars["total_opened"] = 0
                 p.mitigation_cost = 0
+                p.participant.vars["max_payoff"] = (Constants.initial_endowment - 25 *
+                                                       (float(Constants.risk) * 0.01 *
+                                                        Constants.damage)) * p.participant.vars["conversion"]
 
             if self.round_number == 5 or self.round_number == 6:
 
@@ -142,49 +122,12 @@ class Subsession(BaseSubsession):
             p.risk = Constants.risk
 
     def vars_for_admin_report(self):
-        target_group = [len(self.session.vars["telling"]["baseline"][0]) +
-                        # len(self.session.vars["telling"]["norm_all"][0]) +
-                        # len(self.session.vars["telling"]["norm_high"][0]) +
-                        len(self.session.vars["telling"]["baseline_1"][0]) +
-                        len(self.session.vars["telling"]["norm_focusing"][0]) +
-                        len(self.session.vars["telling"]["norm_focusing_1"][0])
-                        ]
-        dropouts = [len(self.session.vars["telling"]["baseline"][1]) -
-                    len(self.session.vars["telling"]["baseline"][2]),
-                    # len(self.session.vars["telling"]["norm_all"][1]) -
-                    # len(self.session.vars["telling"]["norm_all"][2]),
-                    # len(self.session.vars["telling"]["norm_high"][1]) -
-                    # len(self.session.vars["telling"]["norm_high"][2]),
-                    len(self.session.vars["telling"]["baseline_1"][1]) -
-                    len(self.session.vars["telling"]["baseline_1"][2]),
-                    len(self.session.vars["telling"]["norm_focusing"][1]) -
-                    len(self.session.vars["telling"]["norm_focusing"][2]),
-                    len(self.session.vars["telling"]["norm_focusing_1"][1]) -
-                    len(self.session.vars["telling"]["norm_focusing_1"][2]),
-                    len(self.session.vars["telling"]["not yet"][1])]
-        completes = [len(self.session.vars["telling"]["baseline"][2]),
-                     len(self.session.vars["telling"]["baseline_1"][2]),
-                     # len(self.session.vars["telling"]["norm_all"][2]),
-                     # len(self.session.vars["telling"]["norm_high"][2]),
-                     len(self.session.vars["telling"]["norm_focusing"][2]),
-                     len(self.session.vars["telling"]["norm_focusing_1"][2])
-                     ]
-        quota = [self.session.config['quota_baseline'],
-                 # self.session.config['quota_norm_all'],
-                 # self.session.config['quota_norm_high'],
-                 self.session.config['quota_baseline_1'],
-                 self.session.config['quota_norm_focusing'],
-                 self.session.config['quota_norm_focusing_1']]
         vars_admin_list = [[p.participant.code,
-                            p.participant.vars["treatment"],
                             p.participant.vars["mitigation_cost_this_scenario"],
                             p.participant.vars["belief"],
                             p.participant.vars["timespent"]]
                            for p in self.get_players()]
-        return {'vars_admin_list': vars_admin_list,  'target_group': target_group,
-                'dropouts': dropouts, 'dropouts_totaal': sum(dropouts),
-                'completes_totaal': sum(completes), 'completes': completes,
-                'quota': quota, 'quota_totaal': sum(quota)}
+        return {'vars_admin_list': vars_admin_list}
 
 
 class Group(BaseGroup):  # it is an individual decision making game
@@ -197,7 +140,6 @@ class Player(BasePlayer):
     # they are later changed in the set_payoffs and before_session_starts methods
     consent = models.BooleanField()
     browser = models.StringField()
-    store_treatment = models.StringField()
     high_risk = models.BooleanField()
 
     understanding_questions_wrong_attempts = models.PositiveIntegerField()
@@ -613,81 +555,9 @@ class Player(BasePlayer):
     independence3 = models.IntegerField(
         label=_("Defending an unpopular issue that you believe in at a social occasion."))
 
-    def storing_treatment(self):
-        self.store_treatment = self.participant.vars["treatment"]
-        # now store these in player class to save them to database
-
     def store_instructions(self):
         self.total_opened = self.participant.vars["opened_instructions"]
         # now store these in player class to save them to database
-
-    def set_treatment(self):
-        if self.round_number == 1:
-            if not self.session.vars["combinations"]:  # empty list returns False
-                self.participant.vars["quota_full"] = True
-            else:
-                self.participant.vars["quota_full"] = False
-                self.participant.vars["treatment"] = random.choice(self.session.vars["combinations"])
-
-    def participant_started(self):  # to assign not yet
-        if self.round_number == 1:
-            self.session.vars["telling"][self.participant.vars["treatment"]][1].append(self.id_in_group)
-        print(self.session.vars["telling"])
-
-    def store_homeowner(self):  # to assign treatment
-        if not self.homeowner:
-            self.participant.vars["target_group"] = False
-            if not self.participant.vars["demo"]:
-                self.session.vars["telling"][self.participant.vars["treatment"]][0].append(self.id_in_group)
-        else:
-            self.participant.vars["target_group"] = True
-            if not self.participant.vars["demo"]:
-                self.session.vars["telling"][self.participant.vars["treatment"]][1].append(self.id_in_group)
-        if not self.participant.vars["demo"]:
-            self.session.vars["telling"]["not yet"][1].remove(self.id_in_group)
-
-    def store_consent(self):
-        if not self.consent:
-            self.participant.vars["target_group"] = False
-
-    def store_complete(self):
-        self.participant.vars["completed"] = True
-        if not self.session.config['demo']:
-            self.session.vars["telling"][self.participant.vars["treatment"]][2].append(self.id_in_group)
-            if self.participant.vars["treatment"] == "baseline" and \
-                    "baseline" in self.session.vars["combinations"]:
-                # and \
-                # len(self.session.vars["telling"]["baseline"][2]) == \
-                # self.session.config['quota_baseline']:
-                self.session.vars["combinations"].remove('baseline')
-            # elif self.participant.vars["treatment"] == "norm_all" and \
-            #         len(self.session.vars["telling"]["norm_all"][2]) == \
-            #         self.session.config['quota_norm_all']:
-            #     self.session.vars["combinations"].remove('norm_all')
-            # elif self.participant.vars["treatment"] == "norm_high" and \
-            #         len(self.session.vars["telling"]["norm_high"][2])\
-            #         == self.session.config['quota_norm_high']:
-            #     self.session.vars["combinations"].remove('norm_high')
-            elif self.participant.vars["treatment"] == "norm_focusing" and \
-                    "norm_focusing" in self.session.vars["combinations"]:
-                # and \
-                #     len(self.session.vars["telling"]["norm_focusing"][2]) == \
-                #     self.session.config['quota_norm_focusing']:
-                self.session.vars["combinations"].remove('norm_focusing')
-            elif self.participant.vars["treatment"] == "norm_focusing_1" and \
-                    "norm_focusing_1" in self.session.vars["combinations"]:
-                # and \
-                #     len(self.session.vars["telling"]["norm_focusing_1"][2]) == \
-                #     self.session.config['quota_norm_focusing_1']
-                self.session.vars["combinations"].remove('norm_focusing_1')
-            elif self.participant.vars["treatment"] == "baseline_1" and \
-                    "baseline_1" in self.session.vars["combinations"]:
-                # and \
-                # len(self.session.vars["telling"]["baseline_1"][2]) == \
-                # self.session.config['quota_baseline_1']\
-                self.session.vars["combinations"].remove('baseline_1')
-        # print(self.session.vars["combinations"], " are the combinations")
-        # print(self.session.vars["telling"], " is the telling")
 
     def store_follow_up(self):
         if self.damaged == 1:
@@ -735,8 +605,6 @@ class Player(BasePlayer):
                        'mitigate': self.mitigate, 'mitigated_before': participant.vars["mitigated_before"],
                        'mitigated_this_scenario': participant.vars["mitigated_this_scenario"],
                        'reduced_damage_this_scenario': participant.vars["reduced_damage_this_scenario"],
-                       'homeowner': self.homeowner,
-                       'treatment': participant.vars["treatment"]
                        }
         if self.scenario_nr == '0' or self.scenario_nr == 0:
             scenario_type = _('test scenario')
@@ -750,8 +618,7 @@ class Player(BasePlayer):
 
     def vars_for_invest(self):
         participant = self.participant
-        return {'treatment': participant.vars["treatment"],
-                'mitigation_cost0': participant.vars["mitigation_cost"][0],
+        return {'mitigation_cost0': participant.vars["mitigation_cost"][0],
                 'mitigation_cost1': participant.vars["mitigation_cost"][1],
                 'mitigation_cost2': participant.vars["mitigation_cost"][2],
                 'mitigation_cost3': participant.vars["mitigation_cost"][3],
@@ -834,14 +701,6 @@ class Player(BasePlayer):
         else:
             self.mitigation_cost = 0  # initially
             self.participant.vars["reduced_damage_this_scenario"] = Constants.damage
-
-    def set_max_payoff(self):
-        if self.participant.vars["treatment"] == "baseline" or self.participant.vars["treatment"] == "baseline_1":
-            self.participant.vars["max_payoff"] = (Constants.initial_endowment - 25 *
-                                                   (float(Constants.risk) * 0.01 *
-                                                    Constants.damage)) * self.participant.vars["conversion"]
-        else:
-            self.participant.vars["max_payoff"] = Constants.initial_endowment * self.participant.vars["conversion"]
 
     def save_payoff(self):
         self.participant.vars["payoff_scenario1"] = self.participant.vars["cumulative_payoff"]

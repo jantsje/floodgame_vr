@@ -511,31 +511,6 @@ aria-label="..." onchange="document.getElementById('floor_size').disabled = this
             <input type="hidden" name="clicked_button" value="0" id="id_clicked_button"/>
             {{form.clicked_button.errors}}
 
-            {% if treatment == 'baseline_1' or treatment == 'norm_focusing_1' %}
-
-                                    <blockquote class="blockquote">
-                        <p class="mb-0">
-                          {% blocktrans trimmed %}
-                              Recent research shows that <b>68% of homeowners</b> have installed at least one measure
-                              to protect their home from flood damage.
-                          {% endblocktrans %}
-                        </p>
-                    </blockquote>
-
-            {% else %}
-
-            {% endif %}
-
-<p>
-{% blocktrans trimmed %}
-            For more information about what you can do to protect your home against flood damage, click the button below.
-            <br>It will open in a new window.
-{% endblocktrans %}
-</p>
-            <a id="more_info" class="btn btn-success"
-               href="https://www.miteco.gob.es/es/agua/formacion/guia-reduccion-vulnerabilidad-edificios_tcm30-379148.pdf" target="_blank">
-    {% trans "More information" %}</a>   <br><br>
-
 
 
     {% else %}

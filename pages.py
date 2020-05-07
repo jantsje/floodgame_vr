@@ -27,24 +27,6 @@ class WaitPage(TransMixin, WaitPage):
     pass
 
 
-class No(Page):
-
-    def dispatch(self, request, *args, **kwargs):
-        from otree.models import Participant
-        participant = Participant.objects.get(code=kwargs.get('participant_code'))
-        if request.method == 'GET':
-            address = 'https://www.websiteonlinepanel.com/id=' + str(participant.label)
-            # screen-out (not in target group)
-            return HttpResponseRedirect(address)
-        return super(Page, self).dispatch(request, *args, **kwargs)
-
-    form_model = 'player'
-
-    def is_displayed(self):
-        return self.round_number == 1 and not self.player.participant.vars["target_group"] and not \
-            self.session.vars["quota_full"]
-
-
 def vars_for_all_templates(self):
     player = self.player
     participant = self.participant
@@ -71,17 +53,6 @@ class Spelpagina(Page):
         return self.form_fields + ['opened']
 
 
-class ParticipantStarted(Page):
-    timeout_seconds = 0.00001
-
-    def is_displayed(self):
-        return self.round_number == 1 and not self.session.vars["quota_full"]
-
-    def before_next_page(self):
-        if not self.session.config['demo']:  # in that case the treatment was chosen via the demo page
-            self.player.participant_started()
-
-
 class Welcome(Page):
     form_model = 'player'
     form_fields = ['opened', 'homeowner', 'zip_code_nrs', 'zip_code_letters']
@@ -91,47 +62,10 @@ class Welcome(Page):
                 'page_title': ''}
 
     def is_displayed(self):
-        return self.round_number == 1 and not self.session.vars["quota_full"]
+        return self.round_number == 1
 
     def before_next_page(self):
         self.player.browser = self.request.META.get('HTTP_USER_AGENT')
-        self.player.set_max_payoff()
-        if self.participant.vars["treatment"] == 'not yet':
-            self.player.set_treatment()
-            self.participant.vars["demo"] = False
-        else:
-            self.participant.vars["quota_full"] = False
-            self.participant.vars["demo"] = True
-        self.player.store_homeowner()
-        self.player.storing_treatment()
-
-
-class Consent(Page):
-    form_model = 'player'
-    form_fields = ['opened', 'consent']
-
-    def is_displayed(self):
-        return self.round_number == 1 and not self.session.vars["quota_full"] and \
-               self.player.participant.vars["target_group"]
-
-    def before_next_page(self):
-        self.player.store_consent()
-
-
-class Full(Page):
-    form_model = 'player'
-
-    def is_displayed(self):
-        return self.participant.vars["quota_full"]
-
-    def dispatch(self, request, *args, **kwargs):
-        from otree.models import Participant
-        participant = Participant.objects.get(code=kwargs.get('participant_code'))
-        if request.method == 'GET':
-            address = 'https://www.websiteonlinepanel.com/id=' + str(participant.label)
-            # quota-full link here
-            return HttpResponseRedirect(address)
-        return super(Page, self).dispatch(request, *args, **kwargs)
 
 
 class Start(Page):
@@ -157,8 +91,7 @@ class Start(Page):
             return ['exact_flood_risk_perception']
 
     def is_displayed(self):
-        return self.round_number <= Constants.num_start_pages and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"]
+        return self.round_number <= Constants.num_start_pages
 
 
 class FinalQuestions(Page):
@@ -172,14 +105,11 @@ class FinalQuestions(Page):
 
     def before_next_page(self):
         self.player.store_follow_up()
-        if self.round_number == 18:
-            self.player.store_complete()
+
 
     def get_form_fields(self):
         if self.round_number == 6:
             the_list = []
-            if self.participant.vars["treatment"] == 'norm_all' or self.participant.vars["treatment"] == "norm_high":
-                the_list.append('trust_messenger')
             if self.player.participant.vars["flooded"] and self.player.participant.vars["mitigated_this_scenario"] < 4:
                 the_list.append('regret1')
             elif not self.player.participant.vars["flooded"] and \
@@ -230,14 +160,10 @@ class FinalQuestions(Page):
             return ['clicked_button', 'feedback']
 
     def is_displayed(self):
-        if self.participant.vars["quota_full"]:
-            return False
-        elif self.round_number == 9 and not self.participant.vars["neighbors_needed"]:
+        if self.round_number == 9 and not self.participant.vars["neighbors_needed"]:
             return False
         else:
-            if not self.player.participant.vars["target_group"]:
-                return False
-            elif self.round_number == 8:
+            if self.round_number == 8:
                 if self.participant.vars["responsible_needed"]:
                     return True
                 else:
@@ -256,8 +182,7 @@ class Scenario(Page):
         return {'max_payoff': self.participant.vars["max_payoff"]}
 
     def is_displayed(self):
-        return self.round_number == Constants.num_start_pages and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"]
+        return self.round_number == Constants.num_start_pages
 
     def before_next_page(self):
         self.player.new_scenario_method()
@@ -270,8 +195,7 @@ class Instructions(Page):
         return self.form_fields + ['opened']
 
     def is_displayed(self):
-        return self.round_number == Constants.num_start_pages and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"]
+        return self.round_number == Constants.num_start_pages
 
 
 class StartScenario(Spelpagina):
@@ -282,8 +206,7 @@ class StartScenario(Spelpagina):
         self.player.opened_instructions()
 
     def is_displayed(self):
-        return self.player.in_scenario() and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"]
+        return self.player.in_scenario()
 
     def vars_for_template(self):
         if self.player.scenario_nr == 0:
@@ -307,8 +230,7 @@ class Check(UnderstandingQuestionsPage):
         self.player.new_scenario_method()
 
     def is_displayed(self):
-        return self.round_number == Constants.num_start_pages + Constants.num_test_years and \
-               self.player.participant.vars["target_group"] and not self.participant.vars["quota_full"]
+        return self.round_number == Constants.num_start_pages + Constants.num_test_years
 
 
 class Decision(Spelpagina):
@@ -326,30 +248,7 @@ class Decision(Spelpagina):
         self.player.opened_instructions()
 
     def is_displayed(self):
-        return self.player.in_scenario() and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"]
-
-
-class BE1(Spelpagina):
-    form_model = 'player'
-    form_fields = ['belief']
-
-    def vars_for_template(self):
-        vars_for_this_template = self.player.vars_for_invest()
-        vars_for_this_template.update({'page_title': _("Prediction")})
-        return vars_for_this_template
-
-    def before_next_page(self):
-        self.player.set_payoff()
-        self.player.pay_mitigation_method()
-        self.player.opened_instructions()
-
-    def is_displayed(self):
-        return self.player.in_scenario() and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"] and \
-            (self.participant.vars["treatment"] == 'norm_focusing' or
-                self.participant.vars["treatment"] == 'norm_focusing_1') and \
-            self.player.scenario_nr == 1
+        return self.player.in_scenario()
 
 
 class BE2(Spelpagina):
@@ -366,10 +265,7 @@ class BE2(Spelpagina):
         self.player.pay_mitigation_method()  # to save belief for Admin report
 
     def is_displayed(self):
-        return self.player.in_scenario() and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"] and \
-            (self.participant.vars["treatment"] == 'baseline' or self.participant.vars["treatment"] == 'baseline_1')\
-            and self.player.scenario_nr == 1
+        return self.player.in_scenario() and self.player.scenario_nr == 1
 
 
 class Floods(Spelpagina):
@@ -377,8 +273,7 @@ class Floods(Spelpagina):
     form_fields = ['opened', 'pay_damage']
 
     def is_displayed(self):
-        return self.player.in_scenario() and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"]
+        return self.player.in_scenario()
 
     def vars_for_template(self):
         player = self.player
@@ -417,8 +312,7 @@ class Overview(Spelpagina):
         self.player.opened_instructions()
 
     def is_displayed(self):
-        return self.player.in_scenario() and self.player.participant.vars["target_group"] and not \
-            self.participant.vars["quota_full"]
+        return self.player.in_scenario()
 
 
 class Results(Spelpagina):
@@ -429,8 +323,7 @@ class Results(Spelpagina):
         self.player.store_instructions()
 
     def is_displayed(self):
-        return self.round_number == Constants.num_rounds - Constants.num_end_pages and \
-               self.player.participant.vars["target_group"] and not self.participant.vars["quota_full"]
+        return self.round_number == Constants.num_rounds - Constants.num_end_pages
 
     def vars_for_template(self):
         vars_for_this_template = self.player.vars_for_payment()
@@ -466,16 +359,11 @@ class Complete(Page):
 
 
 page_sequence = [
-    ParticipantStarted,
     Welcome,
-    Consent,
-    Full,
-    No,
     Start,
     Scenario,
     Instructions,
     StartScenario,
-    BE1,
     Decision,
     Floods,
     Overview,
