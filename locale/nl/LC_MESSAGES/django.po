@@ -1495,7 +1495,7 @@ msgstr "Informatie over het scenario"
 msgid "We will start with a test scenario to get familiar with the game."
 msgstr ""
 "We starten met een oefenscenario om bekend te raken met de mogelijkheden in "
-"het spel."
+"het floodgame_online."
 
 #: .\templates\floodgame_norms\No.html:17
 msgid ""
@@ -1761,7 +1761,7 @@ msgstr "Nee (huurder)"
 #~ "in the game."
 #~ msgstr ""
 #~ "De balans van uw spaarrekening hangt af van uw keuzes en of een "
-#~ "overstroming plaatsvindt in het spel."
+#~ "overstroming plaatsvindt in het floodgame_online."
 
 #~ msgid ""
 #~ "You can use the savings account to pay for investments. In case of a "
