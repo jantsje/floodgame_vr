@@ -57,14 +57,12 @@ class Subsession(BaseSubsession):
         if self.round_number == 1:
             self.session.vars["mitigation_cost"] = [0, 1000, 5000, 10000, 15000]
 
-
         for p in self.get_players():
             sconfig = self.session.config
 
             p.participant.vars["treatment"] = 'baseline'  # there is only one treatment
 
             if self.round_number == 1:
-                p.participant.vars["completed"] = False
                 p.participant.vars["flooded"] = False
                 p.participant.vars["mitigated"] = False
                 p.participant.vars["conversion"] = sconfig.get('real_world_currency_per_point')
@@ -148,7 +146,6 @@ class Player(BasePlayer):
     pay_premium = models.StringField()
     mitigate = models.IntegerField(initial=0)  # is necessary for numpy to have an initial value
     belief = models.IntegerField()
-    homeowner = models.BooleanField()
     accept_fair = models.BooleanField()
     accept_lower = models.BooleanField()
     mitigation_cost = models.CurrencyField()

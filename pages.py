@@ -55,7 +55,7 @@ class Spelpagina(Page):
 
 class Welcome(Page):
     form_model = 'player'
-    form_fields = ['opened', 'homeowner', 'zip_code_nrs', 'zip_code_letters']
+    form_fields = ['opened']
 
     def vars_for_template(self):
         return {'participation_fee': self.session.config['participation_fee'],
@@ -105,7 +105,6 @@ class FinalQuestions(Page):
 
     def before_next_page(self):
         self.player.store_follow_up()
-
 
     def get_form_fields(self):
         if self.round_number == 6:
@@ -268,6 +267,15 @@ class BE2(Spelpagina):
         return self.player.in_scenario() and self.player.scenario_nr == 1
 
 
+class VR(Page):
+
+    def is_displayed(self):
+        return self.round_number == 4
+
+    def vars_for_template(self):
+        return {'page_title': _('VR')}
+
+
 class Floods(Spelpagina):
     form_model = 'player'
     form_fields = ['opened', 'pay_damage']
@@ -338,29 +346,13 @@ class Thanks(Page):
         return {'page_title': _('Thanks for your participation')}
 
     def is_displayed(self):
-        return self.player.participant.vars["completed"] and self.session.config['demo']
-
-
-class Complete(Page):
-
-    def dispatch(self, request, *args, **kwargs):
-        from otree.models import Participant
-        participant = Participant.objects.get(code=kwargs.get('participant_code'))
-        if request.method == 'GET':
-            address = 'https://www.websiteonlinepanel.com/id=' + str(participant.label)
-            # complete link here
-            return HttpResponseRedirect(address)
-        return super(Page, self).dispatch(request, *args, **kwargs)
-
-    form_model = 'player'
-
-    def is_displayed(self):
-        return not self.session.config['demo'] and self.player.participant.vars["completed"]
+        return self.round_number == 18
 
 
 page_sequence = [
     Welcome,
     Start,
+    VR,
     Scenario,
     Instructions,
     StartScenario,
@@ -372,5 +364,4 @@ page_sequence = [
     Results,
     FinalQuestions,
     Thanks,
-    Complete
 ]
