@@ -1,46 +1,24 @@
 # floodgame_vr
-This application allows to use the Floodgame as an oTree application in three languages with several treatments. The experiment was conducted in October 2019 among 605 Spanish homeowners and in August 2019 with 1200 Dutch homeowners. By uncommenting several lines in the code, you can run the game in different languages and/or run different treatments.  
+This application uses the control treatment of the floodgame. It was developed for use in the VR lab and has a question about presence and simulator sickness. After the flood belief questions, participants will reach a page where they are notified that the VR experience is about to start. To advance participants to the next page, click 'advance slowest user to the next page' at the 'Monitor' tab. 
 
 To install the app to your local oTree directory, copy the folder 'floodgame_vr' to your oTree Django project and extend the session configurations in your ```settings.py``` at the root of the oTree directory:
 
 ```
 SESSION_CONFIGS = [
     dict(
-        name='floodgame_vr_en',
-        display_name="Floodgame norms",
+        name='floodgame_vr',
+        display_name="Floodgame for VR",
         num_demo_participants=1,
         app_sequence=['floodgame_vr'],
-        quota_baseline=1,
-        quota_baseline_1=1,
-        quota_norm_all=1,
-        quota_norm_high=1,
-        quota_norm_focusing=1,
-        quota_norm_focusing_1=1,
         demo=False,
-        language='en'
+        language='nl'
     )
                   ]
 ```
 
-## Treatments
-* baseline 
-(no social norm nudge, belief elicitation stage áfter own decision)
-* baseline_1 
-(same as baseline, but added descriptive norm nudge in final page to measure information search)
-* norm_focusing 
-(norm focusing through belief elicitation stage before own decision)
-* norm_focusing_1 
-(same as norm_focusing, but added descriptive norm nudge in final page to measure information search)
-* norm_all 
-(transparent social norm nudge, showing percentages of previous investments)
-* norm_high
-(binary social norm nudge, highlighting percentage of previous investors)
-
-
 ## Languages
 * English 
 * Dutch (through Django localization file)
-* Spanish (through Django localization file)
 
 Note that the understanding questions rely on [otree-utils](https://github.com/WZBSocialScienceCenter/otreeutils). 
 
