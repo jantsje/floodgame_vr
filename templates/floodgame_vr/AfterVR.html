@@ -1,0 +1,52 @@
+{% extends "floodgame_vr/Page.html" %}
+{% load staticfiles otree_tags %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Final Questionnaire" %}
+{% endblock %}
+
+{% block content %}
+
+{% include 'snippets/Voortgangsbalk.html' %}
+            <div class="card bg-light"><div class="card-body"><p>
+
+            {% trans "We would like to know how you have experienced the VR world." %} <br>
+                {% trans "Please rate the following statements." %}
+
+            </p></div></div>
+
+    <br>
+        {% for field in form %}
+            <table class="table" width=100%>
+                <thead>
+                <tr> {{field.label}}</tr>
+                </thead>
+                <tbody> <tr>
+                    <td style="width:10%;">
+                        <br>
+                        {% if field.name == "presence" %} {% trans "totally disagree" %}
+                            {% else %} {% trans "not at all" %}{% endif %}</td>
+                    <td style="width:4%;"><br><input required type="radio" name="{{ field.html_name}}" value="1"> <br>1</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="2"><br> 2</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="3"><br> 3</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="4"><br> 4</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="5"><br> 5</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="6"><br> 6</td>
+                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="7"><br> 7</td>
+                    <td style="width:30%;">
+                        <br>  {% if field.name == "presence" %} {% trans "totally agree" %}
+                            {% else %} {% trans "a lot of discomfort" %}{% endif %}</td></td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+
+
+{#    {{form.errors}}#}
+
+
+
+<button name="next_button"  class="btn btn-primary btn-right btn-lg"  > {% trans "Next" %} </button>
+
+{% endblock %}

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-08 13:45+0200\n"
-"PO-Revision-Date: 2020-05-08 13:46+0200\n"
+"POT-Creation-Date: 2020-05-11 10:24+0200\n"
+"PO-Revision-Date: 2020-05-11 10:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,23 +33,23 @@ msgid ""
 msgstr ""
 "Hoe makkelijk of moeilijk vond u het om een keuze te maken in het scenario?"
 
-#: .\models.py:182 .\models.py:496
+#: .\models.py:182 .\models.py:502
 msgid "Very easy"
 msgstr "Heel erg makkelijk"
 
-#: .\models.py:183 .\models.py:497
+#: .\models.py:183 .\models.py:503
 msgid "Somewhat easy"
 msgstr "Vrij makkelijk"
 
-#: .\models.py:184 .\models.py:498
+#: .\models.py:184 .\models.py:504
 msgid "Neither easy/nor difficult"
 msgstr "Niet makkelijk/niet moeilijk"
 
-#: .\models.py:185 .\models.py:499
+#: .\models.py:185 .\models.py:505
 msgid "Somewhat difficult"
 msgstr "Vrij moeilijk"
 
-#: .\models.py:186 .\models.py:500
+#: .\models.py:186 .\models.py:506
 msgid "Very difficult"
 msgstr "Heel erg moeilijk"
 
@@ -110,8 +110,8 @@ msgstr "Hoog"
 msgid "Very high"
 msgstr "Heel hoog"
 
-#: .\models.py:210 .\models.py:357 .\models.py:479 .\models.py:489
-#: .\models.py:501
+#: .\models.py:210 .\models.py:357 .\models.py:485 .\models.py:495
+#: .\models.py:507
 msgid "Don't know"
 msgstr "Weet ik niet"
 
@@ -602,7 +602,19 @@ msgstr ""
 msgid "In general, how willing or unwilling are you to take risks?"
 msgstr "Bent u over het algemeen bereid om risico's te nemen?"
 
-#: .\models.py:473
+#: .\models.py:472
+msgid "In the virtual environment I had a sense of 'being there'."
+msgstr "Ik had het gevoel aanwezig te zijn in de virtuele omgeving."
+
+#: .\models.py:475
+msgid ""
+"Did you feel general discomfort, nauseous or dizzy in the virtual "
+"environment?"
+msgstr ""
+"Heeft u enig ongemak ervaren in de virtuele omgeving, zoals misselijkheid of "
+"duizeligheid?"
+
+#: .\models.py:479
 msgid ""
 "How effective is it to invest in flood protection measures that limit flood "
 "damage for your current home?"
@@ -610,27 +622,27 @@ msgstr ""
 "Hoe effectief is investeren in (overstromings)schadebeperkende maatregelen "
 "voor uw huidige woning?"
 
-#: .\models.py:474
+#: .\models.py:480
 msgid "Very effective"
 msgstr "Heel erg effectief"
 
-#: .\models.py:475
+#: .\models.py:481
 msgid "Effective"
 msgstr "Effectief"
 
-#: .\models.py:476
+#: .\models.py:482
 msgid "Neither effective nor ineffective"
 msgstr "Niet effectief/niet ineffectief"
 
-#: .\models.py:477
+#: .\models.py:483
 msgid "Ineffective"
 msgstr "Niet effectief"
 
-#: .\models.py:478
+#: .\models.py:484
 msgid "Very ineffective"
 msgstr "Totaal niet effectief"
 
-#: .\models.py:483
+#: .\models.py:489
 msgid ""
 "How costly is it to take flood protection measures that limit flood damage "
 "for your current home?"
@@ -638,27 +650,27 @@ msgstr ""
 "Hoe duur is het om (overstromings)schadebeperkende maatregelen te nemen voor "
 "uw huidige woning?"
 
-#: .\models.py:484
+#: .\models.py:490
 msgid "Very cheap"
 msgstr "Heel erg goedkoop"
 
-#: .\models.py:485
+#: .\models.py:491
 msgid "Cheap"
 msgstr "Goedkoop"
 
-#: .\models.py:486
+#: .\models.py:492
 msgid "Neither cheap nor costly"
 msgstr "Niet goedkoop niet duur"
 
-#: .\models.py:487
+#: .\models.py:493
 msgid "Costly"
 msgstr "Duur"
 
-#: .\models.py:488
+#: .\models.py:494
 msgid "Very costly"
 msgstr "Heel erg duur"
 
-#: .\models.py:494
+#: .\models.py:500
 msgid ""
 "Aside from the cost, how difficult is it to take flood protection measures "
 "that limit flood damage for your current home?"
@@ -666,11 +678,11 @@ msgstr ""
 "Afgezien van de kosten, hoe moeilijk is het om "
 "(overstromings)schadebeperkende maatregelen te nemen voor uw huidige woning?"
 
-#: .\models.py:505
+#: .\models.py:511
 msgid "How good are you at working with fractions?"
 msgstr "Hoe goed bent u in werken met breuken (wiskunde)?"
 
-#: .\models.py:508
+#: .\models.py:514
 #, python-format
 msgid ""
 "How good are you at figuring out how much a shirt will cost if it is 25% off?"
@@ -678,32 +690,32 @@ msgstr ""
 "Hoe goed bent u in uitvinden hoeveel een shirt zou kosten als het met 25% is "
 "afgeprijsd?"
 
-#: .\models.py:511
+#: .\models.py:517
 msgid "How often do you find numerical information to be useful?"
 msgstr "Hoe vaak vindt u numerieke informatie nuttig?"
 
-#: .\models.py:514
+#: .\models.py:520
 msgid "I would not let my cousin(s) use my car (if I have one)."
 msgstr ""
 "Ik zou mijn auto nooit uitlenen aan mijn neef/nicht (als ik een auto had)."
 
-#: .\models.py:517
+#: .\models.py:523
 msgid "It is enjoyable to meet and talk with my neighbors regularly."
 msgstr "Ik vind het leuk om mijn buren geregeld te ontmoeten en te spreken."
 
-#: .\models.py:520
+#: .\models.py:526
 msgid "I would not discuss newly acquired knowledge with my parents."
 msgstr "Ik zou nooit iets wat ik juist geleerd heb, bespreken met mijn ouders."
 
-#: .\models.py:523
+#: .\models.py:529
 msgid "It is not appropriate for a colleague to ask me for money."
 msgstr "Het is niet passend dat een collega me vraagt om geld te lenen."
 
-#: .\models.py:526
+#: .\models.py:532
 msgid "I would not let my neighbors borrow things from me or my family."
 msgstr "Ik zou geen spullen (van mezelf of mijn gezin) uitlenen aan de buren ."
 
-#: .\models.py:529
+#: .\models.py:535
 msgid ""
 "When deciding what kind of education to have, I would pay no attention to my "
 "uncles’ advice."
@@ -711,11 +723,11 @@ msgstr ""
 "Wanneer het gaat om school/studiekeuze, zou ik het advies van mijn oom "
 "negeren."
 
-#: .\models.py:532
+#: .\models.py:538
 msgid "I would not share ideas with my parents."
 msgstr "Ik zou nooit ideeën delen met mijn ouders."
 
-#: .\models.py:535
+#: .\models.py:541
 msgid ""
 "I would help, within my means, if a relative told me that he/she is in "
 "financial difficulty."
@@ -723,24 +735,24 @@ msgstr ""
 "Ik zou (voor zover mogelijk) helpen, als een familielid vertelde in "
 "financiele moeilijkheden te zitten."
 
-#: .\models.py:538
+#: .\models.py:544
 msgid "I am not interested in knowing what my neighbors are really like."
 msgstr "Ik zou niet willen weten hoe de buren echt zijn."
 
-#: .\models.py:541
+#: .\models.py:547
 msgid "Neighbors should greet each other when we come across each other."
 msgstr "Buren zouden elkaar moeten groeten wanneer ze elkaar tegenkomen."
 
-#: .\models.py:544
+#: .\models.py:550
 msgid "A person ought to help a colleague at work who has financial problems."
 msgstr ""
 "Men moet een collega helpen wanneer hij/zij financiele problemen heeft."
 
-#: .\models.py:547
+#: .\models.py:553
 msgid "Admitting that your tastes are different from those of your friends."
 msgstr "Toegeven dat uw smaak verschilt van die van uw vrienden."
 
-#: .\models.py:550
+#: .\models.py:556
 msgid ""
 "Arguing with a friend about an issue on which s/he has a very different "
 "opinion."
@@ -748,49 +760,92 @@ msgstr ""
 "Discussieren met een vriend over een onderwerp waarover jullie van mening "
 "verschillen."
 
-#: .\models.py:553
+#: .\models.py:559
 msgid "Defending an unpopular issue that you believe in at a social occasion."
 msgstr "Een impopulair probleem aankaarten op een feestje."
 
-#: .\models.py:607
+#: .\models.py:613
 msgid "test scenario"
 msgstr "oefenscenario"
 
-#: .\models.py:610
+#: .\models.py:616
 msgid "final scenario"
 msgstr "definitief scenario"
 
-#: .\pages.py:212
+#: .\pages.py:223
 msgid "Test scenario"
 msgstr "Oefenscenario"
 
-#: .\pages.py:214
+#: .\pages.py:225
 msgid "Final scenario"
 msgstr "Definitief scenario"
 
-#: .\pages.py:241
+#: .\pages.py:252
 msgid "Investment"
 msgstr "Investering"
 
-#: .\pages.py:259
+#: .\pages.py:270
 msgid "Prediction"
 msgstr "Voorspelling"
 
-#: .\pages.py:276
+#: .\pages.py:287
 msgid "VR"
-msgstr ""
+msgstr "VR"
 
-#: .\pages.py:291
+#: .\pages.py:302
 msgid "Floods"
 msgstr "Overstromingen"
 
-#: .\pages.py:316
+#: .\pages.py:327
 msgid "Overview of the past 25 years "
 msgstr "Overzicht van de afgelopen 25 jaar "
 
-#: .\pages.py:346
+#: .\pages.py:357
 msgid "Thanks for your participation"
 msgstr "Hartelijk dank voor uw deelname"
+
+#: .\templates\floodgame_vr\AfterVR.html:6
+#: .\templates\floodgame_vr\FinalQuestions.html:6
+msgid "Final Questionnaire"
+msgstr "Afsluitende vragenlijst"
+
+#: .\templates\floodgame_vr\AfterVR.html:14
+msgid "We would like to know how you have experienced the VR world."
+msgstr "We willen graag weten hoe u de VR omgeving heeft ervaren."
+
+#: .\templates\floodgame_vr\AfterVR.html:15
+msgid "Please rate the following statements."
+msgstr "Graag uw reactie op de volgende stellingen."
+
+#: .\templates\floodgame_vr\AfterVR.html:28
+msgid "totally disagree"
+msgstr "helemaal niet mee eens"
+
+#: .\templates\floodgame_vr\AfterVR.html:29
+msgid "not at all"
+msgstr "geen enkel ongemak"
+
+#: .\templates\floodgame_vr\AfterVR.html:38
+msgid "totally agree"
+msgstr "helemaal mee eens (net zoals 'in het echt')"
+
+#: .\templates\floodgame_vr\AfterVR.html:39
+msgid "a lot of discomfort"
+msgstr "erg veel ongemak (simulatie moest beëindigd worden)"
+
+#: .\templates\floodgame_vr\AfterVR.html:50
+#: .\templates\floodgame_vr\FinalQuestions.html:528
+#: .\templates\floodgame_vr\FinalQuestions.html:530
+#: .\templates\floodgame_vr\FinalQuestions.html:532
+#: .\templates\floodgame_vr\Floods.html:174
+#: .\templates\floodgame_vr\Instructions.html:25
+#: .\templates\floodgame_vr\Overview.html:56
+#: .\templates\floodgame_vr\Results.html:32
+#: .\templates\floodgame_vr\Scenario.html:55
+#: .\templates\floodgame_vr\Start.html:162
+#: .\templates\floodgame_vr\Start.html:165 .\templates\snippets\Form.html:19
+msgid "Next"
+msgstr "Volgende"
 
 #: .\templates\floodgame_vr\BE2.html:15
 msgid ""
@@ -851,10 +906,6 @@ msgstr "schade"
 #: .\templates\snippets\Beliefs.html:33 .\templates\snippets\Beliefs.html:40
 msgid "reduce damage to"
 msgstr "verminder schade tot"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:6
-msgid "Final Questionnaire"
-msgstr "Afsluitende vragenlijst"
 
 #: .\templates\floodgame_vr\FinalQuestions.html:102
 msgid ""
@@ -1075,19 +1126,6 @@ msgstr "Buurman/vrouw"
 #: .\templates\floodgame_vr\FinalQuestions.html:476
 msgid "Acquaintance"
 msgstr "Kennis"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:528
-#: .\templates\floodgame_vr\FinalQuestions.html:530
-#: .\templates\floodgame_vr\FinalQuestions.html:532
-#: .\templates\floodgame_vr\Floods.html:174
-#: .\templates\floodgame_vr\Instructions.html:25
-#: .\templates\floodgame_vr\Overview.html:56
-#: .\templates\floodgame_vr\Results.html:32
-#: .\templates\floodgame_vr\Scenario.html:55
-#: .\templates\floodgame_vr\Start.html:162
-#: .\templates\floodgame_vr\Start.html:165 .\templates\snippets\Form.html:19
-msgid "Next"
-msgstr "Volgende"
 
 #: .\templates\floodgame_vr\Floods.html:45
 msgid "25 years later..."

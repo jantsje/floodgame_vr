@@ -94,6 +94,17 @@ class Start(Page):
         return self.round_number <= Constants.num_start_pages
 
 
+class AfterVR(Page):
+    form_model = 'player'
+
+    def get_form_fields(self):
+        if self.round_number == 4:
+            return ['presence', 'sickness']
+
+    def is_displayed(self):
+        return self.round_number == 4
+
+
 class FinalQuestions(Page):
     form_model = 'player'
 
@@ -353,6 +364,7 @@ page_sequence = [
     Welcome,
     Start,
     VR,
+    AfterVR,
     Scenario,
     Instructions,
     StartScenario,

@@ -468,6 +468,12 @@ class Player(BasePlayer):
     risk_qual = models.IntegerField(
         label=_("In general, how willing or unwilling are you to take risks?"))
 
+    presence = models.IntegerField(
+        label=_("In the virtual environment I had a sense of 'being there'."))
+
+    sickness = models.IntegerField(
+        label=_("Did you feel general discomfort, nauseous or dizzy in the virtual environment?"))
+
     perceived_efficacy = models.IntegerField(
         label=_(
             "How effective is it to invest in flood protection measures that limit flood damage for your current home?"),
