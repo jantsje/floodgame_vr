@@ -153,7 +153,7 @@ class Player(BasePlayer):
     year = models.IntegerField()
     opened = models.IntegerField(initial=0)
     total_opened = models.IntegerField()
-
+    pp_id = models.StringField(label="Enter participant ID")
     risk = models.IntegerField()
 
     premium = models.CurrencyField()

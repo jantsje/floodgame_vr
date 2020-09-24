@@ -55,7 +55,7 @@ class Spelpagina(Page):
 
 class Welcome(Page):
     form_model = 'player'
-    form_fields = ['opened']
+    form_fields = ['pp_id']
 
     def vars_for_template(self):
         return {'participation_fee': self.session.config['participation_fee'],
@@ -200,23 +200,6 @@ class Decision(Spelpagina):
         return self.player.in_scenario()
 
 
-class BE2(Spelpagina):
-    form_model = 'player'
-    form_fields = ['belief']
-
-    def vars_for_template(self):
-        vars_for_this_template = self.player.vars_for_invest()
-        vars_for_this_template.update({'page_title': _("Prediction")})
-        return vars_for_this_template
-
-    def before_next_page(self):
-        self.player.opened_instructions()
-        self.player.pay_mitigation_method()  # to save belief for Admin report
-
-    def is_displayed(self):
-        return self.player.in_scenario() and self.player.scenario_nr == 1
-
-
 class Floods(Spelpagina):
     form_model = 'player'
     form_fields = ['opened', 'pay_damage']
@@ -299,7 +282,6 @@ page_sequence = [
     Decision,
     Floods,
     Overview,
-    BE2,
     Check,
     Results,
     FinalQuestions,

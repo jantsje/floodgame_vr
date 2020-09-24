@@ -19,21 +19,15 @@
 
 <br> <br>
 <div class="card"> <div class="card-body"><p>
-    {% blocktrans trimmed %}
-        We invite you to participate in a survey about measures homeowners can take to reduce damages from flooding. <br>
-        You do not need any experience with flooding or damage reducing measures to participate in this research.
-    {% endblocktrans %}
-<br> <br> <b>
-{% blocktrans trimmed %}
-    Note that throughout the survey, there is no button to go back to a previous page.
-{% endblocktrans %}</b>
+            {% for field in form %}
+                {% formfield field %}
+            {% endfor %}
 </p></div></div>
 
 <button class="btn btn-primary btn-right btn-lg" >
 {% trans "Start" %}
 </button>
 {{ form.errors }}
-{% include 'snippets/InstructionsCounter.html' %}
 
 {% endblock %}
 

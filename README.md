@@ -1,5 +1,5 @@
 # floodgame_vr
-This application uses the control treatment of the floodgame. It was developed for use in the VR lab and has a question about presence and simulator sickness. After the flood belief questions, participants will reach a page where they are notified that the VR experience is about to start. To advance participants to the next page, click 'advance slowest user to the next page' at the 'Monitor' tab. 
+This application uses the control treatment of the floodgame. It was developed for use in the VR lab and has a question about presence and simulator sickness. The experiment starts with a screen where the experimenter is asked to give the subject ID. The experiment only includes survey questions that are part of the preregistration. This means that the following variables have been deleted (compared to `floodgame_online`): responsible, neighbors, independence, collectivism, numeracy, concern, probability_exact and beliefs.
 
 To install the app to your local oTree directory, copy the folder 'floodgame_vr' to your oTree Django project and extend the session configurations in your ```settings.py``` at the root of the oTree directory:
 
