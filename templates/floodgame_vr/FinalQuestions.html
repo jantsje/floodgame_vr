@@ -71,25 +71,6 @@
 
         }
 
-        function countCheckboxes2(){
-      var inputElems = document.getElementsByName("neighbors_relation");
-      var count = 0;
-      for (var i=0; i<inputElems.length; i++) {
-        if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
-          count++;
-        }
-      }
-      if(count < 1){
-          inputElems[1].required = true;
-     }
-      else{
-                for(var i=0; i<inputElems.length; i++){
-                inputElems[i].required=false;
-                }
-      }
-
-
-        }
 		</script>{% endblock %}
 
 {% block content %}
@@ -97,7 +78,7 @@
 {% include 'snippets/Voortgangsbalk.html' %}
 
 
-    {% if player.round_number == 18 %}
+    {% if player.round_number == 12 %}
     <div class="alert alert-success" role="alert">
     {% blocktrans trimmed %}
          <p> Thank you for your participation in this research. </p><p>
@@ -113,7 +94,7 @@
 
 <div class="card"><div class="card-body"><p>
 
-    {% if player.round_number == 6 %}
+    {% if player.round_number == 5 %}
 
             <div class="card bg-light"><div class="card-body"><p>
             <p> {% trans "This was the end of the scenario. We will now ask some questions about the scenario." %} </p>
@@ -129,74 +110,7 @@
             </div></div><br>
 
 
-    {% elif measures_taken and player.round_number == 8 %}
-        {% blocktrans trimmed %}
-        You indicated that you have taken the following structural measures. <br>
-        For each measure taken to protect your home against flood damage, please indicate the individual or organization that initiated the protective measure.
-        {% endblocktrans%}
-        <p>
-
-        {%  for field in form %}
-                <table class="table table-sm" width=100%>
-                    <tr>
-                    {%if  forloop.counter  == 1  %}<th> </th>
-                        <th>{% trans "Myself or a family member" %}</th>
-                        <th>{% trans "Previous owner" %}</th>
-                        <th>{% trans "Homeowners association" %}</th>
-                        <th>{% trans "Other" %} </th>
-                    {% endif %}
-                    </tr>
-                    <tr>
-                    <td width="51%">
-                        {{ field.label }}
-                        {% if field.label == "Other:" %}
-                        <i>"{{ other_text }}"</i>
-                        {% endif %}
-                    {{ field.errors }}
-                    </td>
-                    <td width="10%"><input type="radio" name="{{ field.html_name}}" value="0"></td>
-                    <td style="width:15%;"><input type="radio" name="{{ field.html_name}}" value="1"></td>
-                    <td style="width:15%;"><input required type="radio" name="{{ field.html_name}}" value="2"></td>
-                    <td width="10%"><input required type="radio" name="{{ field.html_name}}" value="3"></td>
-                    </tr>
-                </table>
-                <div class="help-block with-errors" id="checkboxError"></div>
-        {% endfor %}
-
-
-
-   {% elif player.round_number == 13 %}
-        {% trans "Please indicate the extent to which you agree or disagree with the following statements." %}    <br>
-            <table class="table table-sm" width=100%>
-        {% for field in form %}
-                    {%if  forloop.counter  == 1  %}
-                        <tr><td width="45%"> </td>
-                        <th style="width:4%;" colspan="2">{% trans "Strongly disagree" %}</th>
-                        <td style="width:4%;"></td>
-                        <td style="width:4%;"></td>
-                        <td style="width:4%;"></td>
-                        <th style="width:4%;text-align:center;border-right: 1px solid;" colspan="2">{% trans "Strongly agree" %}</th>
-                        <th style="width:4%;text-align:center">{% trans "Not applicable" %}</th>
-                    </tr>
-                    {% endif %}
-
-                    <tr>
-                    <td width="45%">
-                        {{ field.label }}
-                        {{ field.errors }}
-                    </td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=1></td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=2></td>
-                    <td style="width:4%;"><input required type="radio" name="{{ field.html_name}}" value=3></td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=4></td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=5></td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value=6></td>
-                    <td style="width:4%;border-right: 1px solid;"><input type="radio" name="{{ field.html_name}}" value=7></td>
-                    <td style="width:4%;text-align:center"><input type="radio" name="{{ field.html_name}}" value=99></td>
-                    </tr>
-        {% endfor %}
-                </table>
-   {% elif player.round_number == 12 %}
+   {% elif player.round_number == 8 %}
 
         {% for field in form %}
             <table class="table" width=100%>
@@ -224,58 +138,7 @@
             </table>
         {% endfor %}
 
-   {% elif player.round_number == 14 %}
 
-        {% for field in form %}
-            <table class="table" width=100%>
-                <thead>
-                <tr> {{field.label}}</tr>
-                </thead>
-                <tbody> <tr>
-                    <td style="width:12%;">
-                        {% if field.name == "sns3" %} {% trans "never" %}
-                        {% else %}{% trans "not good at all" %}
-                        {% endif %}
-</td>
-                    <td style="width:4%;"><input required type="radio" name="{{ field.html_name}}" value="1"> <br>1</td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="2"><br> 2</td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="3"><br> 3</td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="4"><br> 4</td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="5"><br> 5</td>
-                    <td style="width:4%;"><input type="radio" name="{{ field.html_name}}" value="6"><br> 6</td>
-                    <td style="width:20%;">
-                        {% if field.name == "sns3" %} {% trans "very often" %}
-                        {% else %}{% trans "extremely good" %}
-                        {% endif %}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        {% endfor %}
-
-   {% elif player.round_number == 11 %}
-
-        {% trans "Please indicate the likelihood of you engaging in each of the following activities." %}  <br>
-            <table class="table table-sm" style="width:100%;">
-        {% for field in form %}
-            <tr>
-                {%if  forloop.counter  == 1  %}<th> </th><th>{% trans "Very unlikely" %}</th><th>{% trans "Somewhat unlikely" %}</th><th>{% trans "Neither likely nor unlikely" %}
-                </th><th>{% trans "Somewhat likely" %}</th><th>{% trans "Very likely" %}</th>
-                {% endif %}
-            </tr>
-            <tr>
-                <td style="width:65%;">
-                    {{ field.label }}
-                    {{ field.errors }}
-                </td>
-                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=1></td>
-                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=2></td>
-                <td style="width:7%;"><input required type="radio" name="{{ field.html_name}}" value=3></td>
-                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=4></td>
-                <td style="width:7%;"><input type="radio" name="{{ field.html_name}}" value=5></td>
-            </tr>
-        {% endfor %}
-            </table>
 
     {% else %}
 
@@ -439,64 +302,12 @@
 
         {% elif field.name == "other_text" %}
 
-        {% elif field.name == "floor_size" %}
-            <label>{{field.label}}</label><br>
-                        <div class="row">
-                <div class="col-md-2">
-<div class="input-group">
-<input class="form-control" required type="number" min="0"
-name="floor_size" id="floor_size" autocomplete="off"
-onchange="document.getElementById('checkbox').disabled = this.value.length > 0;">
-<div class="input-group-append"><div class="input-group-text">{{field.help_text}}</div></div></div>
-                </div><div class="col-md-10">
 
-<div class="input-group-prepend"><div class="input-group-text">
-{% blocktrans trimmed %}
-don't know
-{% endblocktrans %}</div>
-<div class="input-group-text">
-<input type="checkbox" value="999999" name="floor_size" id="checkbox"
-aria-label="..." onchange="document.getElementById('floor_size').disabled = this.checked;"></div>
-</div></div></div>
-
-
-        {% elif field.name == "neighbors_relation" %}
-
-                {{field.label}} <p>
-                {{field.help_text}}
-                <input type="checkbox" name="neighbors_relation" value="0" id="partner" required>
-                <label for="partner">{% trans "Partner" %}</label><br>
-                <input type="checkbox" name="neighbors_relation" value="1" id="friend">
-                <label for="friend">{% trans "Close friend" %}</label><br>
-                <input type="checkbox" name="neighbors_relation" value="2" id="family">
-                <label for="family">{% trans "Family member" %}</label><br>
-                <input type="checkbox" name="neighbors_relation" value="3" id="neighbors">
-                <label for="neighbors">{% trans "Neighbor" %}</label><br>
-                <input type="checkbox" name="neighbors_relation" value="4" id="acquaintance">
-                <label for="acquaintance">{% trans "Acquaintance" %}</label><br>
-                <input type="checkbox" name="neighbors_relation" value="77" id="other_neighbors"
-                onclick="document.getElementById('other_text_neighbors').value=''"
-                onchange="document.getElementById('other_text_neighbors').required = this.checked">
-                <label for="other_neighbors"> {% trans "Other:" %}</label>
-                <input type="text" name="other_text" size="40" id="other_text_neighbors" autocomplete="off"
-                       onchange="document.getElementById('other_neighbors').checked = this.value.length > 0;">
-                                   <div class="help-block with-errors" id="checkboxError"></div>
-
-                </p>
-
-            {% elif field.name == "explain_strategy" %}
+        {% elif field.name == "explain_strategy" %}
                 <label>{{field.label}}</label><br>
                 <textarea class="form-control" name="explain_strategy" required autocomplete="off"></textarea>
                 <br>
-            {% elif field.name == "crt3" %}
-                {%  formfield field %}
 
-            {%  elif field.name == "crt1" or field.name == "crt2" or field.name == "crt4" %}
-                <label>{{field.label}}</label><br>
-                <div class="input-group col-md-1" >
-                <div class="input-group-btn">{{field}}</div>
-                <div class="input-group-append"><div class="input-group-text">{{field.help_text}}</div></div>
-                </div><br>
 
         {% elif field.name == "difficult_text" %}
             <label>{{field.label}}</label><br>
@@ -524,10 +335,8 @@ aria-label="..." onchange="document.getElementById('floor_size').disabled = this
 
 </div></div></div>
 
-{% if player.round_number == 7 %}
+{% if player.round_number == 6 %}
 <button name="next_button"  class="btn btn-primary btn-right btn-lg" onclick='countCheckboxes()' > {% trans "Next" %} </button>
- {% elif player.round_number == 9 %}
-<button name="next_button"  class="btn btn-primary btn-right btn-lg" onclick='countCheckboxes2()' > {% trans "Next" %} </button>
 {% else %}
 <button name="next_button"  class="btn btn-primary btn-right btn-lg"  > {% trans "Next" %} </button>
 {% endif %}

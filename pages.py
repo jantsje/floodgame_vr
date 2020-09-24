@@ -68,57 +68,32 @@ class Welcome(Page):
         self.player.browser = self.request.META.get('HTTP_USER_AGENT')
 
 
-class Start(Page):
+class AfterVR(Page):
     form_model = 'player'
-
-    def before_next_page(self):
-        self.player.store_follow_up()
 
     def get_form_fields(self):
         if self.round_number == 1:
-            return ['flood_prone', 'evacuated', 'damaged']
+            return ['presence', 'sickness']
         elif self.round_number == 2:
-            the_list = []
-            if self.player.participant.vars["damaged_amount_needed"]:
-                the_list.append('damaged_amount')
-            the_list.append('flood_prob')
-            the_list.append('water_levels')
-            the_list.append('expected_damage')
-            return the_list
+            return ['flood_prob', 'water_levels', 'expected_damage']
         elif self.round_number == 3:
-            return ['worry', 'concern', 'trust_dikes']
-        elif self.round_number == 4:
-            return ['exact_flood_risk_perception']
+            return ['worry', 'trust_dikes']
 
     def is_displayed(self):
         return self.round_number <= Constants.num_start_pages
 
 
-class AfterVR(Page):
-    form_model = 'player'
-
-    def get_form_fields(self):
-        if self.round_number == 4:
-            return ['presence', 'sickness']
-
-    def is_displayed(self):
-        return self.round_number == 4
-
-
 class FinalQuestions(Page):
     form_model = 'player'
 
-    def vars_for_template(self):
-        the_dict = {'measures_taken': self.participant.vars["responsible_needed"]}
-        if self.participant.vars["other_text"]:
-            the_dict['other_text'] = self.participant.vars["other_text"]
-        return the_dict
+    def is_displayed(self):
+        return self.round_number >= Constants.num_start_pages + 2
 
     def before_next_page(self):
         self.player.store_follow_up()
 
     def get_form_fields(self):
-        if self.round_number == 6:
+        if self.round_number == 5:
             the_list = []
             if self.player.participant.vars["flooded"] and self.player.participant.vars["mitigated_this_scenario"] < 4:
                 the_list.append('regret1')
@@ -130,56 +105,20 @@ class FinalQuestions(Page):
             the_list.append('difficult')
             the_list.append('explain_strategy')
             return the_list
+        elif self.round_number == 6:
+            return['measures', 'other_text']
         elif self.round_number == 7:
-            return['measures', 'other_text', 'neighbors_measures']
+            return['perceived_efficacy', 'perceived_cost', 'self_efficacy', 'self_responsibility']
         elif self.round_number == 8:
-            measures_taken = self.participant.vars["responsible_needed"]
-            return_measures = []
-            measures = ["cellar", "furniture", "floor_elevated", "foundation",
-                        "walls", "floor_water_resistant", "sockets_raised", "valves",
-                        "sandbags", "appliances_elevated", "boiler",
-                        "meter_elevated", "insured", "other"]
-            for measure in measures:
-                if measure in measures_taken:
-                    return_measures.append(measure + '_responsible')
-            return return_measures
-        elif self.round_number == 9:
-            return ['neighbors_relation', 'other_text']
-        elif self.round_number == 10:
-            return['perceived_efficacy', 'perceived_cost', 'self_efficacy', 'self_responsibility', 'personal_norm']
-        elif self.round_number == 11:
-            return ['independence1', 'independence2', 'independence3']
-        elif self.round_number == 12:
             return ['risk_qual', 'time_qual']
-        elif self.round_number == 13:
-            return ['collectivism1_r', 'collectivism2', 'collectivism3_r', 'collectivism4_r',
-                    'collectivism5_r', 'collectivism6', 'collectivism7_r', 'collectivism8',
-                    'collectivism9_r', 'collectivism10', 'collectivism11']
-        elif self.round_number == 14:
-            return ['sns1', 'sns2', 'sns3']
-        elif self.round_number == 15:
+        elif self.round_number == 9:
             return ['gender', 'age', 'house_type', 'other_text']
-        elif self.round_number == 16:
+        elif self.round_number == 10:
             return ['edu', 'other_text']
-        elif self.round_number == 17:
-            the_list = ['income', 'home']
-            if self.player.participant.vars["floor_size_needed"]:
-                the_list.append('floor_size')
-            return the_list
-        elif self.round_number == 18:
+        elif self.round_number == 11:
+            return ['income', 'home']
+        elif self.round_number == 12:
             return ['clicked_button', 'feedback']
-
-    def is_displayed(self):
-        if self.round_number == 9 and not self.participant.vars["neighbors_needed"]:
-            return False
-        else:
-            if self.round_number == 8:
-                if self.participant.vars["responsible_needed"]:
-                    return True
-                else:
-                    return False
-            else:
-                return self.round_number >= 6
 
 
 class Scenario(Page):
@@ -240,7 +179,7 @@ class Check(UnderstandingQuestionsPage):
         self.player.new_scenario_method()
 
     def is_displayed(self):
-        return self.round_number == Constants.num_start_pages + Constants.num_test_years
+        return self.round_number == Constants.num_start_pages + 1
 
 
 class Decision(Spelpagina):
@@ -278,15 +217,6 @@ class BE2(Spelpagina):
         return self.player.in_scenario() and self.player.scenario_nr == 1
 
 
-class VR(Page):
-
-    def is_displayed(self):
-        return self.round_number == 4
-
-    def vars_for_template(self):
-        return {'page_title': _('VR')}
-
-
 class Floods(Spelpagina):
     form_model = 'player'
     form_fields = ['opened', 'pay_damage']
@@ -313,7 +243,7 @@ class Floods(Spelpagina):
         else:
             self.player.participant.vars["flooded"] = False
 
-        if self.player.round_number == Constants.num_start_pages + Constants.num_test_years:
+        if self.player.round_number == Constants.num_start_pages + 1:
             pass
         else:
             self.player.save_final_payoffs()
@@ -342,7 +272,7 @@ class Results(Spelpagina):
         self.player.store_instructions()
 
     def is_displayed(self):
-        return self.round_number == Constants.num_rounds - Constants.num_end_pages
+        return self.round_number == Constants.num_start_pages + 2
 
     def vars_for_template(self):
         vars_for_this_template = self.player.vars_for_payment()
@@ -357,13 +287,11 @@ class Thanks(Page):
         return {'page_title': _('Thanks for your participation')}
 
     def is_displayed(self):
-        return self.round_number == 18
+        return self.round_number == Constants.num_rounds
 
 
 page_sequence = [
     Welcome,
-    Start,
-    VR,
     AfterVR,
     Scenario,
     Instructions,

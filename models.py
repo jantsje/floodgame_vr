@@ -19,11 +19,9 @@ class Constants(BaseConstants):
     players_per_group = None
     scenarios = ["LH"]
     scenarios_no_insurance = ["risk1"]
-    num_start_pages = 4
-    num_end_pages = 12
-    num_test_years = 1
-    num_def_years = 1
-    num_rounds = num_start_pages + num_test_years + num_def_years + num_end_pages
+    num_start_pages = 3
+    num_end_pages = 9
+    num_rounds = num_start_pages + num_end_pages
     risk = 1
     damage = c(50000)  # size of damage in case of a flood
     lower_premium = 0.8
@@ -75,9 +73,6 @@ class Subsession(BaseSubsession):
                 p.participant.vars["damaged_amount_needed"] = False
                 p.participant.vars["other_text"] = ''
                 p.participant.vars["evacuated_text_needed"] = False
-                p.participant.vars["responsible_needed"] = False
-                p.participant.vars["floor_size_needed"] = True
-                p.participant.vars["neighbors_needed"] = False
                 p.participant.vars["opened_instructions"] = 0
                 p.participant.vars["selected_scenario"] = random.randint(1, 6)
                 p.participant.vars["selected_pref"] = random.randint(1, 7)
@@ -103,7 +98,7 @@ class Subsession(BaseSubsession):
                                                        (float(Constants.risk) * 0.01 *
                                                         Constants.damage)) * p.participant.vars["conversion"]
 
-            if self.round_number == 5 or self.round_number == 6:
+            if self.round_number == 4 or self.round_number == 5:
 
                 flood_nrs = []
                 for year in range(1, 25 + 1):
@@ -225,35 +220,6 @@ class Player(BasePlayer):
                                           "protect your home against flood damage. (You can specify more than one.)"),
                                   blank=True)
 
-    cellar_responsible = models.IntegerField(blank=True, label=_("No valuables in basement"))
-
-    furniture_responsible = models.IntegerField(blank=True, label=_("Water-resistant furniture on ground floor"))
-
-    floor_elevated_responsible = models.IntegerField(blank=True, label=_("Elevated ground floor"))
-
-    foundation_responsible = models.IntegerField(blank=True, label=_("Strengthened foundation"))
-
-    walls_responsible = models.IntegerField(blank=True, label=_("Walls made of water-resistant materials"))
-
-    floor_water_resistant_responsible = models.IntegerField(blank=True, label=_(
-        "Floor of ground floor made of water-resistant materials (e.g. tile floor)"))
-
-    sockets_raised_responsible = models.IntegerField(blank=True, label=_("Raised power sockets on ground floor"))
-
-    valves_responsible = models.IntegerField(blank=True, label=_("Anti-backflow valves"))
-
-    sandbags_responsible = models.IntegerField(blank=True, label=_("(Empty) sand bags or flood barriers at home"))
-
-    appliances_elevated_responsible = models.IntegerField(blank=True, label=_("Elevated electrical appliances"))
-
-    boiler_responsible = models.IntegerField(blank=True, label=_("Elevated boiler"))
-
-    meter_elevated_responsible = models.IntegerField(blank=True, label=_("Elevated electricity meter"))
-
-    insured_responsible = models.IntegerField(blank=True, label=_("Bought separate flood insurance"))
-
-    other_responsible = models.IntegerField(blank=True, label="Other:")
-
     other_text = models.StringField(blank=True)
 
     income = models.IntegerField(
@@ -275,16 +241,6 @@ class Player(BasePlayer):
                  (88, _("Rather not say"))
                  ]
     )
-
-    neighbors_measures = models.IntegerField(
-        label=_("Do you know anyone in your community who has taken one or more of these measures?"),
-        choices=[(1, _("Yes")), (0, _("No"))],
-        widget=widgets.RadioSelectHorizontal)
-
-    neighbors_relation = models.StringField(label=_("Please indicate your relationship to the person(s) who "
-                                                     "invested in one or more damage reducing measures."),
-                                             blank=True,
-                                             widget=forms.CheckboxSelectMultiple)
 
     house_type = models.IntegerField(label=_("Please indicate which of the following "
                                              "best describes the home you live in."))
@@ -346,46 +302,6 @@ class Player(BasePlayer):
                                         (88, _("Rather not say"))
                                         ])
 
-    floor_size = models.IntegerField(label=_("Please indicate the size of your ground floor in square meters."),
-                                     help_text="m2")
-
-    flood_prone = models.IntegerField(
-        label=_("Do you currently live in a flood-prone area?"),
-        choices=[(1, _("Yes, I am certain that I live in a flood-prone area.")),
-                 (2, _("Yes, I think that I live in a flood-prone area, but I am not sure.")),
-                 (3, _("No, I am certain that I do not live in a flood-prone area.")),
-                 (99, _("Don't know"))],
-        widget=widgets.RadioSelect,
-    )
-
-    damaged = models.IntegerField(
-        label=_("Have you ever experienced damage to your home due to a flood?"),
-        choices=[(1, _("Yes")), (0, _("No"))],
-        widget=widgets.RadioSelectHorizontal,
-    )
-
-    damaged_amount = models.IntegerField(
-        label=_("What was the total cost of flood damage to your home and its content, as a result of this flood?"),
-        choices=[(0, _("Less than €500")),
-                 (1, _("Between €500 and €999")),
-                 (2, _("Between €1,000 and €4,999")),
-                 (3, _("Between €5,500 and €9,999")),
-                 (4, _("Between €10,000 and €24,999")),
-                 (5, _("Between €25,000 and €49,999")),
-                 (6, _("Between €50,000 and €74,499")),
-                 (7, _("Between €75,000 and €99,999")),
-                 (8, _("Between €100,000 and €249,999")),
-                 (9, _("Between €250,000 and €499,999")),
-                 (10, _("€500,000 or more")),
-                 (99, _("Don’t know")),
-                 ])
-
-    exact_flood_risk_perception = models.StringField(
-        label=_("Please estimate how often your neighborhood could be flooded. "
-                "You may enter any number (not only the numbers on the scale). "),
-        help_text=_("years")
-    )
-
     regret1 = models.IntegerField(
         label=_("When a flood occurred in the scenario, "
                 "I felt regret about not investing (more) in protection."),
@@ -415,23 +331,6 @@ class Player(BasePlayer):
                  (5, _("Strongly agree"))
                  ])
 
-    norm1 = models.IntegerField(
-        label=_("People in my direct environment would approve an investment in damage reducing measures."),
-        blank=True)
-
-    norm2 = models.IntegerField(
-        label=_("People in my direct environment think that I should invest in damage reducing measures."),
-        blank=True)
-
-    personal_norm = models.IntegerField(
-        label=_("I am morally obligated to take measures to reduce flood risk to my home."),
-        choices=[(1, _("Strongly disagree")),
-                 (2, _("Disagree")),
-                 (3, _("Neither agree nor disagree")),
-                 (4, _("Agree")),
-                 (5, _("Strongly agree"))
-                 ])
-
     worry = models.IntegerField(
         label=_("I am worried about the danger of flooding at my current residence."),
         blank=True)
@@ -440,21 +339,8 @@ class Player(BasePlayer):
         label=_("I am confident that the dikes in my country are maintained well."),
         blank=True)
 
-    concern = models.IntegerField(
-        label=_("The probability of flooding at my current residence is too low to be concerned about."),
-        blank=True)
-
     self_responsibility = models.IntegerField(
         label=_("It is the responsibility of a property owner to protect their property from flood damage."),
-        choices=[(1, _("Strongly disagree")),
-                 (2, _("Disagree")),
-                 (3, _("Neither agree nor disagree")),
-                 (4, _("Agree")),
-                 (5, _("Strongly agree"))
-                 ])
-
-    trust_messenger = models.IntegerField(
-        label=_("The information presented in the scenario about previous participants is trustworthy."),
         choices=[(1, _("Strongly disagree")),
                  (2, _("Disagree")),
                  (3, _("Neither agree nor disagree")),
@@ -507,70 +393,11 @@ class Player(BasePlayer):
                  (99, _("Don't know"))]
     )
 
-    sns1 = models.IntegerField(
-        label=_("How good are you at working with fractions?"))
-
-    sns2 = models.IntegerField(
-        label=_("How good are you at figuring out how much a shirt will cost if it is 25% off?"))
-
-    sns3 = models.IntegerField(
-        label=_("How often do you find numerical information to be useful?"))
-
-    collectivism1_r = models.IntegerField(
-        label=_("I would not let my cousin(s) use my car (if I have one)."))
-
-    collectivism2 = models.IntegerField(
-        label=_("It is enjoyable to meet and talk with my neighbors regularly."))
-
-    collectivism3_r = models.IntegerField(
-        label=_("I would not discuss newly acquired knowledge with my parents."))
-
-    collectivism4_r = models.IntegerField(
-        label=_("It is not appropriate for a colleague to ask me for money."))
-
-    collectivism5_r = models.IntegerField(
-        label=_("I would not let my neighbors borrow things from me or my family."))
-
-    collectivism6 = models.IntegerField(
-        label=_("When deciding what kind of education to have, I would pay no attention to my uncles’ advice."))
-
-    collectivism7_r = models.IntegerField(
-        label=_("I would not share ideas with my parents."))
-
-    collectivism8 = models.IntegerField(
-        label=_("I would help, within my means, if a relative told me that he/she is in financial difficulty."))
-
-    collectivism9_r = models.IntegerField(
-        label=_("I am not interested in knowing what my neighbors are really like."))
-
-    collectivism10 = models.IntegerField(
-        label=_("Neighbors should greet each other when we come across each other."))
-
-    collectivism11 = models.IntegerField(
-        label=_("A person ought to help a colleague at work who has financial problems."))
-
-    independence1 = models.IntegerField(
-        label=_("Admitting that your tastes are different from those of your friends."))
-
-    independence2 = models.IntegerField(
-        label=_("Arguing with a friend about an issue on which s/he has a very different opinion."))
-
-    independence3 = models.IntegerField(
-        label=_("Defending an unpopular issue that you believe in at a social occasion."))
-
     def store_instructions(self):
         self.total_opened = self.participant.vars["opened_instructions"]
         # now store these in player class to save them to database
 
     def store_follow_up(self):
-        if self.damaged == 1:
-            self.participant.vars["damaged_amount_needed"] = True
-        if self.house_type == 2:
-            self.participant.vars["floor_size_needed"] = False
-        if self.neighbors_measures == 1:
-            self.participant.vars["neighbors_needed"] = True
-        if self.measures:
-            self.participant.vars["responsible_needed"] = self.measures
         if self.other_text:
             self.participant.vars["other_text"] = self.other_text
 
@@ -717,13 +544,14 @@ class Player(BasePlayer):
                                                     c(0).to_real_world_currency(self.session))
 
     def in_scenario(self):
-        if self.round_number == Constants.num_start_pages + Constants.num_test_years:
+        if self.round_number == Constants.num_start_pages + 1:
             self.scenario_nr = 0
             return True
-        elif self.round_number == Constants.num_start_pages + Constants.num_test_years + Constants.num_def_years:
+        elif self.round_number == Constants.num_start_pages + 2:
             self.scenario_nr = 1
             return True
         else:
             return False
+
 
 

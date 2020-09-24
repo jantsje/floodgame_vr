@@ -3,45 +3,87 @@
 {% load i18n %}
 
 {% block title %} <br>
-    {% trans "Questionnaire" %}
+    {% trans "Final Questionnaire" %}
 {% endblock %}
 
 {% block content %}
 
 {% include 'snippets/Voortgangsbalk.html' %}
-            <div class="card bg-light"><div class="card-body"><p>
 
-            {% trans "We would like to know how you have experienced the VR world." %} <br>
-                {% trans "Please rate the following statements." %}
+        {% if player.round_number == 1 %}
 
-            </p></div></div>
+                <div class="card bg-light"><div class="card-body"><p>
 
-    <br>
-        {% for field in form %}
-            <table class="table" width=100%>
-                <thead>
-                <tr> {{field.label}}</tr>
-                </thead>
-                <tbody> <tr>
-                    <td style="width:10%;">
-                        <br>
-                        {% if field.name == "presence" %} {% trans "totally disagree" %}
-                            {% else %} {% trans "not at all" %}{% endif %}</td>
-                    <td style="width:4%;"><br><input required type="radio" name="{{ field.html_name}}" value="1"> <br>1</td>
-                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="2"><br> 2</td>
-                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="3"><br> 3</td>
-                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="4"><br> 4</td>
-                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="5"><br> 5</td>
-                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="6"><br> 6</td>
-                    <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="7"><br> 7</td>
-                    <td style="width:30%;">
-                        <br>  {% if field.name == "presence" %} {% trans "totally agree" %}
-                            {% else %} {% trans "a lot of discomfort" %}{% endif %}</td></td>
-                </tr>
-                </tbody>
-            </table>
-        {% endfor %}
+                {% trans "We would like to know how you have experienced the VR world." %} <br>
+                    {% trans "Please rate the following statements." %}
 
+                </p></div></div>
+
+
+            <br>
+            {% for field in form %}
+                <table class="table" width=100%>
+                    <thead>
+                    <tr> {{field.label}}</tr>
+                    </thead>
+                    <tbody> <tr>
+                        <td style="width:10%;">
+                            <br>
+                            {% if field.name == "presence" %} {% trans "totally disagree" %}
+                                {% else %} {% trans "not at all" %}{% endif %}</td>
+                        <td style="width:4%;"><br><input required type="radio" name="{{ field.html_name}}" value="1"> <br>1</td>
+                        <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="2"><br> 2</td>
+                        <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="3"><br> 3</td>
+                        <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="4"><br> 4</td>
+                        <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="5"><br> 5</td>
+                        <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="6"><br> 6</td>
+                        <td style="width:4%;"><br><input type="radio" name="{{ field.html_name}}" value="7"><br> 7</td>
+                        <td style="width:30%;">
+                            <br>  {% if field.name == "presence" %} {% trans "totally agree" %}
+                                {% else %} {% trans "a lot of discomfort" %}{% endif %}</td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            {% endfor %}
+
+        {% elif player.round_number == 3 %} <br>
+
+            {% trans "Please indicate the extent to which you agree or disagree with the following statements." %}
+        <br> <br>
+
+               {% for field in form %}
+        <table class="table table-sm" width=100%>
+            <tr>
+                {% if  forloop.counter  == 1  %}<th> </th>
+                    <th>{% trans "Strongly disagree" %}</th>
+                    <th>{% trans "Disagree" %}</th>
+                    <th>{% trans "Neither agree nor disagree" %}</th>
+                    <th>{% trans "Agree" %}</th>
+                    <th>{% trans "Strongly agree" %}</th>
+                {% endif %}
+            </tr>
+            <tr>
+                <td width="50%">
+                    {{ field.label }}
+                    {{ field.errors }}
+                </td>
+                <td width="9%"><input type="radio" name="{{ field.html_name}}" value="1"></td>
+                <td width="8%"><input type="radio" name="{{ field.html_name}}" value="2"></td>
+                <td width="9%"><input required type="radio" name="{{ field.html_name}}" value="3"></td>
+                <td width="8%"><input type="radio" name="{{ field.html_name}}" value="4"></td>
+                <td width="9%"><input type="radio" name="{{ field.html_name}}" value="5"></td>
+
+            </tr>
+
+        </table>
+               {% endfor %}
+
+        {% else %}
+                <br>
+            {% for field in form %}
+                {% formfield field %}
+            {% endfor %}
+        {%  endif %}
 
 {#    {{form.errors}}#}
 
