@@ -77,7 +77,7 @@ class AfterVR(Page):
         elif self.round_number == 2:
             return ['flood_prob', 'water_levels', 'expected_damage']
         elif self.round_number == 3:
-            return ['worry', 'trust_dikes']
+            return ['worry', 'trust_dikes', 'concern', 'worry_covid']
 
     def is_displayed(self):
         return self.round_number <= Constants.num_start_pages

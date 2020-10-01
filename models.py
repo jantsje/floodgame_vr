@@ -15,7 +15,7 @@ Investeringsspel voor huiseigenaren (voor na VR experience in het lab)
 
 
 class Constants(BaseConstants):
-    name_in_url = 'onderzoek'
+    name_in_url = 'onderzoek1'
     players_per_group = None
     scenarios = ["LH"]
     scenarios_no_insurance = ["risk1"]
@@ -337,6 +337,14 @@ class Player(BasePlayer):
 
     trust_dikes = models.IntegerField(
         label=_("I am confident that the dikes in my country are maintained well."),
+        blank=True)
+
+    concern = models.IntegerField(
+        label=_("The probability of flooding at my current residence is too low to be concerned about."),
+        blank=True)
+
+    worry_covid = models.IntegerField(
+        label=_("I am worried about becoming infected by the coronavirus."),
         blank=True)
 
     self_responsibility = models.IntegerField(

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-24 13:48+0200\n"
-"PO-Revision-Date: 2020-09-24 13:49+0200\n"
+"POT-Creation-Date: 2020-10-01 09:49+0200\n"
+"PO-Revision-Date: 2020-10-01 09:54+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,23 +33,23 @@ msgid ""
 msgstr ""
 "Hoe makkelijk of moeilijk vond u het om een keuze te maken in het scenario?"
 
-#: .\models.py:177 .\models.py:388
+#: .\models.py:177 .\models.py:396
 msgid "Very easy"
 msgstr "Heel erg makkelijk"
 
-#: .\models.py:178 .\models.py:389
+#: .\models.py:178 .\models.py:397
 msgid "Somewhat easy"
 msgstr "Vrij makkelijk"
 
-#: .\models.py:179 .\models.py:390
+#: .\models.py:179 .\models.py:398
 msgid "Neither easy/nor difficult"
 msgstr "Niet makkelijk/niet moeilijk"
 
-#: .\models.py:180 .\models.py:391
+#: .\models.py:180 .\models.py:399
 msgid "Somewhat difficult"
 msgstr "Vrij moeilijk"
 
-#: .\models.py:181 .\models.py:392
+#: .\models.py:181 .\models.py:400
 msgid "Very difficult"
 msgstr "Heel erg moeilijk"
 
@@ -110,7 +110,7 @@ msgstr "Hoog"
 msgid "Very high"
 msgstr "Heel hoog"
 
-#: .\models.py:205 .\models.py:371 .\models.py:381 .\models.py:393
+#: .\models.py:205 .\models.py:379 .\models.py:389 .\models.py:401
 msgid "Don't know"
 msgstr "Weet ik niet"
 
@@ -374,27 +374,27 @@ msgstr ""
 "Ik had spijt dat ik niet (meer) had geinvesteerd in schadebeperkende "
 "maatregelen, toen in het scenario een overstroming plaatsvond."
 
-#: .\models.py:308 .\models.py:317 .\models.py:327 .\models.py:344
+#: .\models.py:308 .\models.py:317 .\models.py:327 .\models.py:352
 #: .\templates\floodgame_vr\AfterVR.html:58
 msgid "Strongly disagree"
 msgstr "Helemaal niet mee eens"
 
-#: .\models.py:309 .\models.py:318 .\models.py:328 .\models.py:345
+#: .\models.py:309 .\models.py:318 .\models.py:328 .\models.py:353
 #: .\templates\floodgame_vr\AfterVR.html:59
 msgid "Disagree"
 msgstr "Oneens"
 
-#: .\models.py:310 .\models.py:319 .\models.py:329 .\models.py:346
+#: .\models.py:310 .\models.py:319 .\models.py:329 .\models.py:354
 #: .\templates\floodgame_vr\AfterVR.html:60
 msgid "Neither agree nor disagree"
 msgstr "Niet eens niet oneens"
 
-#: .\models.py:311 .\models.py:320 .\models.py:330 .\models.py:347
+#: .\models.py:311 .\models.py:320 .\models.py:330 .\models.py:355
 #: .\templates\floodgame_vr\AfterVR.html:61
 msgid "Agree"
 msgstr "Eens"
 
-#: .\models.py:312 .\models.py:321 .\models.py:331 .\models.py:348
+#: .\models.py:312 .\models.py:321 .\models.py:331 .\models.py:356
 #: .\templates\floodgame_vr\AfterVR.html:62
 msgid "Strongly agree"
 msgstr "Helemaal mee eens"
@@ -426,13 +426,25 @@ msgstr "Ik vertrouw erop dat de dijken in mijn land goed worden onderhouden."
 
 #: .\models.py:343
 msgid ""
+"The probability of flooding at my current residence is too low to be "
+"concerned about."
+msgstr ""
+"De kans op een overstroming op mijn adres is te klein om me druk over te "
+"maken."
+
+#: .\models.py:347
+msgid "I am worried about becoming infected by the coronavirus."
+msgstr "Ik maak me zorgen over het gevaar van een coronavirusbesmetting."
+
+#: .\models.py:351
+msgid ""
 "It is the responsibility of a property owner to protect their property from "
 "flood damage."
 msgstr ""
 "Het is de verantwoordelijkheid van een huiseigenaar om zijn/haar woning en "
 "inboedel te beschermen tegen overstromingsschade."
 
-#: .\models.py:352
+#: .\models.py:360
 msgid ""
 "How willing are you to give up money today in order to benefit from it in "
 "the future?"
@@ -440,15 +452,15 @@ msgstr ""
 "In hoeverre bent u bereid vandaag geld opzij te zetten om hiervan in de "
 "toekomst profijt te hebben?"
 
-#: .\models.py:355
+#: .\models.py:363
 msgid "In general, how willing or unwilling are you to take risks?"
-msgstr "Bent u over het algemeen bereid om risico's te nemen?"
+msgstr "In hoeverre bent u over het algemeen bereid om risico’s te nemen?"
 
-#: .\models.py:358
+#: .\models.py:366
 msgid "In the virtual environment I had a sense of 'being there'."
 msgstr "Ik had het gevoel aanwezig te zijn in de virtuele omgeving."
 
-#: .\models.py:361
+#: .\models.py:369
 msgid ""
 "Did you feel general discomfort, nauseous or dizzy in the virtual "
 "environment?"
@@ -456,7 +468,7 @@ msgstr ""
 "Heeft u enig ongemak ervaren in de virtuele omgeving, zoals misselijkheid of "
 "duizeligheid?"
 
-#: .\models.py:365
+#: .\models.py:373
 msgid ""
 "How effective is it to invest in flood protection measures that limit flood "
 "damage for your current home?"
@@ -464,27 +476,27 @@ msgstr ""
 "Hoe effectief is investeren in (overstromings)schadebeperkende maatregelen "
 "voor uw huidige woning?"
 
-#: .\models.py:366
+#: .\models.py:374
 msgid "Very effective"
 msgstr "Heel erg effectief"
 
-#: .\models.py:367
+#: .\models.py:375
 msgid "Effective"
 msgstr "Effectief"
 
-#: .\models.py:368
+#: .\models.py:376
 msgid "Neither effective nor ineffective"
 msgstr "Niet effectief/niet ineffectief"
 
-#: .\models.py:369
+#: .\models.py:377
 msgid "Ineffective"
 msgstr "Niet effectief"
 
-#: .\models.py:370
+#: .\models.py:378
 msgid "Very ineffective"
 msgstr "Totaal niet effectief"
 
-#: .\models.py:375
+#: .\models.py:383
 msgid ""
 "How costly is it to take flood protection measures that limit flood damage "
 "for your current home?"
@@ -492,27 +504,27 @@ msgstr ""
 "Hoe duur is het om (overstromings)schadebeperkende maatregelen te nemen voor "
 "uw huidige woning?"
 
-#: .\models.py:376
+#: .\models.py:384
 msgid "Very cheap"
 msgstr "Heel erg goedkoop"
 
-#: .\models.py:377
+#: .\models.py:385
 msgid "Cheap"
 msgstr "Goedkoop"
 
-#: .\models.py:378
+#: .\models.py:386
 msgid "Neither cheap nor costly"
 msgstr "Niet goedkoop niet duur"
 
-#: .\models.py:379
+#: .\models.py:387
 msgid "Costly"
 msgstr "Duur"
 
-#: .\models.py:380
+#: .\models.py:388
 msgid "Very costly"
 msgstr "Heel erg duur"
 
-#: .\models.py:386
+#: .\models.py:394
 msgid ""
 "Aside from the cost, how difficult is it to take flood protection measures "
 "that limit flood damage for your current home?"
@@ -520,11 +532,11 @@ msgstr ""
 "Afgezien van de kosten, hoe moeilijk is het om "
 "(overstromings)schadebeperkende maatregelen te nemen voor uw huidige woning?"
 
-#: .\models.py:440
+#: .\models.py:448
 msgid "test scenario"
 msgstr "oefenscenario"
 
-#: .\models.py:443
+#: .\models.py:451
 msgid "final scenario"
 msgstr "definitief scenario"
 
@@ -951,7 +963,7 @@ msgid ""
 "In the following scenario, try to imagine what you would do given that your "
 "home is prone to flooding."
 msgstr ""
-"In het volgende scenario, probeert u zich voor te stellen wat u zou doen, "
+"Probeert u zich in het volgende scenario voor te stellen wat u zou doen, "
 "gegeven dat uw huis in een overstroombaar gebied staat."
 
 #: .\templates\floodgame_vr\Scenario.html:30
@@ -1090,7 +1102,7 @@ msgstr ""
 
 #: .\templates\snippets\Instr.html:33
 msgid "The probability that the blue house is flooded, is 1 percent."
-msgstr "De kans dat het blauwe huis overstroomt, is 1 procent."
+msgstr "De kans dat het blauwe huis overstroomt is 1 procent."
 
 #: .\templates\snippets\Instr.html:52
 msgid ""
@@ -1108,8 +1120,8 @@ msgid ""
 "An example of such a damage reducing measure is moving your electric "
 "appliances to a higher floor."
 msgstr ""
-"Een voorbeeld van zo een schadebeperkende maatregel is het verhuizen van uw "
-"wasmachine en cv-ketel naar ene hogere verdieping. "
+"Een voorbeeld van een schadebeperkende maatregel is het verhuizen van uw "
+"wasmachine en cv-ketel naar een hogere verdieping. "
 
 #: .\templates\snippets\Instr.html:60
 msgid ""
@@ -1238,13 +1250,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Ik voel een morele verplichting om mijn woning te beschermen tegen "
 #~ "overstromingsschade."
-
-#~ msgid ""
-#~ "The probability of flooding at my current residence is too low to be "
-#~ "concerned about."
-#~ msgstr ""
-#~ "De kans op een overstroming op mijn adres is te klein om me druk over te "
-#~ "maken."
 
 #~ msgid ""
 #~ "The information presented in the scenario about previous participants is "
@@ -1699,7 +1704,7 @@ msgstr ""
 #~ "in the game."
 #~ msgstr ""
 #~ "De balans van uw spaarrekening hangt af van uw keuzes en of een "
-#~ "overstroming plaatsvindt in het floodgame_online."
+#~ "overstroming plaatsvindt in het spel."
 
 #~ msgid ""
 #~ "You can use the savings account to pay for investments. In case of a "
