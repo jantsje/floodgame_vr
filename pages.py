@@ -73,7 +73,7 @@ class AfterVR(Page):
 
     def get_form_fields(self):
         if self.round_number == 1:
-            return ['presence', 'sickness']
+            return ['presence', 'sickness', 'expectation']
         elif self.round_number == 2:
             return ['flood_prob', 'water_levels', 'expected_damage']
         elif self.round_number == 3:

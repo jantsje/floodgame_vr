@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-01 09:49+0200\n"
-"PO-Revision-Date: 2020-10-01 09:54+0200\n"
+"POT-Creation-Date: 2020-10-02 16:28+0200\n"
+"PO-Revision-Date: 2020-10-02 16:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,23 +33,23 @@ msgid ""
 msgstr ""
 "Hoe makkelijk of moeilijk vond u het om een keuze te maken in het scenario?"
 
-#: .\models.py:177 .\models.py:396
+#: .\models.py:177 .\models.py:403
 msgid "Very easy"
 msgstr "Heel erg makkelijk"
 
-#: .\models.py:178 .\models.py:397
+#: .\models.py:178 .\models.py:404
 msgid "Somewhat easy"
 msgstr "Vrij makkelijk"
 
-#: .\models.py:179 .\models.py:398
+#: .\models.py:179 .\models.py:405
 msgid "Neither easy/nor difficult"
 msgstr "Niet makkelijk/niet moeilijk"
 
-#: .\models.py:180 .\models.py:399
+#: .\models.py:180 .\models.py:406
 msgid "Somewhat difficult"
 msgstr "Vrij moeilijk"
 
-#: .\models.py:181 .\models.py:400
+#: .\models.py:181 .\models.py:407
 msgid "Very difficult"
 msgstr "Heel erg moeilijk"
 
@@ -110,7 +110,7 @@ msgstr "Hoog"
 msgid "Very high"
 msgstr "Heel hoog"
 
-#: .\models.py:205 .\models.py:379 .\models.py:389 .\models.py:401
+#: .\models.py:205 .\models.py:386 .\models.py:396 .\models.py:408
 msgid "Don't know"
 msgstr "Weet ik niet"
 
@@ -468,7 +468,23 @@ msgstr ""
 "Heeft u enig ongemak ervaren in de virtuele omgeving, zoals misselijkheid of "
 "duizeligheid?"
 
+#: .\models.py:372
+msgid "What did you think of the VR flood experience?"
+msgstr "Hoe vond u het om een overstroming te ervaren in virtual reality?"
+
 #: .\models.py:373
+msgid "Less severe than expected"
+msgstr "Minder ernstig dan verwacht"
+
+#: .\models.py:374
+msgid "Confirmed my expectations"
+msgstr "Precies zoals verwacht"
+
+#: .\models.py:375
+msgid "More severe than expected"
+msgstr "Ernstiger dan verwacht"
+
+#: .\models.py:380
 msgid ""
 "How effective is it to invest in flood protection measures that limit flood "
 "damage for your current home?"
@@ -476,27 +492,27 @@ msgstr ""
 "Hoe effectief is investeren in (overstromings)schadebeperkende maatregelen "
 "voor uw huidige woning?"
 
-#: .\models.py:374
+#: .\models.py:381
 msgid "Very effective"
 msgstr "Heel erg effectief"
 
-#: .\models.py:375
+#: .\models.py:382
 msgid "Effective"
 msgstr "Effectief"
 
-#: .\models.py:376
+#: .\models.py:383
 msgid "Neither effective nor ineffective"
 msgstr "Niet effectief/niet ineffectief"
 
-#: .\models.py:377
+#: .\models.py:384
 msgid "Ineffective"
 msgstr "Niet effectief"
 
-#: .\models.py:378
+#: .\models.py:385
 msgid "Very ineffective"
 msgstr "Totaal niet effectief"
 
-#: .\models.py:383
+#: .\models.py:390
 msgid ""
 "How costly is it to take flood protection measures that limit flood damage "
 "for your current home?"
@@ -504,27 +520,27 @@ msgstr ""
 "Hoe duur is het om (overstromings)schadebeperkende maatregelen te nemen voor "
 "uw huidige woning?"
 
-#: .\models.py:384
+#: .\models.py:391
 msgid "Very cheap"
 msgstr "Heel erg goedkoop"
 
-#: .\models.py:385
+#: .\models.py:392
 msgid "Cheap"
 msgstr "Goedkoop"
 
-#: .\models.py:386
+#: .\models.py:393
 msgid "Neither cheap nor costly"
 msgstr "Niet goedkoop niet duur"
 
-#: .\models.py:387
+#: .\models.py:394
 msgid "Costly"
 msgstr "Duur"
 
-#: .\models.py:388
+#: .\models.py:395
 msgid "Very costly"
 msgstr "Heel erg duur"
 
-#: .\models.py:394
+#: .\models.py:401
 msgid ""
 "Aside from the cost, how difficult is it to take flood protection measures "
 "that limit flood damage for your current home?"
@@ -532,11 +548,11 @@ msgstr ""
 "Afgezien van de kosten, hoe moeilijk is het om "
 "(overstromings)schadebeperkende maatregelen te nemen voor uw huidige woning?"
 
-#: .\models.py:448
+#: .\models.py:455
 msgid "test scenario"
 msgstr "oefenscenario"
 
-#: .\models.py:451
+#: .\models.py:458
 msgid "final scenario"
 msgstr "definitief scenario"
 
@@ -1436,9 +1452,6 @@ msgstr ""
 
 #~ msgid "On average, one flood every"
 #~ msgstr "Gemiddeld één overstroming per"
-
-#~ msgid "or if you think that a flood will never happen:"
-#~ msgstr "of, als u denkt dat een overstroming nooit zal plaatsvinden:"
 
 #~ msgid "It is time for some research in VR"
 #~ msgstr "Het is tijd voor het VR onderzoek"

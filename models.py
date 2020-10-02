@@ -368,6 +368,13 @@ class Player(BasePlayer):
     sickness = models.IntegerField(
         label=_("Did you feel general discomfort, nauseous or dizzy in the virtual environment?"))
 
+    expectation = models.IntegerField(
+        label=_("What did you think of the VR flood experience?"),
+        choices=[(1, _("Less severe than expected")),
+                 (2, _("Confirmed my expectations")),
+                 (3, _("More severe than expected"))]
+    )
+
     perceived_efficacy = models.IntegerField(
         label=_(
             "How effective is it to invest in flood protection measures that limit flood damage for your current home?"),

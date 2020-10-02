@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-09 13:05-0400\n"
+"POT-Creation-Date: 2020-10-02 16:28+0200\n"
 "PO-Revision-Date: 2019-10-09 15:49-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,7 +26,7 @@ msgstr "Respuesta incorrecta. Por favor inténtelo de nuevo."
 msgid "You still need to answer this question."
 msgstr "Aún tiene que responder a esta pregunta."
 
-#: .\models.py:242
+#: .\models.py:176
 msgid ""
 "How easy or difficult was it to make a choice in the investment game you "
 "just played?"
@@ -34,88 +34,87 @@ msgstr ""
 "¿Qué tan fácil o difícil fue tomar la decisión en el juego de inversión en "
 "el que acaba de participar?"
 
-#: .\models.py:243 .\models.py:557
+#: .\models.py:177 .\models.py:403
 msgid "Very easy"
 msgstr "Muy fácil"
 
-#: .\models.py:244 .\models.py:558
+#: .\models.py:178 .\models.py:404
 msgid "Somewhat easy"
 msgstr "Algo fácil"
 
-#: .\models.py:245 .\models.py:559
+#: .\models.py:179 .\models.py:405
 msgid "Neither easy/nor difficult"
 msgstr "Ni fácil/ni difícil"
 
-#: .\models.py:246 .\models.py:560
+#: .\models.py:180 .\models.py:406
 msgid "Somewhat difficult"
 msgstr "Algo difícil"
 
-#: .\models.py:247 .\models.py:561
+#: .\models.py:181 .\models.py:407
 msgid "Very difficult"
 msgstr "Muy difícil"
 
-#: .\models.py:253
+#: .\models.py:187
 msgid "Please briefly explain how you made decisions in the investment game."
 msgstr ""
 "Por favor, explique brevemente cómo tomó sus decisiones en el juego de "
 "inversión."
 
-#: .\models.py:255
+#: .\models.py:189
 msgid "What is your age?"
 msgstr "¿Cuál es su edad?"
 
-#: .\models.py:256 .\models.py:447
+#: .\models.py:190
 msgid "years"
 msgstr "años"
 
-#: .\models.py:258
+#: .\models.py:192
 msgid "Male"
 msgstr "Masculino"
 
-#: .\models.py:258
+#: .\models.py:192
 msgid "Female"
 msgstr "Femenino"
 
-#: .\models.py:259
+#: .\models.py:193
 msgid "What is your gender?"
 msgstr "¿Sexo?"
 
-#: .\models.py:264
+#: .\models.py:198
 msgid ""
 "What is the likelihood that your home will be flooded in the next 25 years?"
 msgstr ""
 "¿Cuál es la probabilidad de que su casa se inunde en los próximos 25 años?"
 
-#: .\models.py:265
+#: .\models.py:199
 msgid "The probability is zero"
 msgstr "Probabilidad nula"
 
-#: .\models.py:266
+#: .\models.py:200
 msgid "Very low"
 msgstr "Muy baja"
 
-#: .\models.py:267
+#: .\models.py:201
 msgid "Low"
 msgstr "Baja"
 
-#: .\models.py:268
+#: .\models.py:202
 msgid "Not low/not high"
 msgstr "Ni baja/ni alta"
 
-#: .\models.py:269
+#: .\models.py:203
 msgid "High"
 msgstr "Alta"
 
-#: .\models.py:270
+#: .\models.py:204
 msgid "Very high"
 msgstr "Muy alta"
 
-#: .\models.py:271 .\models.py:418 .\models.py:540 .\models.py:550
-#: .\models.py:562
+#: .\models.py:205 .\models.py:386 .\models.py:396 .\models.py:408
 msgid "Don't know"
 msgstr "No sé"
 
-#: .\models.py:275
+#: .\models.py:209
 msgid ""
 "Imagine your neighborhood is flooded. What height do you think the water "
 "would reach in your home?"
@@ -123,31 +122,31 @@ msgstr ""
 "Imagina que tu vecindario se inunda. ¿Qué altura crees que alcanzaría el "
 "agua en tu casa?"
 
-#: .\models.py:276
+#: .\models.py:210
 msgid "The water would not reach my home"
 msgstr "El agua no llegaría a mi casa"
 
-#: .\models.py:277
+#: .\models.py:211
 msgid "Low (1-10 cm)"
 msgstr "Bajo (1-10 cm)"
 
-#: .\models.py:278
+#: .\models.py:212
 msgid "Pretty high (10-50 cm)"
 msgstr "Bastante alto (10-50 cm)"
 
-#: .\models.py:279
+#: .\models.py:213
 msgid "Fairly high (50-100 cm)"
 msgstr "Relativamente alto (50-100 cm)"
 
-#: .\models.py:280
+#: .\models.py:214
 msgid "High (1-2 meter)"
 msgstr "Alto"
 
-#: .\models.py:281
+#: .\models.py:215
 msgid "Very high (more than 2 meter)"
 msgstr "Muy alto (más de 2 metros)"
 
-#: .\models.py:285
+#: .\models.py:219
 msgid ""
 "Please indicate which measures you have taken in your current home to "
 "protect your home against flood damage. (You can specify more than one.)"
@@ -155,165 +154,86 @@ msgstr ""
 "Indique qué medidas ha tomado para proteger su hogar contra daños por "
 "inundaciones. (Puede seleccionar más de una opción)"
 
-#: .\models.py:289 .\templates\floodgame_vr\FinalQuestions.html:289
-msgid "No valuables in basement"
-msgstr "No hay objetos de valor en el sótano"
-
-#: .\models.py:291 .\templates\floodgame_vr\FinalQuestions.html:292
-msgid "Water-resistant furniture on ground floor"
-msgstr "Muebles resistentes al agua en la planta baja"
-
-#: .\models.py:293 .\templates\floodgame_vr\FinalQuestions.html:295
-msgid "Elevated ground floor"
-msgstr "Planta baja elevada"
-
-#: .\models.py:295 .\templates\floodgame_vr\FinalQuestions.html:298
-msgid "Strengthened foundation"
-msgstr "Fortalecer los cimientos"
-
-#: .\models.py:297 .\templates\floodgame_vr\FinalQuestions.html:301
-msgid "Walls made of water-resistant materials"
-msgstr "Paredes de materiales resistentes al agua"
-
-#: .\models.py:300 .\templates\floodgame_vr\FinalQuestions.html:304
-msgid ""
-"Floor of ground floor made of water-resistant materials (e.g. tile floor)"
-msgstr ""
-"Piso de planta baja hecho de materiales resistentes al agua (por ejemplo, "
-"piso de baldosas)"
-
-#: .\models.py:302 .\templates\floodgame_vr\FinalQuestions.html:307
-msgid "Raised power sockets on ground floor"
-msgstr "Tomas de corriente elevadas en la planta baja"
-
-#: .\models.py:304 .\templates\floodgame_vr\FinalQuestions.html:310
-msgid "Anti-backflow valves"
-msgstr "Válvula antirretorno"
-
-#: .\models.py:306 .\templates\floodgame_vr\FinalQuestions.html:313
-msgid "(Empty) sand bags or flood barriers at home"
-msgstr ""
-"Sacos de arena (vacíos) para formar barreras contra la inundación en el hogar"
-
-#: .\models.py:308 .\templates\floodgame_vr\FinalQuestions.html:316
-msgid "Elevated electrical appliances"
-msgstr "Electrodomésticos elevados"
-
-#: .\models.py:310 .\templates\floodgame_vr\FinalQuestions.html:319
-msgid "Elevated boiler"
-msgstr "Caldera elevada"
-
-#: .\models.py:312 .\templates\floodgame_vr\FinalQuestions.html:322
-msgid "Elevated electricity meter"
-msgstr "Medidor de electricidad elevado"
-
-#: .\models.py:314 .\templates\floodgame_vr\FinalQuestions.html:325
-msgid "Bought separate flood insurance"
-msgstr "Adquirir un seguro contra inundaciones por separado"
-
-#: .\models.py:321
+#: .\models.py:226
 msgid "What is your household monthly income (after taxes)?"
 msgstr "¿Cuál es el ingreso mensual de su hogar (después de impuestos)?"
 
-#: .\models.py:322 .\models.py:375 .\models.py:430
+#: .\models.py:227 .\models.py:270
 msgid "Less than €500"
 msgstr "Menos de 500€"
 
-#: .\models.py:323 .\models.py:376 .\models.py:431
+#: .\models.py:228 .\models.py:271
 msgid "Between €500 and €999"
 msgstr "Entre 500€ y 999€"
 
-#: .\models.py:324
+#: .\models.py:229
 msgid "Between €1,000 and €1,499"
 msgstr "Entre 1.000€ y 1.499€"
 
-#: .\models.py:325
+#: .\models.py:230
 msgid "Between €1,500 and €1,999"
 msgstr "Entre 1.500€ y 1.999€"
 
-#: .\models.py:326
+#: .\models.py:231
 msgid "Between €2,000 and €2,499"
 msgstr "Entre 2.000€ y 2.499€"
 
-#: .\models.py:327
+#: .\models.py:232
 msgid "Between €2,500 and €2,999"
 msgstr "Entre 2.500€ y 2.999€"
 
-#: .\models.py:328
+#: .\models.py:233
 msgid "Between €3,000 and €3,499"
 msgstr "Entre 3.000€ y 3.499€"
 
-#: .\models.py:329
+#: .\models.py:234
 msgid "Between €3,500 and €3,999"
 msgstr "Entre 3.500€ y 3.999€"
 
-#: .\models.py:330
+#: .\models.py:235
 msgid "Between €4,000 and €4,499"
 msgstr "Entre 4.000€ y 4.499€"
 
-#: .\models.py:331
+#: .\models.py:236
 msgid "Between €4,500 and €4,999"
 msgstr "Entre 4.500€ y 4.999€"
 
-#: .\models.py:332
+#: .\models.py:237
 msgid "Between €5,000 and €5,499"
 msgstr "Entre 5.000€ y 5.499€"
 
-#: .\models.py:333
+#: .\models.py:238
 msgid "Between €5,500 and €5,999"
 msgstr "Entre 5.500€ y 5.999€"
 
-#: .\models.py:334
+#: .\models.py:239
 msgid "€6,000 or more"
 msgstr "6.000€ o más"
 
-#: .\models.py:335 .\models.py:386 .\models.py:406 .\models.py:441
+#: .\models.py:240 .\models.py:281 .\models.py:301
 msgid "Don’t know"
 msgstr "No sé"
 
-#: .\models.py:336 .\models.py:407
+#: .\models.py:241 .\models.py:302
 msgid "Rather not say"
 msgstr "Prefiero no decirlo"
 
-#: .\models.py:341
-msgid ""
-"Do you know anyone in your community who has taken one or more of these "
-"measures?"
-msgstr ""
-"¿Conoce a alguien en su comunidad que haya tomado una o más de estas medidas?"
-
-#: .\models.py:342 .\models.py:369 .\models.py:424
-msgid "Yes"
-msgstr "Sí"
-
-#: .\models.py:342 .\models.py:369 .\models.py:424
-msgid "No"
-msgstr "No"
-
-#: .\models.py:345
-msgid ""
-"Please indicate your relationship to the person(s) who invested in one or "
-"more damage reducing measures."
-msgstr ""
-"Indique el tipo de relación que tiene con las personas que invirtieron en "
-"una o más medidas de reducción de daños."
-
-#: .\models.py:350
+#: .\models.py:245
 msgid ""
 "Please indicate which of the following best describes the home you live in."
 msgstr ""
 "Indique cuál de las siguientes opciones describe mejor la casa en la que "
 "vive."
 
-#: .\models.py:353
+#: .\models.py:248
 msgid "What is the highest level of education you have completed?"
 msgstr "¿Cuál es el nivel más alto de educación que ha completado?"
 
-#: .\models.py:356 .\templates\floodgame_vr\Welcome.html:57
+#: .\models.py:251
 msgid "What is your zipcode?"
 msgstr "¿Cuál es su código postal?"
 
-#: .\models.py:364
+#: .\models.py:259
 msgid ""
 "This is the end of the survey. In case you have comments, please leave them "
 "here."
@@ -321,11 +241,19 @@ msgstr ""
 "Este es el final de la encuesta. En caso de que tenga comentarios, por favor "
 "déjelos aquí."
 
-#: .\models.py:368
+#: .\models.py:263
 msgid "Have you ever been evacuated due to a threat of flooding?"
 msgstr "¿Alguna vez ha sido evacuado debido a una amenaza de inundación?"
 
-#: .\models.py:374
+#: .\models.py:264
+msgid "Yes"
+msgstr "Sí"
+
+#: .\models.py:264
+msgid "No"
+msgstr "No"
+
+#: .\models.py:269
 msgid ""
 "In the event of a future flood, how much damage would you expect to your "
 "home and property?"
@@ -333,156 +261,111 @@ msgstr ""
 "En caso de una inundación futura, ¿en cuánto estimaría los daños en su hogar "
 "y propiedad?"
 
-#: .\models.py:377 .\models.py:432
+#: .\models.py:272
 msgid "Between €1,000 and €4,999"
 msgstr "Entre 1.000€ y 4.999€"
 
-#: .\models.py:378
+#: .\models.py:273
 msgid "Between €5,000 and €9,999"
 msgstr "Entre 5.000€ y 9.999€"
 
-#: .\models.py:379 .\models.py:434
+#: .\models.py:274
 msgid "Between €10,000 and €24,999"
 msgstr "Entre 10.000€ y 24.999€"
 
-#: .\models.py:380 .\models.py:435
+#: .\models.py:275
 msgid "Between €25,000 and €49,999"
 msgstr "Entre 25.000€ y 49.999€"
 
-#: .\models.py:381 .\models.py:436
+#: .\models.py:276
 msgid "Between €50,000 and €74,499"
 msgstr "Entre 50.000€ y 74.499€"
 
-#: .\models.py:382 .\models.py:437
+#: .\models.py:277
 msgid "Between €75,000 and €99,999"
 msgstr "Entre 75.000€ y 99.999€"
 
-#: .\models.py:383 .\models.py:438
+#: .\models.py:278
 msgid "Between €100,000 and €249,999"
 msgstr "Entre 100.000€ y 249.999€"
 
-#: .\models.py:384 .\models.py:439
+#: .\models.py:279
 msgid "Between €250,000 and €499,999"
 msgstr "Entre 250.000€ y 499,999€"
 
-#: .\models.py:385 .\models.py:440
+#: .\models.py:280
 msgid "€500,000 or more"
 msgstr "500.000€ o más"
 
-#: .\models.py:389
+#: .\models.py:284
 msgid "What is the approximate market value of your home?"
 msgstr "¿Cuál es el valor de mercado aproximado de su hogar?"
 
-#: .\models.py:390
+#: .\models.py:285
 msgid "Less than €100,000"
 msgstr "Menos de 100.000€"
 
-#: .\models.py:391
+#: .\models.py:286
 msgid "Between €100,000 and €149,000"
 msgstr "Entre 100.000€ y 149.000€"
 
-#: .\models.py:392
+#: .\models.py:287
 msgid "Between €150,000 and €199,999"
 msgstr "Entre 150.000€ y 199.999€"
 
-#: .\models.py:393
+#: .\models.py:288
 msgid "Between €200,000 and €249,000"
 msgstr "Entre 200.000€ y 249.000€"
 
-#: .\models.py:394
+#: .\models.py:289
 msgid "Between €250,000 and €299,999"
 msgstr "Entre 250.000€ y 299.999€"
 
-#: .\models.py:395
+#: .\models.py:290
 msgid "Between €300,000 and €349,000"
 msgstr "Entre 300.000€ y 349.000€"
 
-#: .\models.py:396
+#: .\models.py:291
 msgid "Between €350,000 and €399,999"
 msgstr "Entre 350.000€ y 399.999€"
 
-#: .\models.py:397
+#: .\models.py:292
 msgid "Between €400,000 and €449,000"
 msgstr "Entre 400.000€ y 449.000€"
 
-#: .\models.py:398
+#: .\models.py:293
 msgid "Between €450,000 and €499,999"
 msgstr "Entre 450.000€ y 499.999€"
 
-#: .\models.py:399
+#: .\models.py:294
 msgid "Between €500,000 and €549,000"
 msgstr "Entre 500.000€ y 549.000€"
 
-#: .\models.py:400
+#: .\models.py:295
 msgid "Between €550,000 and €599,999"
 msgstr "Entre 550.000€ y 599.999€"
 
-#: .\models.py:401
+#: .\models.py:296
 msgid "Between €600,000 and €649,000"
 msgstr "Entre 600.000€ y 649.000€"
 
-#: .\models.py:402
+#: .\models.py:297
 msgid "Between €650,000 and €699,999"
 msgstr "Entre 650.000€ y 699.999€"
 
-#: .\models.py:403
+#: .\models.py:298
 msgid "Between €700,000 and €749,000"
 msgstr "Entre 700.000€ y 749.000€"
 
-#: .\models.py:404
+#: .\models.py:299
 msgid "Between €750,000 and €799,999"
 msgstr "Entre 750.000€ y 799.999€"
 
-#: .\models.py:405
+#: .\models.py:300
 msgid "€800,000 or more"
 msgstr "800.000€ o más"
 
-#: .\models.py:410
-msgid "Please indicate the size of your ground floor in square meters."
-msgstr "Indique el tamaño de su planta baja en metros cuadrados."
-
-#: .\models.py:414
-msgid "Do you currently live in a flood-prone area?"
-msgstr "¿Actualmente vive en un área propensa a inundaciones?"
-
-#: .\models.py:415
-msgid "Yes, I am certain that I live in a flood-prone area."
-msgstr "Sí, estoy seguro de que vivo en un área propensa a inundaciones."
-
-#: .\models.py:416
-msgid "Yes, I think that I live in a flood-prone area, but I am not sure."
-msgstr ""
-"Sí, creo que vivo en un área propensa a inundaciones, pero no estoy seguro."
-
-#: .\models.py:417
-msgid "No, I am certain that I do not live in a flood-prone area."
-msgstr "No, estoy seguro de que no vivo en un área propensa a inundaciones."
-
-#: .\models.py:423
-msgid "Have you ever experienced damage to your home due to a flood?"
-msgstr "¿Alguna vez ha sufrido daños en su hogar debido a una inundación?"
-
-#: .\models.py:429
-msgid ""
-"What was the total cost of flood damage to your home and its content, as a "
-"result of this flood?"
-msgstr ""
-"¿Cuál fue el coste total de los daños causados a su hogar y pertenencias "
-"como resultado de esta inundación?"
-
-#: .\models.py:433
-msgid "Between €5,500 and €9,999"
-msgstr "Entre 5.500€ y 9.999€"
-
-#: .\models.py:445
-msgid ""
-"Please estimate how often your neighborhood could be flooded. You may enter "
-"any number (not only the numbers on the scale). "
-msgstr ""
-"Calcule con qué frecuencia su vecindario podría inundarse. Puede ingresar "
-"cualquier número (no solo los números en la escala). "
-
-#: .\models.py:451
+#: .\models.py:306
 msgid ""
 "When a flood occurred in the scenario, I felt regret about not investing "
 "(more) in protection."
@@ -490,36 +373,32 @@ msgstr ""
 "Cuando ocurrió una inundación en el escenario, me arrepiento de no haber "
 "invertido (más) en protección."
 
-#: .\models.py:453 .\models.py:462 .\models.py:472 .\models.py:489
-#: .\models.py:510 .\models.py:519
-#: .\templates\floodgame_vr\FinalQuestions.html:174
-#: .\templates\floodgame_vr\Start.html:85
+#: .\models.py:308 .\models.py:317 .\models.py:327 .\models.py:352
+#: .\templates\floodgame_vr\AfterVR.html:58
 msgid "Strongly disagree"
 msgstr "Muy en desacuerdo"
 
-#: .\models.py:454 .\models.py:463 .\models.py:473 .\models.py:490
-#: .\models.py:511 .\models.py:520 .\templates\floodgame_vr\Start.html:86
+#: .\models.py:309 .\models.py:318 .\models.py:328 .\models.py:353
+#: .\templates\floodgame_vr\AfterVR.html:59
 msgid "Disagree"
 msgstr "En desacuerdo"
 
-#: .\models.py:455 .\models.py:464 .\models.py:474 .\models.py:491
-#: .\models.py:512 .\models.py:521 .\templates\floodgame_vr\Start.html:87
+#: .\models.py:310 .\models.py:319 .\models.py:329 .\models.py:354
+#: .\templates\floodgame_vr\AfterVR.html:60
 msgid "Neither agree nor disagree"
 msgstr "Ni de acuerdo ni en desacuerdo"
 
-#: .\models.py:456 .\models.py:465 .\models.py:475 .\models.py:492
-#: .\models.py:513 .\models.py:522 .\templates\floodgame_vr\Start.html:88
+#: .\models.py:311 .\models.py:320 .\models.py:330 .\models.py:355
+#: .\templates\floodgame_vr\AfterVR.html:61
 msgid "Agree"
 msgstr "De acuerdo"
 
-#: .\models.py:457 .\models.py:466 .\models.py:476 .\models.py:493
-#: .\models.py:514 .\models.py:523
-#: .\templates\floodgame_vr\FinalQuestions.html:178
-#: .\templates\floodgame_vr\Start.html:89
+#: .\models.py:312 .\models.py:321 .\models.py:331 .\models.py:356
+#: .\templates\floodgame_vr\AfterVR.html:62
 msgid "Strongly agree"
 msgstr "Muy de acuerdo"
 
-#: .\models.py:461
+#: .\models.py:316
 msgid ""
 "When no flood occurred in the scenario, I felt regret about paying for "
 "protection."
@@ -527,7 +406,7 @@ msgstr ""
 "Cuando en el escenario mi casa no se inundó, sentí remordimiento por haber "
 "pagado por la medida de protección."
 
-#: .\models.py:470
+#: .\models.py:325
 msgid ""
 "I would feel regret about not investing in protection, if a flood would have "
 "occurred in the scenario."
@@ -535,39 +414,16 @@ msgstr ""
 "Lamentaría no invertir en protección, si hubiera ocurrido una inundación en "
 "el escenario."
 
-#: .\models.py:480
-msgid ""
-"People in my direct environment would approve an investment in damage "
-"reducing measures."
-msgstr ""
-"Las personas en mi entorno directo aprobarían una inversión en medidas de "
-"reducción de daños."
-
-#: .\models.py:484
-msgid ""
-"People in my direct environment think that I should invest in damage "
-"reducing measures."
-msgstr ""
-"Las personas en mi entorno directo piensan que debería invertir en medidas "
-"de reducción de daños."
-
-#: .\models.py:488
-msgid ""
-"I am morally obligated to take measures to reduce flood risk to my home."
-msgstr ""
-"Estoy moralmente obligado a tomar medidas para reducir el riesgo de "
-"inundación en mi hogar."
-
-#: .\models.py:497
+#: .\models.py:335
 msgid "I am worried about the danger of flooding at my current residence."
 msgstr "Me preocupa el peligro de inundación en mi residencia actual."
 
-#: .\models.py:501
+#: .\models.py:339
 msgid "I am confident that the dikes in my country are maintained well."
 msgstr ""
 "Estoy seguro de que los diques en mi país reciben mantenimiento adecuado."
 
-#: .\models.py:505
+#: .\models.py:343
 msgid ""
 "The probability of flooding at my current residence is too low to be "
 "concerned about."
@@ -575,22 +431,18 @@ msgstr ""
 "La probabilidad de inundación en mi residencia actual es demasiado baja para "
 "preocuparse."
 
-#: .\models.py:509
+#: .\models.py:347
+msgid "I am worried about becoming infected by the coronavirus."
+msgstr ""
+
+#: .\models.py:351
 msgid ""
 "It is the responsibility of a property owner to protect their property from "
 "flood damage."
 msgstr ""
 "Es responsabilidad del dueño proteger su propiedad de daños por inundaciones."
 
-#: .\models.py:518
-msgid ""
-"The information presented in the scenario about previous participants is "
-"trustworthy."
-msgstr ""
-"La información presentada en el escenario sobre los participantes anteriores "
-"es confiable."
-
-#: .\models.py:527
+#: .\models.py:360
 msgid ""
 "How willing are you to give up money today in order to benefit from it in "
 "the future?"
@@ -598,11 +450,41 @@ msgstr ""
 "¿Qué tan dispuesto está a renunciar a dinero hoy para beneficiarse en el "
 "futuro?"
 
-#: .\models.py:530
+#: .\models.py:363
 msgid "In general, how willing or unwilling are you to take risks?"
 msgstr "En general, ¿qué tan dispuesto o poco dispuesto está a correr riesgos?"
 
-#: .\models.py:534
+#: .\models.py:366
+msgid "In the virtual environment I had a sense of 'being there'."
+msgstr ""
+
+#: .\models.py:369
+msgid ""
+"Did you feel general discomfort, nauseous or dizzy in the virtual "
+"environment?"
+msgstr ""
+
+#: .\models.py:372
+#, fuzzy
+#| msgid "or if you think that a flood will never happen:"
+msgid "What did you think of the VR flood experience?"
+msgstr "o si cree que nunca ocurrirá una inundación:"
+
+#: .\models.py:373
+msgid "Less severe than expected"
+msgstr ""
+
+#: .\models.py:374
+#, fuzzy
+#| msgid "Confirm prediction"
+msgid "Confirmed my expectations"
+msgstr "Confirmar predicción"
+
+#: .\models.py:375
+msgid "More severe than expected"
+msgstr ""
+
+#: .\models.py:380
 msgid ""
 "How effective is it to invest in flood protection measures that limit flood "
 "damage for your current home?"
@@ -610,27 +492,27 @@ msgstr ""
 "¿Qué tan efectivo es invertir en medidas de protección contra inundaciones "
 "que limiten el daño de inundación para su hogar actual?"
 
-#: .\models.py:535
+#: .\models.py:381
 msgid "Very effective"
 msgstr "Muy efectivo"
 
-#: .\models.py:536
+#: .\models.py:382
 msgid "Effective"
 msgstr "Efectivo"
 
-#: .\models.py:537
+#: .\models.py:383
 msgid "Neither effective nor ineffective"
 msgstr "Ni efectivo ni ineficaz"
 
-#: .\models.py:538
+#: .\models.py:384
 msgid "Ineffective"
 msgstr "Ineficaz"
 
-#: .\models.py:539
+#: .\models.py:385
 msgid "Very ineffective"
 msgstr "Muy ineficaz"
 
-#: .\models.py:544
+#: .\models.py:390
 msgid ""
 "How costly is it to take flood protection measures that limit flood damage "
 "for your current home?"
@@ -638,27 +520,27 @@ msgstr ""
 "¿Qué tan costoso es tomar medidas de protección contra inundaciones que "
 "limiten el daño de inundación para su hogar actual?"
 
-#: .\models.py:545
+#: .\models.py:391
 msgid "Very cheap"
 msgstr "Muy barato"
 
-#: .\models.py:546
+#: .\models.py:392
 msgid "Cheap"
 msgstr "Barato"
 
-#: .\models.py:547
+#: .\models.py:393
 msgid "Neither cheap nor costly"
 msgstr "Ni barato ni caro"
 
-#: .\models.py:548
+#: .\models.py:394
 msgid "Costly"
 msgstr "Caro"
 
-#: .\models.py:549
+#: .\models.py:395
 msgid "Very costly"
 msgstr "Muy caro"
 
-#: .\models.py:555
+#: .\models.py:401
 msgid ""
 "Aside from the cost, how difficult is it to take flood protection measures "
 "that limit flood damage for your current home?"
@@ -666,143 +548,533 @@ msgstr ""
 "Además del coste, ¿qué tan difícil es tomar medidas de protección contra "
 "inundaciones que limiten el daño de inundación para su hogar actual?"
 
-#: .\models.py:566
-msgid "How good are you at working with fractions?"
-msgstr "¿Qué tan bueno es trabajando con fracciones?"
-
-#: .\models.py:569
-#, python-format
-msgid ""
-"How good are you at figuring out how much a shirt will cost if it is 25% off?"
-msgstr ""
-"¿Qué tan bueno es para calcular cuánto costaría una camisa si tiene un "
-"25% de descuento?"
-
-#: .\models.py:572
-msgid "How often do you find numerical information to be useful?"
-msgstr "¿Qué tan frecuente encuentra útil la información numérica?"
-
-#: .\models.py:575
-msgid "I would not let my cousin(s) use my car (if I have one)."
-msgstr "No dejaría que mis primos usen mi coche (si tengo uno)."
-
-#: .\models.py:578
-msgid "It is enjoyable to meet and talk with my neighbors regularly."
-msgstr "Es agradable conocer y hablar con mis vecinos regularmente."
-
-#: .\models.py:581
-msgid "I would not discuss newly acquired knowledge with my parents."
-msgstr "No discutiría el conocimiento recién adquirido con mis padres."
-
-#: .\models.py:584
-msgid "It is not appropriate for a colleague to ask me for money."
-msgstr "No es apropiado que un colega me pida dinero."
-
-#: .\models.py:587
-msgid "I would not let my neighbors borrow things from me or my family."
-msgstr ""
-"No dejaría que mis vecinos me presteasen cosas ni a mí ni a mi familia."
-
-#: .\models.py:590
-msgid ""
-"When deciding what kind of education to have, I would pay no attention to my "
-"uncles’ advice."
-msgstr ""
-"Al decidir el de tipo de educación para mí, no prestaría atención a los "
-"consejos de mis tíos."
-
-#: .\models.py:593
-msgid "I would not share ideas with my parents."
-msgstr "No compartiría ideas con mis padres."
-
-#: .\models.py:596
-msgid ""
-"I would help, within my means, if a relative told me that he/she is in "
-"financial difficulty."
-msgstr ""
-"Ayudaría, dentro de mis posibilidades, si un familiar me dijera que tiene "
-"dificultades financieras."
-
-#: .\models.py:599
-msgid "I am not interested in knowing what my neighbors are really like."
-msgstr "No me interesa conocer realmente a mis vecinos."
-
-#: .\models.py:602
-msgid "Neighbors should greet each other when we come across each other."
-msgstr "Los vecinos deben saludarse cuando se encuentran."
-
-#: .\models.py:605
-msgid "A person ought to help a colleague at work who has financial problems."
-msgstr ""
-"Una persona debe ayudar a un colega de trabajo con problemas financieros."
-
-#: .\models.py:608
-msgid "Admitting that your tastes are different from those of your friends."
-msgstr "Admitiendo que sus gustos son diferentes a los de sus amigos."
-
-#: .\models.py:611
-msgid ""
-"Arguing with a friend about an issue on which s/he has a very different "
-"opinion."
-msgstr ""
-"Discutir con un amigo sobre un tema del cual tiene una opinión muy diferente."
-
-#: .\models.py:614
-msgid "Defending an unpopular issue that you believe in at a social occasion."
-msgstr "Defender un problema impopular en el que crees en una ocasión social."
-
-#: .\models.py:742
+#: .\models.py:455
 msgid "test scenario"
 msgstr "escenario de prueba"
 
-#: .\models.py:745
+#: .\models.py:458
 msgid "final scenario"
 msgstr "escenario final"
 
-#: .\pages.py:290
+#: .\pages.py:162
 msgid "Test scenario"
 msgstr "Escenario de prueba"
 
-#: .\pages.py:292
+#: .\pages.py:164
 msgid "Final scenario"
 msgstr "Escenario final"
 
-#: .\pages.py:320
+#: .\pages.py:191
 msgid "Investment"
 msgstr "Inversión"
 
-#: .\pages.py:339 .\pages.py:361
-msgid "Prediction"
-msgstr "Predicción"
-
-#: .\pages.py:388
+#: .\pages.py:215
 msgid "Floods"
 msgstr "Inundaciones"
 
-#: .\pages.py:413
+#: .\pages.py:240
 msgid "Overview of the past 25 years "
 msgstr "Resumen de los últimos 25 años "
 
-#: .\pages.py:445
+#: .\pages.py:270
 msgid "Thanks for your participation"
 msgstr "Gracias por su participación"
+
+#: .\templates\floodgame_vr\AfterVR.html:6
+#: .\templates\floodgame_vr\FinalQuestions.html:6
+msgid "Final Questionnaire"
+msgstr "Cuestionario final"
+
+#: .\templates\floodgame_vr\AfterVR.html:17
+#, fuzzy
+#| msgid "We would like to know what you think other respondents will do."
+msgid "We would like to know how you have experienced the VR world."
+msgstr "Nos gustaría saber qué piensa que harán otros encuestados."
+
+#: .\templates\floodgame_vr\AfterVR.html:18
+#, fuzzy
+#| msgid "Please indicate the size of your ground floor in square meters."
+msgid "Please rate the following statements."
+msgstr "Indique el tamaño de su planta baja en metros cuadrados."
+
+#: .\templates\floodgame_vr\AfterVR.html:32
+#, fuzzy
+#| msgid "Strongly disagree"
+msgid "totally disagree"
+msgstr "Muy en desacuerdo"
+
+#: .\templates\floodgame_vr\AfterVR.html:33
+#, fuzzy
+#| msgid "not good at all"
+msgid "not at all"
+msgstr "no es bueno en absoluto"
+
+#: .\templates\floodgame_vr\AfterVR.html:42
+#, fuzzy
+#| msgid "Strongly agree"
+msgid "totally agree"
+msgstr "Muy de acuerdo"
+
+#: .\templates\floodgame_vr\AfterVR.html:43
+msgid "a lot of discomfort"
+msgstr ""
+
+#: .\templates\floodgame_vr\AfterVR.html:51
+msgid ""
+"Please indicate the extent to which you agree or disagree with the following "
+"statements."
+msgstr ""
+"Indique hasta qué punto está de acuerdo o en desacuerdo con las siguientes "
+"declaraciones."
+
+#: .\templates\floodgame_vr\AfterVR.html:92
+#: .\templates\floodgame_vr\FinalQuestions.html:339
+#: .\templates\floodgame_vr\FinalQuestions.html:341
+#: .\templates\floodgame_vr\Floods.html:174
+#: .\templates\floodgame_vr\Instructions.html:25
+#: .\templates\floodgame_vr\Overview.html:56
+#: .\templates\floodgame_vr\Results.html:32
+#: .\templates\floodgame_vr\Scenario.html:57 .\templates\snippets\Form.html:19
+msgid "Next"
+msgstr "Siguiente"
+
+#: .\templates\floodgame_vr\Check.html:68
+#: .\templates\floodgame_vr\Page.html:24
+msgid "Instructions"
+msgstr "Instrucciones"
+
+#: .\templates\floodgame_vr\Complete.html:6
+#: .\templates\floodgame_vr\Thanks.html:6
+msgid "Thank you for your participation"
+msgstr "Gracias por su participación"
+
+#: .\templates\floodgame_vr\Complete.html:22
+#: .\templates\floodgame_vr\Thanks.html:22
+msgid "This was the final page."
+msgstr "Esta fue la última página."
+
+#: .\templates\floodgame_vr\Complete.html:27
+msgid "Close this window"
+msgstr "Cierre esta ventana"
+
+#: .\templates\floodgame_vr\Decision.html:25
+msgid "How much do you want to invest to reduce flood damage?"
+msgstr "¿Cuánto quiere invertir para reducir el daño por inundación?"
+
+#: .\templates\floodgame_vr\Decision.html:37
+msgid "do not invest: <br> accept"
+msgstr "no invertir: <br> aceptar"
+
+#: .\templates\floodgame_vr\Decision.html:37
+#: .\templates\snippets\Beliefs.html:9
+msgid "damage"
+msgstr "daño"
+
+#: .\templates\floodgame_vr\Decision.html:46
+#: .\templates\floodgame_vr\Decision.html:52
+#: .\templates\floodgame_vr\Decision.html:58
+#: .\templates\floodgame_vr\Decision.html:64
+#: .\templates\snippets\Beliefs.html:15 .\templates\snippets\Beliefs.html:25
+#: .\templates\snippets\Beliefs.html:33 .\templates\snippets\Beliefs.html:40
+msgid "reduce damage to"
+msgstr "reducir el daño a"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:83
+msgid ""
+"<p> Thank you for your participation in this research. </p><p> </p><p> In "
+"case you are selected for the large reward, we will get in touch with you. </"
+"p><p> In case you have questions about the research, feel free to send an "
+"email to: <a href=\"mailto:info.ivm@vu.nl?subject=Question about IVM survey"
+"\">info.ivm@vu.nl</a> </p>"
+msgstr ""
+"<p> Gracias por su participación en esta investigación.</p><p> </p><p>En "
+"caso de que sea seleccionado para el premio, nos pondremos en contacto con "
+"usted.</p><p> En caso de que tenga preguntas sobre la investigación, no dude "
+"en enviar un correo electrónico a: <a href=\"mailto:info.ivm@vu.nl?"
+"subject=Question about IVM survey\">info.ivm@vu.nl</a> </p>"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:100
+msgid ""
+"This was the end of the scenario. We will now ask some questions about the "
+"scenario."
+msgstr ""
+"Este fue el final del escenario. Ahora haremos algunas preguntas acerca del "
+"escenario."
+
+#: .\templates\floodgame_vr\FinalQuestions.html:109
+#: .\templates\floodgame_vr\StartScenario.html:25
+#: .\templates\floodgame_vr\StartScenario.html:34
+#: .\templates\snippets\Beliefs.html:89
+msgid "Caution!"
+msgstr "¡Cuidado!"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:109
+msgid ""
+"The questions on the next pages concern your current home (not the home in "
+"the scenario)."
+msgstr ""
+"Las preguntas en las páginas siguientes se refieren a su hogar actual (no al "
+"hogar en el escenario)."
+
+#: .\templates\floodgame_vr\FinalQuestions.html:122
+msgid "completely unwilling"
+msgstr "completamente reacio"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:135
+msgid "completely willing"
+msgstr "completamente dispuesto"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:152
+msgid "No valuables in basement"
+msgstr "No hay objetos de valor en el sótano"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:155
+msgid "Water-resistant furniture on ground floor"
+msgstr "Muebles resistentes al agua en la planta baja"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:158
+msgid "Elevated ground floor"
+msgstr "Planta baja elevada"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:161
+msgid "Strengthened foundation"
+msgstr "Fortalecer los cimientos"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:164
+msgid "Walls made of water-resistant materials"
+msgstr "Paredes de materiales resistentes al agua"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:167
+msgid ""
+"Floor of ground floor made of water-resistant materials (e.g. tile floor)"
+msgstr ""
+"Piso de planta baja hecho de materiales resistentes al agua (por ejemplo, "
+"piso de baldosas)"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:170
+msgid "Raised power sockets on ground floor"
+msgstr "Tomas de corriente elevadas en la planta baja"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:173
+msgid "Anti-backflow valves"
+msgstr "Válvula antirretorno"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:176
+msgid "(Empty) sand bags or flood barriers at home"
+msgstr ""
+"Sacos de arena (vacíos) para formar barreras contra la inundación en el hogar"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:179
+msgid "Elevated electrical appliances"
+msgstr "Electrodomésticos elevados"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:182
+msgid "Elevated boiler"
+msgstr "Caldera elevada"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:185
+msgid "Elevated electricity meter"
+msgstr "Medidor de electricidad elevado"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:188
+msgid "Bought separate flood insurance"
+msgstr "Adquirir un seguro contra inundaciones por separado"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:193
+#: .\templates\floodgame_vr\FinalQuestions.html:256
+#: .\templates\floodgame_vr\FinalQuestions.html:298
+msgid "Other:"
+msgstr "Otro:"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:201
+msgid "None"
+msgstr "Ninguno"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:212
+msgid "No diploma"
+msgstr "Sin diploma"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:217
+msgid "Primary school"
+msgstr "Escuela primaria"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:222
+msgid "Lower vocational education  (VBO, LBO)"
+msgstr "Educación vocacional (VBO, LBO)"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:227
+msgid "Lower general secondary education (ULO, MULO, VMBO, MAVO)"
+msgstr "Educación secundaria general (ULO, MULO, VMBO, MAVO)"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:232
+msgid "Lower vocational secondary education (MBO)"
+msgstr "Educación secundaria profesional (MBO)"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:237
+msgid ""
+"Higher general secondary education or pre-university education (HAVO, VWO, "
+"HBS)"
+msgstr ""
+"Educación secundaria general superior o educación preuniversitaria (HAVO, "
+"VWO, HBS)"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:242
+msgid "Higher vocational and university education (HBO, WO Bachelor)"
+msgstr "Educación profesional y universitaria (HBO, WO Bachelor)"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:247
+msgid "Master’s degree (WO Master)"
+msgstr "Maestría"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:252
+msgid "Doctorate, PhD"
+msgstr "Doctorado, PhD"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:272
+msgid ""
+"The last questions concern financial matters. </p><p> Remember that your "
+"answers are strictly confidential and will not be used for commercial "
+"purposes.</p>"
+msgstr ""
+"Las últimas preguntas se refieren a asuntos financieros. </p> <p> Recuerde "
+"que sus respuestas son estrictamente confidenciales y no se utilizarán con "
+"fines comerciales.</p>"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:286
+msgid "House"
+msgstr "Casa"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:290
+msgid "Ground floor apartment"
+msgstr "Apartamento en planta baja"
+
+#: .\templates\floodgame_vr\FinalQuestions.html:294
+msgid "Apartment on first floor or higher"
+msgstr "Apartamento en primer piso o superior"
+
+#: .\templates\floodgame_vr\Floods.html:45
+msgid "25 years later..."
+msgstr "25 años después…"
+
+#: .\templates\floodgame_vr\Floods.html:48
+msgid ""
+"The computer has randomly selected one home per year to be flooded. <br> You "
+"can now check what has happened.</p>"
+msgstr ""
+"El ordenador ha seleccionado aleatoriamente una casa por año para ser "
+"inundada. <br> Ahora puede verificar lo que sucedió. </p>"
+
+#: .\templates\floodgame_vr\Floods.html:53
+msgid "Close this window to show which homes were flooded"
+msgstr "Cierre esta ventana para mostrar qué casas se inundaron"
+
+#: .\templates\floodgame_vr\Floods.html:69
+msgid "Your home has been flooded at least once."
+msgstr "Su casa ha sido inundada al menos una vez."
+
+#: .\templates\floodgame_vr\Floods.html:72
+msgid "Your home was not flooded."
+msgstr "Su casa no se inundó."
+
+#: .\templates\floodgame_vr\Floods.html:87
+#: .\templates\floodgame_vr\Floods.html:98
+msgid "yours"
+msgstr "su casa"
+
+#: .\templates\floodgame_vr\Floods.html:157
+msgid ""
+"100 homes are depicted above. All homes that have been flooded at least once "
+"in the past 25 years, are indicated in blue. You were not insured and your "
+"home has been flooded. You need to pay to recover the"
+msgstr ""
+"Arriba se muestran 100 casas. Todas las casas que se han inundado al menos "
+"una vez en los últimos 25 años, se indican en azul. No estaba asegurado y su "
+"casa se ha inundado. Tiene que pagar para recuperar el"
+
+#: .\templates\floodgame_vr\Floods.html:160
+msgid "reduced"
+msgstr "reducido"
+
+#: .\templates\floodgame_vr\Floods.html:161
+msgid "damage."
+msgstr "daño."
+
+#: .\templates\floodgame_vr\Floods.html:166
+#, python-format
+msgid "Pay %(reduced_damage_this_scenario)s damage"
+msgstr "Paga %(reduced_damage_this_scenario)s daño"
+
+#: .\templates\floodgame_vr\Floods.html:169
+msgid ""
+"100 homes are depicted above. All homes that have been flooded at least once "
+"in the past 25 years, are indicated in blue. Because your home was not "
+"flooded, you do not need to pay to recover the damage."
+msgstr ""
+"Arriba se muestran 100 casas. Todas las casas que se han inundado al menos "
+"una vez en los últimos 25 años, se indican en azul. Debido a que su casa no "
+"se inundó, no necesita pagar para recuperar el daño."
+
+#: .\templates\floodgame_vr\Instructions.html:6
+msgid "Information about the scenario"
+msgstr "Información sobre el escenario"
+
+#: .\templates\floodgame_vr\Instructions.html:20
+msgid "We will start with a test scenario to get familiar with the game."
+msgstr ""
+"Comenzaremos con un escenario de prueba para familiarizarnos con el juego."
+
+#: .\templates\floodgame_vr\Overview.html:17
+msgid ""
+"Here is an overview of your savings account of the past 25 years in the game:"
+msgstr ""
+"Esta es la descripción general de su cuenta de ahorros en los últimos 25 "
+"años en el juego:"
+
+#: .\templates\floodgame_vr\Overview.html:25
+msgid "Endowment"
+msgstr "Patrimonio"
+
+#: .\templates\floodgame_vr\Overview.html:29
+msgid "Investment damage reducing measures"
+msgstr "Medidas de reducción de daños de inversión"
+
+#: .\templates\floodgame_vr\Overview.html:34
+#: .\templates\floodgame_vr\Overview.html:40
+msgid "Flood damage"
+msgstr "Daños por inundación"
+
+#: .\templates\floodgame_vr\Overview.html:47
+msgid "Total"
+msgstr "Total"
+
+#: .\templates\floodgame_vr\Results.html:6
+msgid "Results"
+msgstr "Resultados"
+
+#: .\templates\floodgame_vr\Results.html:18
+#, python-format
+msgid ""
+"Your final savings balance was  <strong>%(payoff_scenario1)s</strong>. In "
+"case you are selected for the large reward, you will get <strong>%(payoff)s</"
+"strong>. </p><p>(The conversion rate is 100 ECU = &euro;1.)</p> <p> Every "
+"respondent is equally likely to be selected for the large reward. The "
+"computer will randomly select someone after all respondents have finished "
+"the survey."
+msgstr ""
+"Su saldo final de ahorros fue  <strong>%(payoff_scenario1)s</strong>. En "
+"caso de que sea seleccionado para recibir el premio, obtendrá <strong>%"
+"(payoff)s</strong>. </p><p>(La tasa de conversión es 100 ECU = &euro;1.)</p> "
+"<p> Es igualmente probable que cada encuestado sea seleccionado para el "
+"premio. El ordenador seleccionará al azar a alguien después de que todos los "
+"encuestados hayan terminado."
+
+#: .\templates\floodgame_vr\Scenario.html:7
+msgid "What would you do?"
+msgstr "¿Qué haría?"
+
+#: .\templates\floodgame_vr\Scenario.html:23
+msgid ""
+"We will now present you a situation in which you own the home you will be "
+"living in for the coming 25 years."
+msgstr ""
+"Esta es una situación hipotética en la que usted es el propietario de la "
+"casa en la vivirá durante los próximos 25 años."
+
+#: .\templates\floodgame_vr\Scenario.html:24
+msgid ""
+"In addition to your home, you have a savings balance of 65.000 ECU "
+"(comparable to Euros) that you can use to pay for investments."
+msgstr ""
+"Además de su hogar, usted tiene una cuenta de ahorros con un saldo a favor "
+"de 65.000 ECU (comparable a Euros) que puede usar para pagar las inversiones."
+
+#: .\templates\floodgame_vr\Scenario.html:25
+msgid ""
+"In the following scenario, try to imagine what you would do given that your "
+"home is prone to flooding."
+msgstr ""
+"En el siguiente escenario, trate de imaginar lo que haría dado que su casa "
+"es propensa a inundarse."
+
+#: .\templates\floodgame_vr\Scenario.html:30
+#, fuzzy
+#| msgid ""
+#| "For this part of the research, a large reward is available. <strong>One "
+#| "of the participants will be randomly selected </strong> to receive this "
+#| "reward. The size of the reward depends on the final balance of your "
+#| "savings account, which depends on your decisions in this scenario and "
+#| "whether a flood occurs."
+msgid ""
+"For this part of the research, a large reward is available. <strong>One of "
+"the participants will be randomly selected </strong> to receive this reward. "
+"The game will be played by 500 participants at most, which means that your "
+"chances of being selected for the large reward are at least 1:500. The size "
+"of the reward depends on the final balance of your savings account, which "
+"depends on your decisions in this scenario and whether a flood occurs."
+msgstr ""
+"Para esta parte de la investigación, hay una premio. <strong> Uno de los "
+"participantes será seleccionado al azar </strong> para recibir este premio. "
+"El tamaño del premio depende del saldo final de su cuenta de ahorros, la "
+"cual a su vez depende de sus decisiones en este escenario y de si ocurre una "
+"inundación."
+
+#: .\templates\floodgame_vr\Scenario.html:40
+msgid ""
+"You can earn up to <strong>&euro;650</strong>. (The conversion rate is 100 "
+"ECU = &euro;1.) <br> <strong> Therefore it is important to read the "
+"information carefully.</strong>"
+msgstr ""
+"Puede ganar hasta <strong>&euro;650</strong>. (La tasa de conversion es de "
+"100 ECU = &euro;1.) <br> <strong>Por lo tanto, es importante leer la "
+"información detenidamente. </strong>"
+
+#: .\templates\floodgame_vr\Scenario.html:49
+msgid "There are no right or wrong answers in this scenario."
+msgstr "No hay respuestas correctas o incorrectas en este escenario."
+
+#: .\templates\floodgame_vr\Scenario.html:52
+msgid "We would like to know what you would do."
+msgstr "Nos gustaría saber qué haría."
+
+#: .\templates\floodgame_vr\StartScenario.html:26
+msgid ""
+"You can use this test scenario to get familiar with the possibilities. The "
+"results will not be used to calculate your final payoff. Start by clicking "
+"the button below."
+msgstr ""
+"Puede usar este escenario de prueba para familiarizarse con las "
+"posibilidades. Los resultados no se utilizarán para calcular su pago final. "
+"Comience pulsando en el botón de abajo."
+
+#: .\templates\floodgame_vr\StartScenario.html:35
+msgid ""
+"Please take your time to read the information on the following pages very "
+"carefully. It is important for your final payoff. The final scenario starts "
+"by clicking the button below."
+msgstr ""
+"Tómese su tiempo para leer la información en las siguientes páginas con "
+"mucho cuidado. Es importante para su pago final. El escenario final comienza "
+"al pulsar en el botón de abajo."
+
+#: .\templates\floodgame_vr\StartScenario.html:46
+msgid "Start the test scenario"
+msgstr "Comience el escenario de prueba"
+
+#: .\templates\floodgame_vr\StartScenario.html:48
+msgid "Start the final scenario"
+msgstr "Comienza el escenario final"
+
+#: .\templates\floodgame_vr\Welcome.html:6
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: .\templates\floodgame_vr\Welcome.html:28
+msgid "Start"
+msgstr ""
 
 #: .\templates\snippets\Beliefs.html:9
 msgid "do not invest: accept"
 msgstr "no invertir: aceptar"
-
-#: .\templates\snippets\Beliefs.html:9 .\templates\floodgame_vr\Decision.html:61
-msgid "damage"
-msgstr "daño"
-
-#: .\templates\snippets\Beliefs.html:15 .\templates\snippets\Beliefs.html:25
-#: .\templates\snippets\Beliefs.html:33 .\templates\snippets\Beliefs.html:40
-#: .\templates\floodgame_vr\Decision.html:74
-#: .\templates\floodgame_vr\Decision.html:84
-#: .\templates\floodgame_vr\Decision.html:94
-#: .\templates\floodgame_vr\Decision.html:103
-msgid "reduce damage to"
-msgstr "reducir el daño a"
 
 #: .\templates\snippets\Beliefs.html:54
 msgid "We would like to know what you think other respondents will do."
@@ -820,13 +1092,6 @@ msgstr ""
 "de todos los encuestados <u> invertirá en medidas de reducción de daños </u> "
 "(cualquier cantidad, es decir, 1.000, 5.000, 10.000 o 15.000 ECU)."
 
-#: .\templates\snippets\Beliefs.html:89 .\templates\floodgame_vr\Decision.html:17
-#: .\templates\floodgame_vr\FinalQuestions.html:128
-#: .\templates\floodgame_vr\StartScenario.html:25
-#: .\templates\floodgame_vr\StartScenario.html:34
-msgid "Caution!"
-msgstr "¡Cuidado!"
-
 #: .\templates\snippets\Beliefs.html:89
 msgid "You also predict that"
 msgstr "También predice que"
@@ -842,20 +1107,6 @@ msgstr ""
 #: .\templates\snippets\Beliefs.html:109
 msgid "Confirm prediction"
 msgstr "Confirmar predicción"
-
-#: .\templates\snippets\Form.html:19 .\templates\floodgame_vr\Consent.html:92
-#: .\templates\floodgame_vr\FinalQuestions.html:553
-#: .\templates\floodgame_vr\FinalQuestions.html:555
-#: .\templates\floodgame_vr\FinalQuestions.html:557
-#: .\templates\floodgame_vr\Floods.html:174
-#: .\templates\floodgame_vr\Instructions.html:25
-#: .\templates\floodgame_vr\Overview.html:56
-#: .\templates\floodgame_vr\Results.html:32
-#: .\templates\floodgame_vr\Scenario.html:55
-#: .\templates\floodgame_vr\Start.html:162 .\templates\floodgame_vr\Start.html:165
-#: .\templates\floodgame_vr\Welcome.html:83
-msgid "Next"
-msgstr "Siguiente"
 
 #: .\templates\snippets\Instr.html:11
 msgid ""
@@ -889,10 +1140,15 @@ msgid "The probability that the blue house is flooded, is 1 percent."
 msgstr "La probabilidad de que la casa azul se inunde es del 1 por ciento."
 
 #: .\templates\snippets\Instr.html:52
+#, fuzzy
+#| msgid ""
+#| "You can invest in <b> damage reducing measures</b> to protect your home "
+#| "from flooding. These measures will not change the probablity of a flood, "
+#| "but they can <b> reduce damage </b> in case of a flood."
 msgid ""
 "You can invest in <b> damage reducing measures</b> to protect your home from "
-"flooding. These measures will not change the probablity of a flood, but they "
-"can <b> reduce damage </b> in case of a flood."
+"flooding. These measures will not change the probability of a flood, but "
+"they can <b> reduce damage </b> in case of a flood."
 msgstr ""
 "Puede invertir en <b> medidas de reducción de daños </b> para proteger su "
 "hogar de las inundaciones. Estas medidas no cambiarán la probabilidad de una "
@@ -964,738 +1220,460 @@ msgstr ""
 "\"text-muted\"> En caso de inundación usted paga el <strong>daño completo</"
 "strong>. </small>"
 
-#: .\templates\floodgame_vr\BE1.html:15
-msgid ""
-"Prior to taking your decision about investing in damage reducing measures, "
-"we would like to know what you think other respondents will decide in the "
-"same scenario.</p> <hr class=\"my-4\"> <p class=\"lead\">Please give us your "
-"best estimate. When your estimate turns out to be correct, you are eligible "
-"for an extra bonus (&euro;20).</p>"
-msgstr ""
-"Antes de tomar su decisión sobre invertir en medidas de reducción de daños, "
-"nos gustaría saber qué piensa que otros encuestados decidirán en el mismo "
-"escenario.</p> <hr class=\"my-4\"> <p class=\"lead\">Por favor denos su "
-"mejor estimación, sí su respuesta resulta correcta, será elegible para un "
-"bono extra (&euro;20).</p>"
-
-#: .\templates\floodgame_vr\BE1.html:23 .\templates\floodgame_vr\BE2.html:23
-msgid "Close this window to start the prediction"
-msgstr "Cierra esta ventana para comenzar la predicción"
-
-#: .\templates\floodgame_vr\BE2.html:15
-msgid ""
-"You just made a decision about investing in damage reducing measures for "
-"yourself. Now, we would like to know what you think other respondents will "
-"decide in the same scenario.</p> <hr class=\"my-4\"> <p class=\"lead"
-"\"><b>Please give us your best estimate. When your estimate turns out to be "
-"correct, you are eligible for an extra bonus(&euro;20).</b></p>"
-msgstr ""
-"Acaba de tomar una decisión sobre invertir en medidas de reducción de daños. "
-"Ahora, nos gustaría saber qué piensa que los otros encuestados decidirán en "
-"el mismo escenario.</p> <hr class=\"my-4\"> <p class=\"lead\"><b>Por favor "
-"denos su mejor estimación. Cuando su estimación resulta correcta, será "
-"elegible para un bono extra (&euro;20).</b></p>"
-
-#: .\templates\floodgame_vr\Check.html:68 .\templates\floodgame_vr\Page.html:24
-msgid "Instructions"
-msgstr "Instrucciones"
-
-#: .\templates\floodgame_vr\Complete.html:6 .\templates\floodgame_vr\Thanks.html:6
-msgid "Thank you for your participation"
-msgstr "Gracias por su participación"
-
-#: .\templates\floodgame_vr\Complete.html:22
-#: .\templates\floodgame_vr\Thanks.html:22
-msgid "This was the final page."
-msgstr "Esta fue la última página."
-
-#: .\templates\floodgame_vr\Complete.html:27 .\templates\floodgame_vr\Full.html:27
-#: .\templates\floodgame_vr\No.html:28 .\templates\floodgame_vr\Thanks.html:27
-msgid "Close this window"
-msgstr "Cierre esta ventana"
-
-#: .\templates\floodgame_vr\Consent.html:6
-msgid "Informed consent"
-msgstr "Consentimiento informado"
-
-#: .\templates\floodgame_vr\Consent.html:23
-msgid "In this research we will collect some data."
-msgstr "En esta investigación recopilaremos algunos datos."
-
-#: .\templates\floodgame_vr\Consent.html:24
-msgid "Please find more information "
-msgstr "Por favor encuentre más información "
-
-#: .\templates\floodgame_vr\Consent.html:25
-msgid "here"
-msgstr "aquí"
-
-#: .\templates\floodgame_vr\Consent.html:26
-msgid "about the procedures."
-msgstr "acerca de los procedimientos."
-
-#: .\templates\floodgame_vr\Consent.html:35
-msgid "More information about this research"
-msgstr "Más información sobre esta investigación"
-
-#: .\templates\floodgame_vr\Consent.html:41
-msgid ""
-"The goal of this research is to better understand flood damage reduction "
-"investments in Europe."
-msgstr ""
-"El objetivo de esta investigación es comprender mejor las inversiones en "
-"reducción de daños por inundación en Europa."
-
-#: .\templates\floodgame_vr\Consent.html:43
-msgid "Participation is voluntary."
-msgstr "La participación es voluntaria."
-
-#: .\templates\floodgame_vr\Consent.html:44
-msgid "You can withdraw from the research at any moment."
-msgstr "Puede retirarse de la investigación en cualquier momento."
-
-#: .\templates\floodgame_vr\Consent.html:46
-msgid ""
-"Data will be stored anonymously at a local computer of Vrije Universiteit "
-"Amsterdam."
-msgstr ""
-"Los datos se almacenarán de forma anónima en un ordenador local de Vrije "
-"Universiteit Amsterdam."
-
-#: .\templates\floodgame_vr\Consent.html:47
-msgid ""
-"Data will be analyzed by VU researchers and will not be used for commercial "
-"purposes."
-msgstr ""
-"Los datos serán analizados por investigadores de VU y no serán utilizados "
-"con fines comerciales."
-
-#: .\templates\floodgame_vr\Consent.html:50
-msgid "If you finish the final survey, you are eligible for a large reward."
-msgstr ""
-"Si finaliza la encuesta completamente, es elegible para ganar un gran premio."
-
-#: .\templates\floodgame_vr\Consent.html:51
-msgid "The computer will randomly select one participant for the large reward."
-msgstr "El ordenador seleccionará al azar a un participante para el premio."
-
-#: .\templates\floodgame_vr\Consent.html:52
-msgid ""
-"This will take place after all participants have finished the survey, in "
-"October 2019."
-msgstr ""
-"Esto pasará después de que todos los participantes hayan terminado la "
-"encuesta, en octubre de 2019."
-
-#: .\templates\floodgame_vr\Consent.html:53
-msgid ""
-"If you are selected for large payment, Panelinzicht will contact you via "
-"email to arrange the payment."
-msgstr ""
-"Si es seleccionado para pagos grandes, Panelinzicht se comunicará con usted "
-"por correo electrónico para organizar el pago."
-
-#: .\templates\floodgame_vr\Consent.html:54
-msgid ""
-"The size of the reward (up to &euro;650) depends on your answers in this "
-"survey."
-msgstr ""
-"El tamaño del premio (hasta &euro;650) depende de sus respuestas en esta "
-"encuesta."
-
-#: .\templates\floodgame_vr\Consent.html:55
-msgid ""
-"In case you have questions about the research, feel free to send an email to:"
-msgstr ""
-"En caso de que tenga preguntas sobre la investigación, no dude contactarnos "
-"en :"
-
-#: .\templates\floodgame_vr\Consent.html:56
-msgid ""
-"<a href=\"mailto:info.ivm@vu.nl?subject=Question about IVM survey\">info."
-"ivm@vu.nl</a>"
-msgstr ""
-"<a href=\"mailto:info.ivm@vu.nl?subject=Question about IVM survey\">info."
-"ivm@vu.nl</a>"
-
-#: .\templates\floodgame_vr\Consent.html:80
-msgid ""
-"I have read the information and agree with participation in this research"
-msgstr ""
-"He leído la información y estoy de acuerdo en participar en esta "
-"investigación"
-
-#: .\templates\floodgame_vr\Decision.html:20
-msgid ""
-"You finished your prediction. <br> You can make <u><strong>your own</"
-"strong></u> investment decision in the next decision screen."
-msgstr ""
-"Terminó su predicción <br> Puedes hacer <u><strong>su propia</strong></u> "
-"decisión de inversión en la siguiente pantalla de decisión."
-
-#: .\templates\floodgame_vr\Decision.html:27
-msgid "Close this window to start your decision"
-msgstr "Cierra esta ventana para comenzar su decisión"
-
-#: .\templates\floodgame_vr\Decision.html:49
-msgid "How much do you want to invest to reduce flood damage?"
-msgstr "¿Cuánto quiere invertir para reducir el daño por inundación?"
-
-#: .\templates\floodgame_vr\Decision.html:61
-msgid "do not invest: <br> accept"
-msgstr "no invertir: <br> aceptar"
-
-#: .\templates\floodgame_vr\Decision.html:63
-#, python-format
-msgid "30%% of homeowners chose this option previously."
-msgstr "El 30%% de los propietarios eligió esta opción anteriormente."
-
-#: .\templates\floodgame_vr\Decision.html:76
-#, python-format
-msgid "18%% of homeowners chose this option previously."
-msgstr "El 18%% de los propietarios eligió esta opción anteriormente."
-
-#: .\templates\floodgame_vr\Decision.html:86
-#: .\templates\floodgame_vr\Decision.html:96
-#, python-format
-msgid "20%% of homeowners chose this option previously."
-msgstr "El 20%% de los propietarios eligió esta opción anteriormente."
-
-#: .\templates\floodgame_vr\Decision.html:105
-#, python-format
-msgid "12%% of homeowners chose this option previously."
-msgstr "El 12%% de los propietarios eligió esta opción anteriormente."
-
-#: .\templates\floodgame_vr\Decision.html:112
-#, python-format
-msgid "Previously, 70%% of homeowners opted for damage reducing measures."
-msgstr ""
-"Anteriormente, el 70%% de los propietarios optaban por medidas de reducción "
-"de daños."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:6
-msgid "Final Questionnaire"
-msgstr "Cuestionario final"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:102
-msgid ""
-"<p> Thank you for your participation in this research. </p><p> </p><p> In "
-"case you are selected for the large reward, we will get in touch with you. </"
-"p><p> In case you have questions about the research, feel free to send an "
-"email to: <a href=\"mailto:info.ivm@vu.nl?subject=Question about IVM survey"
-"\">info.ivm@vu.nl</a> </p>"
-msgstr ""
-"<p> Gracias por su participación en esta investigación.</p><p> </p><p>En "
-"caso de que sea seleccionado para el premio, nos pondremos en contacto con "
-"usted.</p><p> En caso de que tenga preguntas sobre la investigación, no dude "
-"en enviar un correo electrónico a: <a href=\"mailto:info.ivm@vu.nl?"
-"subject=Question about IVM survey\">info.ivm@vu.nl</a> </p>"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:119
-msgid ""
-"This was the end of the scenario. We will now ask some questions about the "
-"scenario."
-msgstr ""
-"Este fue el final del escenario. Ahora haremos algunas preguntas acerca del "
-"escenario."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:128
-msgid ""
-"The questions on the next pages concern your current home (not the home in "
-"the scenario)."
-msgstr ""
-"Las preguntas en las páginas siguientes se refieren a su hogar actual (no al "
-"hogar en el escenario)."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:133
-msgid ""
-"You indicated that you have taken the following structural measures. <br> "
-"For each measure taken to protect your home against flood damage, please "
-"indicate the individual or organization that initiated the protective "
-"measure."
-msgstr ""
-"Usted indicó que ha tomado las siguientes medidas estructurales. <br> Por "
-"cada medida tomada para proteger su hogar contra daños por inundaciones, "
-"indique la persona u organización que inició la medida de protección."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:143
-msgid "Myself or a family member"
-msgstr "Yo o un miembro de mi familia"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:144
-msgid "Previous owner"
-msgstr "Dueño anterior"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:145
-msgid "Homeowners association"
-msgstr "Asociación de propietarios"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:146
-msgid "Other"
-msgstr "Otro"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:169
-#: .\templates\floodgame_vr\Start.html:78
-msgid ""
-"Please indicate the extent to which you agree or disagree with the following "
-"statements."
-msgstr ""
-"Indique hasta qué punto está de acuerdo o en desacuerdo con las siguientes "
-"declaraciones."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:179
-msgid "Not applicable"
-msgstr "No aplica"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:208
-msgid "completely unwilling"
-msgstr "completamente reacio"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:221
-msgid "completely willing"
-msgstr "completamente dispuesto"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:236
-msgid "never"
-msgstr "nunca"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:237
-msgid "not good at all"
-msgstr "no es bueno en absoluto"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:247
-msgid "very often"
-msgstr "muy a menudo"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:248
-msgid "extremely good"
-msgstr "extremadamente bueno"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:258
-msgid ""
-"Please indicate the likelihood of you engaging in each of the following "
-"activities."
-msgstr ""
-"Indique la probabilidad de que participe en cada una de las siguientes "
-"actividades."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:262
-msgid "Very unlikely"
-msgstr "Muy improbable"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:262
-msgid "Somewhat unlikely"
-msgstr "Algo improbable"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:262
-msgid "Neither likely nor unlikely"
-msgstr "Ni probable ni improbable"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:263
-msgid "Somewhat likely"
-msgstr "Algo probable"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:263
-msgid "Very likely"
-msgstr "Muy probable"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:330
-#: .\templates\floodgame_vr\FinalQuestions.html:393
-#: .\templates\floodgame_vr\FinalQuestions.html:435
-#: .\templates\floodgame_vr\FinalQuestions.html:480
-msgid "Other:"
-msgstr "Otro:"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:338
-msgid "None"
-msgstr "Ninguno"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:349
-msgid "No diploma"
-msgstr "Sin diploma"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:354
-msgid "Primary school"
-msgstr "Escuela primaria"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:359
-msgid "Lower vocational education  (VBO, LBO)"
-msgstr "Educación vocacional (VBO, LBO)"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:364
-msgid "Lower general secondary education (ULO, MULO, VMBO, MAVO)"
-msgstr "Educación secundaria general (ULO, MULO, VMBO, MAVO)"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:369
-msgid "Lower vocational secondary education (MBO)"
-msgstr "Educación secundaria profesional (MBO)"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:374
-msgid ""
-"Higher general secondary education or pre-university education (HAVO, VWO, "
-"HBS)"
-msgstr ""
-"Educación secundaria general superior o educación preuniversitaria (HAVO, "
-"VWO, HBS)"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:379
-msgid "Higher vocational and university education (HBO, WO Bachelor)"
-msgstr "Educación profesional y universitaria (HBO, WO Bachelor)"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:384
-msgid "Master’s degree (WO Master)"
-msgstr "Maestría"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:389
-msgid "Doctorate, PhD"
-msgstr "Doctorado, PhD"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:409
-msgid ""
-"The last questions concern financial matters. </p><p> Remember that your "
-"answers are strictly confidential and will not be used for commercial "
-"purposes.</p>"
-msgstr ""
-"Las últimas preguntas se refieren a asuntos financieros. </p> <p> Recuerde "
-"que sus respuestas son estrictamente confidenciales y no se utilizarán con "
-"fines comerciales.</p>"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:423
-msgid "House"
-msgstr "Casa"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:427
-msgid "Ground floor apartment"
-msgstr "Apartamento en planta baja"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:431
-msgid "Apartment on first floor or higher"
-msgstr "Apartamento en primer piso o superior"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:454
-msgid "don't know"
-msgstr "no sé"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:468
-msgid "Partner"
-msgstr "Pareja"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:470
-msgid "Close friend"
-msgstr "Amigo cercano"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:472
-msgid "Family member"
-msgstr "Familia"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:474
-msgid "Neighbor"
-msgstr "Vecino"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:476
-msgid "Acquaintance"
-msgstr "Conocido"
-
-#: .\templates\floodgame_vr\FinalQuestions.html:518
-#, python-format
-msgid ""
-"Recent research shows that <b>68%% of homeowners</b> have installed at least "
-"one measure to protect their home from flood damage."
-msgstr ""
-"Una investigación reciente muestra que el <b>68%% de los propietarios</b> "
-"han instalado por lo menos una medida para proteger su hogar contra daños "
-"por inundaciones."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:530
-msgid ""
-"For more information about what you can do to protect your home against "
-"flood damage, click the button below. <br>It will open in a new window."
-msgstr ""
-"Para obtener más información sobre cómo proteger sus hogares de daños "
-"causados por inundaciones, oprima el siguiente botón. <br> Abrirá una nueva "
-"ventana."
-
-#: .\templates\floodgame_vr\FinalQuestions.html:537
-msgid "More information"
-msgstr "Más información"
-
-#: .\templates\floodgame_vr\Floods.html:45
-msgid "25 years later..."
-msgstr "25 años después…"
-
-#: .\templates\floodgame_vr\Floods.html:48
-msgid ""
-"The computer has randomly selected one home per year to be flooded. <br> You "
-"can now check what has happened.</p>"
-msgstr ""
-"El ordenador ha seleccionado aleatoriamente una casa por año para ser "
-"inundada. <br> Ahora puede verificar lo que sucedió. </p>"
-
-#: .\templates\floodgame_vr\Floods.html:53
-msgid "Close this window to show which homes were flooded"
-msgstr "Cierre esta ventana para mostrar qué casas se inundaron"
-
-#: .\templates\floodgame_vr\Floods.html:69
-msgid "Your home has been flooded at least once."
-msgstr "Su casa ha sido inundada al menos una vez."
-
-#: .\templates\floodgame_vr\Floods.html:72
-msgid "Your home was not flooded."
-msgstr "Su casa no se inundó."
-
-#: .\templates\floodgame_vr\Floods.html:87 .\templates\floodgame_vr\Floods.html:98
-msgid "yours"
-msgstr "su casa"
-
-#: .\templates\floodgame_vr\Floods.html:157
-msgid ""
-"100 homes are depicted above. All homes that have been flooded at least once "
-"in the past 25 years, are indicated in blue. You were not insured and your "
-"home has been flooded. You need to pay to recover the"
-msgstr ""
-"Arriba se muestran 100 casas. Todas las casas que se han inundado al menos "
-"una vez en los últimos 25 años, se indican en azul. No estaba asegurado y su "
-"casa se ha inundado. Tiene que pagar para recuperar el"
-
-#: .\templates\floodgame_vr\Floods.html:160
-msgid "reduced"
-msgstr "reducido"
-
-#: .\templates\floodgame_vr\Floods.html:161
-msgid "damage."
-msgstr "daño."
-
-#: .\templates\floodgame_vr\Floods.html:166
-#, python-format
-msgid "Pay %(reduced_damage_this_scenario)s damage"
-msgstr "Paga %(reduced_damage_this_scenario)s daño"
-
-#: .\templates\floodgame_vr\Floods.html:169
-msgid ""
-"100 homes are depicted above. All homes that have been flooded at least once "
-"in the past 25 years, are indicated in blue. Because your home was not "
-"flooded, you do not need to pay to recover the damage."
-msgstr ""
-"Arriba se muestran 100 casas. Todas las casas que se han inundado al menos "
-"una vez en los últimos 25 años, se indican en azul. Debido a que su casa no "
-"se inundó, no necesita pagar para recuperar el daño."
-
-#: .\templates\floodgame_vr\Full.html:6 .\templates\floodgame_vr\No.html:6
-msgid "Thank you"
-msgstr "Gracias"
-
-#: .\templates\floodgame_vr\Full.html:17
-msgid ""
-"Thank you for your interest in this research. <br><br> Unfortunately, we "
-"already received enough responses.<br><br> See you next time."
-msgstr ""
-"Gracias por su interés en esta investigación. <br> <br> Desafortunadamente, "
-"ya recibimos suficientes respuestas. <br> <br> Nos vemos la próxima vez."
-
-#: .\templates\floodgame_vr\Instructions.html:6
-msgid "Information about the scenario"
-msgstr "Información sobre el escenario"
-
-#: .\templates\floodgame_vr\Instructions.html:20
-msgid "We will start with a test scenario to get familiar with the game."
-msgstr ""
-"Comenzaremos con un escenario de prueba para familiarizarnos con el juego."
-
-#: .\templates\floodgame_vr\No.html:17
-msgid ""
-"Thank you for your interest in this research. <br><br> Unfortunately, you "
-"are not part of the target group of this research.<br><br> See you next time."
-msgstr ""
-"Gracias por su interés en esta investigación. <br> <br> Desafortunadamente, "
-"usted no es parte del grupo objetivo de esta investigación. <br> <br> Nos "
-"vemos la próxima vez."
-
-#: .\templates\floodgame_vr\Overview.html:17
-msgid ""
-"Here is an overview of your savings account of the past 25 years in the game:"
-msgstr ""
-"Esta es la descripción general de su cuenta de ahorros en los últimos 25 "
-"años en el juego:"
-
-#: .\templates\floodgame_vr\Overview.html:25
-msgid "Endowment"
-msgstr "Patrimonio"
-
-#: .\templates\floodgame_vr\Overview.html:29
-msgid "Investment damage reducing measures"
-msgstr "Medidas de reducción de daños de inversión"
-
-#: .\templates\floodgame_vr\Overview.html:34
-#: .\templates\floodgame_vr\Overview.html:40
-msgid "Flood damage"
-msgstr "Daños por inundación"
-
-#: .\templates\floodgame_vr\Overview.html:47
-msgid "Total"
-msgstr "Total"
-
-#: .\templates\floodgame_vr\Results.html:6
-msgid "Results"
-msgstr "Resultados"
-
-#: .\templates\floodgame_vr\Results.html:18
-#, python-format
-msgid ""
-"Your final savings balance was  <strong>%(payoff_scenario1)s</strong>. In "
-"case you are selected for the large reward, you will get <strong>%(payoff)s</"
-"strong>. </p><p>(The conversion rate is 100 ECU = &euro;1.)</p> <p> Every "
-"respondent is equally likely to be selected for the large reward. The "
-"computer will randomly select someone after all respondents have finished "
-"the survey."
-msgstr ""
-"Su saldo final de ahorros fue  <strong>%(payoff_scenario1)s</strong>. En "
-"caso de que sea seleccionado para recibir el premio, obtendrá <strong>"
-"%(payoff)s</strong>. </p><p>(La tasa de conversión es 100 ECU = &euro;1.)</"
-"p> <p> Es igualmente probable que cada encuestado sea seleccionado para el "
-"premio. El ordenador seleccionará al azar a alguien después de que todos los "
-"encuestados hayan terminado."
-
-#: .\templates\floodgame_vr\Scenario.html:7
-msgid "What would you do?"
-msgstr "¿Qué haría?"
-
-#: .\templates\floodgame_vr\Scenario.html:23
-msgid ""
-"We will now present you a situation in which you own the home you will be "
-"living in for the coming 25 years."
-msgstr ""
-"Esta es una situación hipotética en la que usted es el propietario de la "
-"casa en la vivirá durante los próximos 25 años."
-
-#: .\templates\floodgame_vr\Scenario.html:24
-msgid ""
-"In addition to your home, you have a savings balance of 65.000 ECU "
-"(comparable to Euros) that you can use to pay for investments."
-msgstr ""
-"Además de su hogar, usted tiene una cuenta de ahorros con un saldo a favor "
-"de 65.000 ECU (comparable a Euros) que puede usar para pagar las inversiones."
-
-#: .\templates\floodgame_vr\Scenario.html:25
-msgid ""
-"In the following scenario, try to imagine what you would do given that your "
-"home is prone to flooding."
-msgstr ""
-"En el siguiente escenario, trate de imaginar lo que haría dado que su casa "
-"es propensa a inundarse."
-
-#: .\templates\floodgame_vr\Scenario.html:30
-msgid ""
-"For this part of the research, a large reward is available. <strong>One of "
-"the participants will be randomly selected </strong> to receive this reward. "
-"The size of the reward depends on the final balance of your savings account, "
-"which depends on your decisions in this scenario and whether a flood occurs."
-msgstr ""
-"Para esta parte de la investigación, hay una premio. <strong> Uno de los "
-"participantes será seleccionado al azar </strong> para recibir este premio. "
-"El tamaño del premio depende del saldo final de su cuenta de ahorros, la "
-"cual a su vez depende de sus decisiones en este escenario y de si ocurre una "
-"inundación."
-
-#: .\templates\floodgame_vr\Scenario.html:38
-msgid ""
-"You can earn up to <strong>&euro;650</strong>. (The conversion rate is 100 "
-"ECU = &euro;1.) <br> <strong> Therefore it is important to read the "
-"information carefully.</strong>"
-msgstr ""
-"Puede ganar hasta <strong>&euro;650</strong>. (La tasa de conversion es de "
-"100 ECU = &euro;1.) <br> <strong>Por lo tanto, es importante leer la "
-"información detenidamente. </strong>"
-
-#: .\templates\floodgame_vr\Scenario.html:47
-msgid "There are no right or wrong answers in this scenario."
-msgstr "No hay respuestas correctas o incorrectas en este escenario."
-
-#: .\templates\floodgame_vr\Scenario.html:50
-msgid "We would like to know what you would do."
-msgstr "Nos gustaría saber qué haría."
-
-#: .\templates\floodgame_vr\Start.html:7
-msgid "Questionnaire"
-msgstr "Cuestionario"
-
-#: .\templates\floodgame_vr\Start.html:115
-msgid "The scale below shows different flood probabilities."
-msgstr "La siguiente escala muestra diferentes probabilidades de inundación."
-
-#: .\templates\floodgame_vr\Start.html:125
-msgid "On average, one flood every"
-msgstr "En promedio, una inundación cada"
-
-#: .\templates\floodgame_vr\Start.html:137
-msgid "or if you think that a flood will never happen:"
-msgstr "o si cree que nunca ocurrirá una inundación:"
-
-#: .\templates\floodgame_vr\StartScenario.html:26
-msgid ""
-"You can use this test scenario to get familiar with the possibilities. The "
-"results will not be used to calculate your final payoff. Start by clicking "
-"the button below."
-msgstr ""
-"Puede usar este escenario de prueba para familiarizarse con las "
-"posibilidades. Los resultados no se utilizarán para calcular su pago final. "
-"Comience pulsando en el botón de abajo."
-
-#: .\templates\floodgame_vr\StartScenario.html:35
-msgid ""
-"Please take your time to read the information on the following pages very "
-"carefully. It is important for your final payoff. The final scenario starts "
-"by clicking the button below."
-msgstr ""
-"Tómese su tiempo para leer la información en las siguientes páginas con "
-"mucho cuidado. Es importante para su pago final. El escenario final comienza "
-"al pulsar en el botón de abajo."
-
-#: .\templates\floodgame_vr\StartScenario.html:46
-msgid "Start the test scenario"
-msgstr "Comience el escenario de prueba"
-
-#: .\templates\floodgame_vr\StartScenario.html:48
-msgid "Start the final scenario"
-msgstr "Comienza el escenario final"
-
-#: .\templates\floodgame_vr\Welcome.html:6
-msgid "Welcome"
-msgstr "Bienvenido"
-
-#: .\templates\floodgame_vr\Welcome.html:22
-msgid ""
-"We invite you to participate in a survey about measures homeowners can take "
-"to reduce damages from flooding. <br> You do not need any experience with "
-"flooding or damage reducing measures to participate in this research."
-msgstr ""
-"Le invitamos a participar en una encuesta sobre las medidas que los "
-"propietarios pueden tomar con la finalidad de reducir los daños causados por "
-"las inundaciones. <br> No necesita ninguna experiencia en inundaciones o "
-"medidas de reducción de daños para participar en esta investigación."
-
-#: .\templates\floodgame_vr\Welcome.html:27
-msgid ""
-"Note that throughout the survey, there is no button to go back to a previous "
-"page."
-msgstr ""
-"Tenga en cuenta que a lo largo de la encuesta, no hay ningún botón para "
-"volver a la página anterior."
-
-#: .\templates\floodgame_vr\Welcome.html:33
-msgid ""
-"First two questions to confirm you are in the target group for this survey."
-msgstr ""
-"Las primeras dos preguntas son para confirmar que está en el grupo objetivo "
-"de esta encuesta."
-
-#: .\templates\floodgame_vr\Welcome.html:38
-msgid "Do you own the house or apartment you live in?"
-msgstr "¿Es dueño de la casa o apartamento en el que vive?"
-
-#: .\templates\floodgame_vr\Welcome.html:48
-msgid "Yes (homeowner)"
-msgstr "Sí (propietario)"
-
-#: .\templates\floodgame_vr\Welcome.html:52
-msgid "No (tenant)"
-msgstr "No (inquilino)"
+#~ msgid ""
+#~ "Do you know anyone in your community who has taken one or more of these "
+#~ "measures?"
+#~ msgstr ""
+#~ "¿Conoce a alguien en su comunidad que haya tomado una o más de estas "
+#~ "medidas?"
+
+#~ msgid ""
+#~ "Please indicate your relationship to the person(s) who invested in one or "
+#~ "more damage reducing measures."
+#~ msgstr ""
+#~ "Indique el tipo de relación que tiene con las personas que invirtieron en "
+#~ "una o más medidas de reducción de daños."
+
+#~ msgid "Do you currently live in a flood-prone area?"
+#~ msgstr "¿Actualmente vive en un área propensa a inundaciones?"
+
+#~ msgid "Yes, I am certain that I live in a flood-prone area."
+#~ msgstr "Sí, estoy seguro de que vivo en un área propensa a inundaciones."
+
+#~ msgid "Yes, I think that I live in a flood-prone area, but I am not sure."
+#~ msgstr ""
+#~ "Sí, creo que vivo en un área propensa a inundaciones, pero no estoy "
+#~ "seguro."
+
+#~ msgid "No, I am certain that I do not live in a flood-prone area."
+#~ msgstr "No, estoy seguro de que no vivo en un área propensa a inundaciones."
+
+#~ msgid "Have you ever experienced damage to your home due to a flood?"
+#~ msgstr "¿Alguna vez ha sufrido daños en su hogar debido a una inundación?"
+
+#~ msgid ""
+#~ "What was the total cost of flood damage to your home and its content, as "
+#~ "a result of this flood?"
+#~ msgstr ""
+#~ "¿Cuál fue el coste total de los daños causados a su hogar y pertenencias "
+#~ "como resultado de esta inundación?"
+
+#~ msgid "Between €5,500 and €9,999"
+#~ msgstr "Entre 5.500€ y 9.999€"
+
+#~ msgid ""
+#~ "Please estimate how often your neighborhood could be flooded. You may "
+#~ "enter any number (not only the numbers on the scale). "
+#~ msgstr ""
+#~ "Calcule con qué frecuencia su vecindario podría inundarse. Puede ingresar "
+#~ "cualquier número (no solo los números en la escala). "
+
+#~ msgid ""
+#~ "People in my direct environment would approve an investment in damage "
+#~ "reducing measures."
+#~ msgstr ""
+#~ "Las personas en mi entorno directo aprobarían una inversión en medidas de "
+#~ "reducción de daños."
+
+#~ msgid ""
+#~ "People in my direct environment think that I should invest in damage "
+#~ "reducing measures."
+#~ msgstr ""
+#~ "Las personas en mi entorno directo piensan que debería invertir en "
+#~ "medidas de reducción de daños."
+
+#~ msgid ""
+#~ "I am morally obligated to take measures to reduce flood risk to my home."
+#~ msgstr ""
+#~ "Estoy moralmente obligado a tomar medidas para reducir el riesgo de "
+#~ "inundación en mi hogar."
+
+#~ msgid ""
+#~ "The information presented in the scenario about previous participants is "
+#~ "trustworthy."
+#~ msgstr ""
+#~ "La información presentada en el escenario sobre los participantes "
+#~ "anteriores es confiable."
+
+#~ msgid "How good are you at working with fractions?"
+#~ msgstr "¿Qué tan bueno es trabajando con fracciones?"
+
+#~ msgid ""
+#~ "How good are you at figuring out how much a shirt will cost if it is 25% "
+#~ "off?"
+#~ msgstr ""
+#~ "¿Qué tan bueno es para calcular cuánto costaría una camisa si tiene un "
+#~ "25% de descuento?"
+
+#~ msgid "How often do you find numerical information to be useful?"
+#~ msgstr "¿Qué tan frecuente encuentra útil la información numérica?"
+
+#~ msgid "I would not let my cousin(s) use my car (if I have one)."
+#~ msgstr "No dejaría que mis primos usen mi coche (si tengo uno)."
+
+#~ msgid "It is enjoyable to meet and talk with my neighbors regularly."
+#~ msgstr "Es agradable conocer y hablar con mis vecinos regularmente."
+
+#~ msgid "I would not discuss newly acquired knowledge with my parents."
+#~ msgstr "No discutiría el conocimiento recién adquirido con mis padres."
+
+#~ msgid "It is not appropriate for a colleague to ask me for money."
+#~ msgstr "No es apropiado que un colega me pida dinero."
+
+#~ msgid "I would not let my neighbors borrow things from me or my family."
+#~ msgstr ""
+#~ "No dejaría que mis vecinos me presteasen cosas ni a mí ni a mi familia."
+
+#~ msgid ""
+#~ "When deciding what kind of education to have, I would pay no attention to "
+#~ "my uncles’ advice."
+#~ msgstr ""
+#~ "Al decidir el de tipo de educación para mí, no prestaría atención a los "
+#~ "consejos de mis tíos."
+
+#~ msgid "I would not share ideas with my parents."
+#~ msgstr "No compartiría ideas con mis padres."
+
+#~ msgid ""
+#~ "I would help, within my means, if a relative told me that he/she is in "
+#~ "financial difficulty."
+#~ msgstr ""
+#~ "Ayudaría, dentro de mis posibilidades, si un familiar me dijera que tiene "
+#~ "dificultades financieras."
+
+#~ msgid "I am not interested in knowing what my neighbors are really like."
+#~ msgstr "No me interesa conocer realmente a mis vecinos."
+
+#~ msgid "Neighbors should greet each other when we come across each other."
+#~ msgstr "Los vecinos deben saludarse cuando se encuentran."
+
+#~ msgid ""
+#~ "A person ought to help a colleague at work who has financial problems."
+#~ msgstr ""
+#~ "Una persona debe ayudar a un colega de trabajo con problemas financieros."
+
+#~ msgid "Admitting that your tastes are different from those of your friends."
+#~ msgstr "Admitiendo que sus gustos son diferentes a los de sus amigos."
+
+#~ msgid ""
+#~ "Arguing with a friend about an issue on which s/he has a very different "
+#~ "opinion."
+#~ msgstr ""
+#~ "Discutir con un amigo sobre un tema del cual tiene una opinión muy "
+#~ "diferente."
+
+#~ msgid ""
+#~ "Defending an unpopular issue that you believe in at a social occasion."
+#~ msgstr ""
+#~ "Defender un problema impopular en el que crees en una ocasión social."
+
+#~ msgid "Prediction"
+#~ msgstr "Predicción"
+
+#~ msgid ""
+#~ "Prior to taking your decision about investing in damage reducing "
+#~ "measures, we would like to know what you think other respondents will "
+#~ "decide in the same scenario.</p> <hr class=\"my-4\"> <p class=\"lead"
+#~ "\">Please give us your best estimate. When your estimate turns out to be "
+#~ "correct, you are eligible for an extra bonus (&euro;20).</p>"
+#~ msgstr ""
+#~ "Antes de tomar su decisión sobre invertir en medidas de reducción de "
+#~ "daños, nos gustaría saber qué piensa que otros encuestados decidirán en "
+#~ "el mismo escenario.</p> <hr class=\"my-4\"> <p class=\"lead\">Por favor "
+#~ "denos su mejor estimación, sí su respuesta resulta correcta, será "
+#~ "elegible para un bono extra (&euro;20).</p>"
+
+#~ msgid "Close this window to start the prediction"
+#~ msgstr "Cierra esta ventana para comenzar la predicción"
+
+#~ msgid ""
+#~ "You just made a decision about investing in damage reducing measures for "
+#~ "yourself. Now, we would like to know what you think other respondents "
+#~ "will decide in the same scenario.</p> <hr class=\"my-4\"> <p class=\"lead"
+#~ "\"><b>Please give us your best estimate. When your estimate turns out to "
+#~ "be correct, you are eligible for an extra bonus(&euro;20).</b></p>"
+#~ msgstr ""
+#~ "Acaba de tomar una decisión sobre invertir en medidas de reducción de "
+#~ "daños. Ahora, nos gustaría saber qué piensa que los otros encuestados "
+#~ "decidirán en el mismo escenario.</p> <hr class=\"my-4\"> <p class=\"lead"
+#~ "\"><b>Por favor denos su mejor estimación. Cuando su estimación resulta "
+#~ "correcta, será elegible para un bono extra (&euro;20).</b></p>"
+
+#~ msgid "Informed consent"
+#~ msgstr "Consentimiento informado"
+
+#~ msgid "In this research we will collect some data."
+#~ msgstr "En esta investigación recopilaremos algunos datos."
+
+#~ msgid "Please find more information "
+#~ msgstr "Por favor encuentre más información "
+
+#~ msgid "here"
+#~ msgstr "aquí"
+
+#~ msgid "about the procedures."
+#~ msgstr "acerca de los procedimientos."
+
+#~ msgid "More information about this research"
+#~ msgstr "Más información sobre esta investigación"
+
+#~ msgid ""
+#~ "The goal of this research is to better understand flood damage reduction "
+#~ "investments in Europe."
+#~ msgstr ""
+#~ "El objetivo de esta investigación es comprender mejor las inversiones en "
+#~ "reducción de daños por inundación en Europa."
+
+#~ msgid "Participation is voluntary."
+#~ msgstr "La participación es voluntaria."
+
+#~ msgid "You can withdraw from the research at any moment."
+#~ msgstr "Puede retirarse de la investigación en cualquier momento."
+
+#~ msgid ""
+#~ "Data will be stored anonymously at a local computer of Vrije Universiteit "
+#~ "Amsterdam."
+#~ msgstr ""
+#~ "Los datos se almacenarán de forma anónima en un ordenador local de Vrije "
+#~ "Universiteit Amsterdam."
+
+#~ msgid ""
+#~ "Data will be analyzed by VU researchers and will not be used for "
+#~ "commercial purposes."
+#~ msgstr ""
+#~ "Los datos serán analizados por investigadores de VU y no serán utilizados "
+#~ "con fines comerciales."
+
+#~ msgid "If you finish the final survey, you are eligible for a large reward."
+#~ msgstr ""
+#~ "Si finaliza la encuesta completamente, es elegible para ganar un gran "
+#~ "premio."
+
+#~ msgid ""
+#~ "The computer will randomly select one participant for the large reward."
+#~ msgstr "El ordenador seleccionará al azar a un participante para el premio."
+
+#~ msgid ""
+#~ "This will take place after all participants have finished the survey, in "
+#~ "October 2019."
+#~ msgstr ""
+#~ "Esto pasará después de que todos los participantes hayan terminado la "
+#~ "encuesta, en octubre de 2019."
+
+#~ msgid ""
+#~ "If you are selected for large payment, Panelinzicht will contact you via "
+#~ "email to arrange the payment."
+#~ msgstr ""
+#~ "Si es seleccionado para pagos grandes, Panelinzicht se comunicará con "
+#~ "usted por correo electrónico para organizar el pago."
+
+#~ msgid ""
+#~ "The size of the reward (up to &euro;650) depends on your answers in this "
+#~ "survey."
+#~ msgstr ""
+#~ "El tamaño del premio (hasta &euro;650) depende de sus respuestas en esta "
+#~ "encuesta."
+
+#~ msgid ""
+#~ "In case you have questions about the research, feel free to send an email "
+#~ "to:"
+#~ msgstr ""
+#~ "En caso de que tenga preguntas sobre la investigación, no dude "
+#~ "contactarnos en :"
+
+#~ msgid ""
+#~ "<a href=\"mailto:info.ivm@vu.nl?subject=Question about IVM survey\">info."
+#~ "ivm@vu.nl</a>"
+#~ msgstr ""
+#~ "<a href=\"mailto:info.ivm@vu.nl?subject=Question about IVM survey\">info."
+#~ "ivm@vu.nl</a>"
+
+#~ msgid ""
+#~ "I have read the information and agree with participation in this research"
+#~ msgstr ""
+#~ "He leído la información y estoy de acuerdo en participar en esta "
+#~ "investigación"
+
+#~ msgid ""
+#~ "You finished your prediction. <br> You can make <u><strong>your own</"
+#~ "strong></u> investment decision in the next decision screen."
+#~ msgstr ""
+#~ "Terminó su predicción <br> Puedes hacer <u><strong>su propia</strong></u> "
+#~ "decisión de inversión en la siguiente pantalla de decisión."
+
+#~ msgid "Close this window to start your decision"
+#~ msgstr "Cierra esta ventana para comenzar su decisión"
+
+#~ msgid "30%% of homeowners chose this option previously."
+#~ msgstr "El 30%% de los propietarios eligió esta opción anteriormente."
+
+#~ msgid "18%% of homeowners chose this option previously."
+#~ msgstr "El 18%% de los propietarios eligió esta opción anteriormente."
+
+#~ msgid "20%% of homeowners chose this option previously."
+#~ msgstr "El 20%% de los propietarios eligió esta opción anteriormente."
+
+#~ msgid "12%% of homeowners chose this option previously."
+#~ msgstr "El 12%% de los propietarios eligió esta opción anteriormente."
+
+#~ msgid "Previously, 70%% of homeowners opted for damage reducing measures."
+#~ msgstr ""
+#~ "Anteriormente, el 70%% de los propietarios optaban por medidas de "
+#~ "reducción de daños."
+
+#~ msgid ""
+#~ "You indicated that you have taken the following structural measures. <br> "
+#~ "For each measure taken to protect your home against flood damage, please "
+#~ "indicate the individual or organization that initiated the protective "
+#~ "measure."
+#~ msgstr ""
+#~ "Usted indicó que ha tomado las siguientes medidas estructurales. <br> Por "
+#~ "cada medida tomada para proteger su hogar contra daños por inundaciones, "
+#~ "indique la persona u organización que inició la medida de protección."
+
+#~ msgid "Myself or a family member"
+#~ msgstr "Yo o un miembro de mi familia"
+
+#~ msgid "Previous owner"
+#~ msgstr "Dueño anterior"
+
+#~ msgid "Homeowners association"
+#~ msgstr "Asociación de propietarios"
+
+#~ msgid "Other"
+#~ msgstr "Otro"
+
+#~ msgid "Not applicable"
+#~ msgstr "No aplica"
+
+#~ msgid "never"
+#~ msgstr "nunca"
+
+#~ msgid "very often"
+#~ msgstr "muy a menudo"
+
+#~ msgid "extremely good"
+#~ msgstr "extremadamente bueno"
+
+#~ msgid ""
+#~ "Please indicate the likelihood of you engaging in each of the following "
+#~ "activities."
+#~ msgstr ""
+#~ "Indique la probabilidad de que participe en cada una de las siguientes "
+#~ "actividades."
+
+#~ msgid "Very unlikely"
+#~ msgstr "Muy improbable"
+
+#~ msgid "Somewhat unlikely"
+#~ msgstr "Algo improbable"
+
+#~ msgid "Neither likely nor unlikely"
+#~ msgstr "Ni probable ni improbable"
+
+#~ msgid "Somewhat likely"
+#~ msgstr "Algo probable"
+
+#~ msgid "Very likely"
+#~ msgstr "Muy probable"
+
+#~ msgid "don't know"
+#~ msgstr "no sé"
+
+#~ msgid "Partner"
+#~ msgstr "Pareja"
+
+#~ msgid "Close friend"
+#~ msgstr "Amigo cercano"
+
+#~ msgid "Family member"
+#~ msgstr "Familia"
+
+#~ msgid "Neighbor"
+#~ msgstr "Vecino"
+
+#~ msgid "Acquaintance"
+#~ msgstr "Conocido"
+
+#~ msgid ""
+#~ "Recent research shows that <b>68%% of homeowners</b> have installed at "
+#~ "least one measure to protect their home from flood damage."
+#~ msgstr ""
+#~ "Una investigación reciente muestra que el <b>68%% de los propietarios</b> "
+#~ "han instalado por lo menos una medida para proteger su hogar contra daños "
+#~ "por inundaciones."
+
+#~ msgid ""
+#~ "For more information about what you can do to protect your home against "
+#~ "flood damage, click the button below. <br>It will open in a new window."
+#~ msgstr ""
+#~ "Para obtener más información sobre cómo proteger sus hogares de daños "
+#~ "causados por inundaciones, oprima el siguiente botón. <br> Abrirá una "
+#~ "nueva ventana."
+
+#~ msgid "More information"
+#~ msgstr "Más información"
+
+#~ msgid "Thank you"
+#~ msgstr "Gracias"
+
+#~ msgid ""
+#~ "Thank you for your interest in this research. <br><br> Unfortunately, we "
+#~ "already received enough responses.<br><br> See you next time."
+#~ msgstr ""
+#~ "Gracias por su interés en esta investigación. <br> <br> "
+#~ "Desafortunadamente, ya recibimos suficientes respuestas. <br> <br> Nos "
+#~ "vemos la próxima vez."
+
+#~ msgid ""
+#~ "Thank you for your interest in this research. <br><br> Unfortunately, you "
+#~ "are not part of the target group of this research.<br><br> See you next "
+#~ "time."
+#~ msgstr ""
+#~ "Gracias por su interés en esta investigación. <br> <br> "
+#~ "Desafortunadamente, usted no es parte del grupo objetivo de esta "
+#~ "investigación. <br> <br> Nos vemos la próxima vez."
+
+#~ msgid "Questionnaire"
+#~ msgstr "Cuestionario"
+
+#~ msgid "The scale below shows different flood probabilities."
+#~ msgstr ""
+#~ "La siguiente escala muestra diferentes probabilidades de inundación."
+
+#~ msgid "On average, one flood every"
+#~ msgstr "En promedio, una inundación cada"
+
+#~ msgid ""
+#~ "We invite you to participate in a survey about measures homeowners can "
+#~ "take to reduce damages from flooding. <br> You do not need any experience "
+#~ "with flooding or damage reducing measures to participate in this research."
+#~ msgstr ""
+#~ "Le invitamos a participar en una encuesta sobre las medidas que los "
+#~ "propietarios pueden tomar con la finalidad de reducir los daños causados "
+#~ "por las inundaciones. <br> No necesita ninguna experiencia en "
+#~ "inundaciones o medidas de reducción de daños para participar en esta "
+#~ "investigación."
+
+#~ msgid ""
+#~ "Note that throughout the survey, there is no button to go back to a "
+#~ "previous page."
+#~ msgstr ""
+#~ "Tenga en cuenta que a lo largo de la encuesta, no hay ningún botón para "
+#~ "volver a la página anterior."
+
+#~ msgid ""
+#~ "First two questions to confirm you are in the target group for this "
+#~ "survey."
+#~ msgstr ""
+#~ "Las primeras dos preguntas son para confirmar que está en el grupo "
+#~ "objetivo de esta encuesta."
+
+#~ msgid "Do you own the house or apartment you live in?"
+#~ msgstr "¿Es dueño de la casa o apartamento en el que vive?"
+
+#~ msgid "Yes (homeowner)"
+#~ msgstr "Sí (propietario)"
+
+#~ msgid "No (tenant)"
+#~ msgstr "No (inquilino)"

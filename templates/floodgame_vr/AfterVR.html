@@ -21,7 +21,10 @@
 
 
             <br>
+
+
             {% for field in form %}
+            {% if field.name != "expectation" %}
                 <table class="table" width=100%>
                     <thead>
                     <tr> {{field.label}}</tr>
@@ -44,6 +47,10 @@
                     </tr>
                     </tbody>
                 </table>
+                {% else %}
+                {% formfield field %}
+                {% endif %}
+
             {% endfor %}
 
         {% elif player.round_number == 3 %} <br>
