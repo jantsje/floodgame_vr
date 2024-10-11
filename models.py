@@ -67,6 +67,7 @@ class Subsession(BaseSubsession):
                 p.participant.vars["demo"] = False
                 p.participant.vars["timespent"] = ''
                 p.participant.vars["belief"] = 999
+                p.participant.vars["completed"] = False
                 p.participant.vars["insurance_choice"] = False
                 p.participant.vars["edu_text_needed"] = False
                 p.participant.vars["page_title"] = ''
@@ -415,6 +416,10 @@ class Player(BasePlayer):
     def store_follow_up(self):
         if self.other_text:
             self.participant.vars["other_text"] = self.other_text
+
+    def store_complete(self):
+        self.session.vars["completes"] = self.session.vars["completes"] + 1
+        self.participant.vars["completed"] = True
 
     def get_questions_method(self):
         questions = [
